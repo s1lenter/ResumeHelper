@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.page-header {
+    width: auto;
+    height: 154px;
+    border: 1px;
+    border-radius: 2px;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+}
+
+.start-page-header-nav {
+    width: 1920px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 40px;
+}
+
+.logo {
+    align-self: center;
+}
+
+.site-navigation {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+}
+
+.site-navigation-item a {
+    font-family: Inter;
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 49px;
+    text-align: right;
+}
+
+.site-navigation li:not(:last-child):after { 
+    content: "ﾠ|ﾠ";
+    font-family: Inter;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 49px;
+ }
+
+ .start_page_main {
+    margin: 0;
+    padding: 0;
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    background-image: url("C:/Users/Admin/Desktop/ResumeHelper/ResHelper/DB_client/templates/img/start_page_back.png");
+    background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+    justify-content: center;
+ }
+
+ .start_page_text {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 77.45px;
+    color: white;
+    align-self: center;
+ }
+
+ .start-page-input-field {
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+    border: 4px solid #FFFFFF;
+    width: 773px;
+    background: #00000033;
+    height: 78px;
+ }
+
+ .input-field-logo {
+    margin: 0;
+    padding: 0;
+    align-self: center;
+ }
+
+ .input-field-text {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 43.57px;
+    color: rgba(255, 255, 255, 0.4);
+    align-self: center;
+ }
+
+.start_page_footer {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    width: 1920px;
+    height: 227px;
+    display: flex;
+    align-items: center;
+    width: 1920px;
+}
+
+.start-page-footer-nav {
+    display: flex;
+    flex-direction: row;
+    margin: 0 40px;
+    gap: 195px;
+}
+
+.footer-site-navigation {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+}
+
+.footer-site-navigation-item a {
+    text-decoration: none;
+    color: white;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38.73px;
+    text-align: left;
+}
