@@ -4,7 +4,7 @@ body {
 }
 
 .page-header {
-    width: auto;
+    width: 1920px;
     height: 154px;
     border: 1px;
     border-radius: 2px;
@@ -111,14 +111,13 @@ body {
     height: 227px;
     display: flex;
     align-items: center;
-    width: 1920px;
 }
 
 .start-page-footer-nav {
     display: flex;
     flex-direction: row;
     margin: 0 40px;
-    gap: 195px;
+    gap: 380px;
 }
 
 .footer-site-navigation {
