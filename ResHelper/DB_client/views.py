@@ -2,6 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponseNotFound
 from .models import User
 
+def register(request):
+    return render(request, "registration.html")
+
+def start_page(request):
+    return render(request, "start_page.html")
 
 # получение данных из бд
 def index(request):
