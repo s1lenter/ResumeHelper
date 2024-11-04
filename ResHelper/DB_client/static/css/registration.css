@@ -1,21 +1,18 @@
 body {
     margin: 0;
     padding: 0;
-    height: auto;
-    width: auto;
-    background-image: url("C:/Users/Admin/Desktop/ResumeHelper/ResHelper/DB_client/templates/img/registration_bg.png");
+    height: 1766px;
+    background-image: url("../../static/img/registration_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .registartion-header {
-    width: 1920px;
     display: flex;
     flex-direction: row;
 }
 
 .registartion-header-nav {
-    width: 1920px;
     display: flex;
     justify-content: flex-start;
     margin: 0;
@@ -95,6 +92,7 @@ body {
 
     width: 250px;
     height: 88px;
+    border-style: solid;
     border-radius: 40px;
     border-color: black;
     background-color: #d9d9d9;
@@ -105,4 +103,48 @@ body {
 
 .registartion-window-button:hover {
     background-color: rgba(217, 217, 217, 0.5);
+}
+
+
+.comment-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 955px;
+    height: 82px;
+    border-style: none;
+    border-radius: 30px;
+    background-color: #D9D9D9;
+
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 43.57px;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.comment-field::placeholder {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 43.57px;
+    color: rgba(0, 0, 0, 0.39);
+    text-align: center;
+}
+
+.comment-field:placeholder-shown {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 43.57px;
+    color: rgba(0, 0, 0, 0.39);
+    text-align: center;
 }

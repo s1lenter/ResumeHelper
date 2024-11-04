@@ -4,8 +4,6 @@ body {
 }
 
 .page-header {
-    width: 1920px;
-    height: 154px;
     border: 1px;
     border-radius: 2px;
     background-color: black;
@@ -22,6 +20,7 @@ body {
 
 .logo {
     align-self: center;
+    margin: 5px;
 }
 
 .site-navigation {
@@ -56,11 +55,10 @@ body {
  .start_page_main {
     margin: 0;
     padding: 0;
-    width: 1920px;
     height: 1080px;
     display: flex;
     flex-direction: column;
-    background-image: url("C:/Users/Admin/Desktop/ResumeHelper/ResHelper/DB_client/templates/img/start_page_back.png");
+    background-image: url("../../static/img/start_page_back.png");
     background-size: 1920px 1080px;
     background-repeat: no-repeat;
     justify-content: center;
@@ -108,7 +106,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
-    width: 1920px;
     height: 227px;
     display: flex;
     align-items: center;
@@ -118,7 +115,7 @@ body {
     display: flex;
     flex-direction: row;
     margin: 0 40px;
-    gap: 380px;
+    gap: 180px;
 }
 
 .footer-site-navigation {
