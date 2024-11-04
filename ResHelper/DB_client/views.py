@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponseNotFound
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect, HttpResponseNotFound, HttpResponse
 from .models import User
 
 def register(request):
@@ -18,34 +18,48 @@ def index(request):
 def create(request):
     if request.method == "POST":
         person = User()
-        person.First_Name = request.POST.get("First_Name")
-        person.Last_Name = request.POST.get("Last_Name")
+        person.first_name = request.POST.get("first_name")
+        person.last_name = request.POST.get("last_name")
+        person.email = request.POST.get("email")
+        person.password_hash = request.POST.get("password_hash")
         person.save()
-    return HttpResponseRedirect("/")
+    return redirect("/login/")
+
+def login(request):
+    people = User.objects.all()
+    return render(request, "login.html", {"people": people})
+
+def check(request):
+    email = request.POST.get('email')
+    password = request.POST.get('password_hash')
+    page = '/'
+    if User.objects.filter(email=email).exists() and User.objects.filter(password_hash=password).exists():
+        page = "/start_page/"
+    return HttpResponseRedirect(page)
 
 
-#изменение данных в бд
-def edit(request, id):
-    try:
-        person = User.objects.get(id=id)
-
-        if request.method == "POST":
-            person.First_Name = request.POST.get("First_Name")
-            person.Second_Name = request.POST.get("Second_Name")
-            person.save()
-            return HttpResponseRedirect("/")
-        else:
-            return render(request, "edit.html", {"person": person})
-    except User.DoesNotExist:
-        return HttpResponseNotFound("<h2>Person not found</h2>")
-
-
-# удаление данных из бд
-def delete(request, id):
-    try:
-        person = User.objects.get(id=id)
-        person.delete()
-        return HttpResponseRedirect("/")
-    except User.DoesNotExist:
-        return HttpResponseNotFound("<h2>Person not found</h2>")
+# #изменение данных в бд
+# def edit(request, id):
+#     try:
+#         person = User.objects.get(id=id)
+#
+#         if request.method == "POST":
+#             person.First_Name = request.POST.get("First_Name")
+#             person.Second_Name = request.POST.get("Second_Name")
+#             person.save()
+#             return HttpResponseRedirect("/")
+#         else:
+#             return render(request, "edit.html", {"person": person})
+#     except User.DoesNotExist:
+#         return HttpResponseNotFound("<h2>Person not found</h2>")
+#
+#
+# # удаление данных из бд
+# def delete(request, id):
+#     try:
+#         person = User.objects.get(id=id)
+#         person.delete()
+#         return HttpResponseRedirect("/")
+#     except User.DoesNotExist:
+#         return HttpResponseNotFound("<h2>Person not found</h2>")
 

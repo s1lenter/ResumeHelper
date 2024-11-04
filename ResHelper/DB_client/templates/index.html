@@ -9,27 +9,39 @@
         {% csrf_token %}
         <p>
             <label>Введите имя</label><br>
-            <input type="text" name="First_Name" />
+            <input type="text" name="first_name" />
         </p>
         <p>
             <label>Введите фамилию</label><br>
-            <input type="text" name="Last_Name" />
+            <input type="text" name="last_name" />
         </p>
+        <p>
+            <label>Введите электронную почту</label><br>
+            <input type="text" name="email" />
+        </p>
+        <p>
+            <label>Введите пароль</label><br>
+            <input type="password" name="password_hash" />
+        </p>
+<!--        <p>-->
+<!--            <label>Подтвердите пароль</label><br>-->
+<!--            <input type="text" name="last_name" />-->
+<!--        </p>-->
         <input type="submit" value="Сохранить" >
     </form>
-    {% if people.count > 0 %}
-    <h2>Список пользователей</h2>
-    <table>
-        <thead><th>Id</th><th>Имя</th><th>Фамилия</th><th></th></thead>
-        {% for person in people %}
-        <tr>
-            <td>{{ person.id }}</td>
-            <td>{{ person.First_Name }}</td>
-            <td>{{ person.Last_Name }}</td>
-            <td><a href="edit/{{person.id}}">Изменить</a> | <a href="delete/{{person.id}}">Удалить</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
+<!--    {% if people.count > 0 %}-->
+<!--    <h2>Список пользователей</h2>-->
+<!--    <table>-->
+<!--        <thead><th>Id</th><th>Имя</th><th>Фамилия</th><th></th></thead>-->
+<!--        {% for person in people %}-->
+<!--        <tr>-->
+<!--            <td>{{ person.id }}</td>-->
+<!--            <td>{{ person.First_Name }}</td>-->
+<!--            <td>{{ person.Last_Name }}</td>-->
+<!--            <td><a href="edit/{{person.id}}">Изменить</a> | <a href="delete/{{person.id}}">Удалить</a></td>-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--    </table>-->
+<!--    {% endif %}-->
 </body>
 </html>

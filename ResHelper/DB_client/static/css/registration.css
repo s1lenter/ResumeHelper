@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 1766px;
-    background-image: url("../../static/img/registration_bg.png");
+    background-image: url("/static/img/registration_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
