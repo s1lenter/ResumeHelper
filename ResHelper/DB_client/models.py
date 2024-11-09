@@ -7,18 +7,31 @@ from django.template.defaultfilters import default
 class User(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
-    gender = models.CharField(max_length=10)
+    gender = models.CharField(
+        max_length=10,
+        choices=[
+            ('Male', 'Мужской'),
+            ('Female', 'Женский'),
+            ('Other', 'Другое')
+        ],
+        default='Male'
+    )
     age = models.IntegerField(null=True)
-    role = models.CharField(max_length=20)
-    email = models.EmailField(null=True)
-    password_hash = models.CharField(max_length=255, default=False)
+    role = models.CharField(
+        max_length=20,
+        choices=[
+            ('Job_Seeker', 'Соискатель'),
+            ('Employer', 'Работодатель')
+        ],
+        default='Job_Seeker')
+    password_hash = models.CharField(max_length=255)
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(default = datetime.date.today())
     updated_at = models.DateTimeField(auto_now=True)
 
 
 class Job(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    employer_id = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField()
     requirements = models.JSONField()
@@ -27,9 +40,9 @@ class Job(models.Model):
     job_type = models.CharField(
         max_length=10,
         choices=[
-            ('Full_Time', 'Full Time'),
-            ('Part_Time', 'Part Time'),
-            ('Remote', 'Remote')
+            ('Full_Time', 'Полная занятость'),
+            ('Part_Time', 'Частичная занятость'),
+            ('Remote', 'Удалённая работа')
         ]
     )
     experience_level = models.CharField(
@@ -45,27 +58,27 @@ class Job(models.Model):
 
 
 class Resume(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=100)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     contact_info = models.JSONField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
 class Settings(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     preferences = models.JSONField()
 
 
 class Application(models.Model):
+    resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
     job_id = models.ForeignKey(Job, on_delete=models.CASCADE)
     applied_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(
         max_length=10,
         choices=[
-            ('Pending', 'Pending'),
-            ('Rejected', 'Rejected'),
-            ('Accepted', 'Accepted')
+            ('Pending', 'В ожидании'),
+            ('Rejected', 'Отклонено'),
+            ('Accepted', 'Принято')
         ],
         default='Pending'
     )
@@ -77,6 +90,7 @@ class Achievements(models.Model):
 
 
 class Skill(models.Model):
+    resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
     skill_name = models.CharField(max_length=100)
 
 
@@ -87,7 +101,7 @@ class Education(models.Model):
     year = models.IntegerField(
         verbose_name='Год',
         validators=[
-            MinValueValidator(1900),
+            MinValueValidator(1940),
             MaxValueValidator(datetime.date.today().year)
         ]
     )
