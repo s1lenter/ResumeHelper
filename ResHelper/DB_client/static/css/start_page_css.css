@@ -37,7 +37,7 @@ body {
     text-decoration: none;
     color: white;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 49px;
     text-align: right;
 }
@@ -48,14 +48,15 @@ body {
     text-decoration: none;
     color: white;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 49px;
  }
 
  .start_page_main {
     margin: 0;
     padding: 0;
-    height: 1080px;
+    height: auto;
+    padding: 175px 0;
     display: flex;
     flex-direction: column;
     background-image: url("../../static/img/start_page_back.png");
@@ -128,7 +129,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
-    height: 227px;
+    height: 150px;
     display: flex;
     align-items: center;
 }
