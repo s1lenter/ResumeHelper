@@ -1,6 +1,6 @@
 import datetime
 
-from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 from django.db import models
 from django.template.defaultfilters import default
 
@@ -25,6 +25,12 @@ class User(models.Model):
         ],
         default='Job_Seeker')
     password_hash = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone_number = models.CharField(
+        max_length=15,
+        validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$',
+                                   message="Введите правильный номер телефона в формате: '+999999999'. До 15 цифр.")]
+    )
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(default = datetime.date.today())
     updated_at = models.DateTimeField(auto_now=True)
