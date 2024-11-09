@@ -6,12 +6,12 @@ body {
     background-repeat: no-repeat;
 }
 
-.registartion-header {
+.login-header {
     display: flex;
     flex-direction: row;
 }
 
-.registartion-header-nav {
+.login-header-nav {
     display: flex;
     justify-content: flex-start;
     margin: 0;
@@ -25,26 +25,26 @@ body {
     align-self: center;
 }
 
-.registration-main {
+.login-main {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.registartion-window {
+.login-window {
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
     width: 650px;
-    height: 400px;
+    height: 250px;
     background-color: #D9D9D980;
     border-radius: 40px; 
-    margin-top: 50px;
+    margin-top: 150px;
     align-self: center;
 }
 
-.registartion-text-header {
+.login-text-header {
     font-family: Inter;
     font-size: 38px;
     font-weight: 600;
@@ -55,14 +55,14 @@ body {
     margin: 0;
 }
 
-.registartion-window-input {
+.login-window-input {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
 }
 
-.registartion-window-button {
+.login-window-button {
     padding: 0;
     margin-top: 16px;
 
@@ -80,7 +80,7 @@ body {
     background-color: #d9d9d9;
 }
 
-.registartion-window-button:hover {
+.login-window-button:hover {
     background-color: rgba(217, 217, 217, 0.5);
 }
 

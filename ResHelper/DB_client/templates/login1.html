@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title"login</title>
+    <link rel="stylesheet" href="../../DB_client/static/css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="login-header">
+        <nav class="login-header-nav">
+            <a class="logo" href="#">
+                <img src="../../DB_client/static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+        </nav>
+    </header>
+    <main class="login-main">
+        <div class="login-window">
+            <h2 class="login-text-header">Вход</h2>
+            <div class="login-window-input">
+                <form action="create/" method="post" class="comment-form">
+                    <div class="comment-inner">
+                      <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="comment-field" placeholder="Адрес электронной почты" required id="comment-input-email">
+                    </div>
+                </form>
+                <form action="create/" method="post" class="comment-form">
+                    <div class="comment-inner">
+                      <input ty5pe="text" class="comment-field" placeholder="Пароль" required id="comment-input-password">
+                    </div>
+                </form>
+            </div>
+            <button type="button" class="login-window-button">
+                Войти
+            </button>
+        </div>
+    </main>
+</body>
+</html>
