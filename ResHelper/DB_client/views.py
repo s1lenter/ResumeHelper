@@ -78,15 +78,25 @@ def create(request):
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'registration.html'
+    success_url = None
+
+    def get_success_url(self):
+        return reverse_lazy('start_page')
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
-
-        if User.objects.filter(email=request.POST.get('email')).exists():
+        is_valid = True
+        # for f in form:
+        #     if f.errors:
+        #         is_valid = False
+        #         break
+        # if len(form.cleaned_data['password1']) < 8:
+        #     form.add_error('password1', 'Пароль должен содержать не менее 8 символов.')
+        if User.objects.filter(email=request.POST.get('email')).exists() or not form.is_valid():
             messages.error(request, 'Пользователь с такой почтой уже существует.')
             return render(request, self.template_name, {'form': form})
         form.save()
-        return redirect(reverse_lazy('login'))
+        return redirect(self.get_success_url())
 
 class LoginUser(LoginView):
     form_class = AuthenticationForm
