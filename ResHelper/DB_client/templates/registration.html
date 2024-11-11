@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registartion</title>
-    <link rel="stylesheet" href="../../DB_client/static/css/registration.css">
+    <link rel="stylesheet" href="/static/css/registration.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     <header class="registartion-header">
         <nav class="registartion-header-nav">
             <a class="logo" href="#">
-                <img src="../../DB_client/static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+                <img src="/static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
             </a>
         </nav>
     </header>
@@ -21,40 +21,31 @@
         <div class="registartion-window">
             <h2 class="registartion-text-header">Регистрация</h2>
             <div class="registartion-window-input">
-                <form action="create/" method="post" class="comment-form">
+                <form method="post" class="comment-form">
+                    {% csrf_token %}
                     <div class="comment-inner">
-                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" title="ты еблан" class="comment-field" placeholder="Имя" required id="comment-input-fname">
+                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Имя" required id="comment-input-fname" name="first_name">
                     </div>
-                </form>
-                <form action="create/" method="post" class="comment-form">
                     <div class="comment-inner">
-                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Фамилия" required id="comment-input-sname">
+                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Фамилия" required id="comment-input-sname" name="last_name">
                     </div>
-                </form>
-                <form action="create/" method="post" class="comment-form">
+<!--                    <div class="comment-inner">-->
+<!--                      <input type="text" class="comment-field" placeholder="Соискатель / Работодатель" required id="comment-input-role" name="role">-->
+<!--                    </div>-->
                     <div class="comment-inner">
-                      <input type="text" class="comment-field" placeholder="Соискатель / Работодатель" required id="comment-input-role">
+                      <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="comment-field" placeholder="Адрес электронной почты" required id="comment-input-email" name="email">
                     </div>
-                </form>
-                <form action="create/" method="post" class="comment-form">
                     <div class="comment-inner">
-                      <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="comment-field" placeholder="Адрес электронной почты" required id="comment-input-email">
+                      <input type="password" class="comment-field" placeholder="Пароль" required id="comment-input-password" name="password1">
                     </div>
-                </form>
-                <form action="create/" method="post" class="comment-form">
                     <div class="comment-inner">
-                      <input type="password" class="comment-field" placeholder="Пароль" required id="comment-input-password">
+                      <input type="password" class="comment-field" placeholder="Подтверждение пароля" required id="comment-input-password-confirm" name="password2">
                     </div>
-                </form>
-                <form action="create/" method="post" class="comment-form">
-                    <div class="comment-inner">
-                      <input type="password" class="comment-field" placeholder="Подтверждение пароля" required id="comment-input-password-confirm">
-                    </div>
+                    <button type="submit" class="registartion-window-button">
+                        Зарегистрироваться
+                    </button>
                 </form>
             </div>
-            <button type="button" class="registartion-window-button">
-                Зарегистрироваться
-            </button>
         </div>
     </main>
 </body>

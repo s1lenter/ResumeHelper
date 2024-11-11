@@ -52,12 +52,12 @@ class Job(models.Model):
         ]
     )
     experience_level = models.CharField(
-        max_length=10,
+        max_length=20,
         choices=[
-            ('No_expirience', 'Без опыта'),
+            ('no_expirience', 'Без опыта'),
             ('1_between_3', 'От 1 года до 3 лет'),
-            ('3_between_6', 'От 3 до 6 лет')
-            ('more_than_6', 'От 3 до 6 лет')
+            ('3_between_6', 'От 3 до 6 лет'),
+            ('more_than_6', 'От 3 до 6 лет'),
         ]
     )
     created_at = models.DateTimeField(auto_now_add=True)

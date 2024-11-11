@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ResumeHelper</title>
-    <link rel="stylesheet" type="text/css" href="../../DB_client/static/css/start_page_css.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/start_page_css.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     <header class="page-header">
         <nav class="start-page-header-nav">
             <a class="logo">
-                <img src="../../DB_client/static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+                <img src="/static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
             </a>
             <ul class="site-navigation">
                 <li class="site-navigation-item">
@@ -23,10 +23,10 @@
                     <a href="#">Создание вакансии</a>
                 </li>
                 <li class="site-navigation-item">
-                    <a href="../../DB_client/templates/registration.html">Регистрация</a>
+                    <a href="{% url 'register' %}">Регистрация</a>
                 </li>
                 <li class="site-navigation-item">
-                    <a href="../../DB_client/templates/login1.html">Вход</a>
+                    <a href="{% url 'login' %}">Вход</a>
                 </li>
             </ul>
         </nav>
@@ -35,7 +35,7 @@
         <p class="start_page_text">Работа найдется легко!</p>
         <div class="start-page-input-field">
             <a class="input-field-logo" href="#">
-                <img src="../../DB_client/static/img/input-field-logo.png" width="37" height="49" alt="Лупа">
+                <img src="/static/img/input-field-logo.png" width="37" height="49" alt="Лупа">
             </a>
             <form action="#" method="post" class="comment-form">
                 <div class="comment-inner">
@@ -58,7 +58,7 @@
                 </li>
             </ul>
             <a class="footer-item">
-                <img src="../../DB_client/static/img/footer_item.png" width="198" height="96" alt="Логотип КодовоеУбежище">
+                <img src="/static/img/footer_item.png" width="198" height="96" alt="Логотип КодовоеУбежище">
             </a>
         </nav>
     </footer>

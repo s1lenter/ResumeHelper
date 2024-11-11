@@ -1,14 +1,25 @@
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponseNotFound, HttpResponse
-from .models import User
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView
 
-def register(request):
-    return render(request, "registration.html")
+from .forms import RegisterUserForm
+from .models import *
 
-def start_page(request):
-    return render(request, "start_page.html")
+# def register(request):
+#     people = User.objects.all()
+#     return render(request, "registration.html", {"people":people})
 
 # получение данных из бд
+# def start_page(request):
+#     return render(request, "start_page.html")
+
+class StartPage(ListView):
+    model = User
+    template_name = 'start_page.html'
+
 def index(request):
     people = User.objects.all()
     return render(request, "index.html", {"people": people})
@@ -25,17 +36,17 @@ def create(request):
         person.save()
     return redirect("/login/")
 
-def login(request):
-    people = User.objects.all()
-    return render(request, "login.html", {"people": people})
+# def login(request):
+#     people = User.objects.all()
+#     return render(request, "login1.html", {"people": people})
 
-def check(request):
-    email = request.POST.get('email')
-    password = request.POST.get('password_hash')
-    page = '/'
-    if User.objects.filter(email=email).exists() and User.objects.filter(password_hash=password).exists():
-        page = "/start_page/"
-    return HttpResponseRedirect(page)
+# def check(request):
+#     email = request.POST.get('email')
+#     password = request.POST.get('password_hash')
+#     page = '/'
+#     if User.objects.filter(email=email).exists() and User.objects.filter(password_hash=password).exists():
+#         page = "/start_page/"
+#     return HttpResponseRedirect(page)
 
 
 # #изменение данных в бд
@@ -63,3 +74,14 @@ def check(request):
 #     except User.DoesNotExist:
 #         return HttpResponseNotFound("<h2>Person not found</h2>")
 
+class RegisterUser(CreateView):
+    form_class = RegisterUserForm
+    template_name = 'registration.html'
+    success_url = reverse_lazy('login')
+
+class LoginUser(LoginView):
+    form_class = AuthenticationForm
+    template_name = 'login1.html'
+
+    def get_success_url(self):
+        return reverse_lazy('start-page')
