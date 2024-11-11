@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
@@ -78,6 +79,16 @@ class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'registration.html'
     success_url = reverse_lazy('login')
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+
+        if User.objects.filter(email=request.POST.get('email')).exists():
+            messages.error(request, 'Пользователь с такой почтой уже существует.')
+            return render(request, self.template_name, {'form': form})
+
+            # Если пользователь не найден, сохраняем форму
+        form.save()
 
 class LoginUser(LoginView):
     form_class = AuthenticationForm

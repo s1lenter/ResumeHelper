@@ -12,7 +12,7 @@
 <body>
     <header class="registartion-header">
         <nav class="registartion-header-nav">
-            <a class="logo" href="#">
+            <a class="logo" href="{% url 'start_page' %}">
                 <img src="/static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
             </a>
         </nav>
@@ -21,17 +21,14 @@
         <div class="registartion-window">
             <h2 class="registartion-text-header">Регистрация</h2>
             <div class="registartion-window-input">
-                <form method="post" class="comment-form">
+                <form method="post" class="registartion-window-input">
                     {% csrf_token %}
                     <div class="comment-inner">
-                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Имя" required id="comment-input-fname" name="first_name">
+                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Имя" required id="id_first_name" name="first_name">
                     </div>
                     <div class="comment-inner">
                       <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Фамилия" required id="comment-input-sname" name="last_name">
                     </div>
-<!--                    <div class="comment-inner">-->
-<!--                      <input type="text" class="comment-field" placeholder="Соискатель / Работодатель" required id="comment-input-role" name="role">-->
-<!--                    </div>-->
                     <div class="comment-inner">
                       <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="comment-field" placeholder="Адрес электронной почты" required id="comment-input-email" name="email">
                     </div>
@@ -41,6 +38,19 @@
                     <div class="comment-inner">
                       <input type="password" class="comment-field" placeholder="Подтверждение пароля" required id="comment-input-password-confirm" name="password2">
                     </div>
+
+                    {% for f in form %}
+                        {% if f.errors %}
+                        <div class="form-error">{{ f.errors }}</div>
+                        {% endif %}
+                    {% endfor %}
+                    {% if messages %}
+                        <div class="alert alert-danger" role="alert">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                     <button type="submit" class="registartion-window-button">
                         Зарегистрироваться
                     </button>
