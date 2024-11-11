@@ -12,7 +12,7 @@ class RegisterUserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name','email', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'email', 'password1', 'password2')
 
     def save(self, commit=True):
         send = super(RegisterUserForm, self).save(commit=False)

@@ -78,7 +78,6 @@ def create(request):
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'registration.html'
-    success_url = reverse_lazy('login')
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
@@ -86,13 +85,12 @@ class RegisterUser(CreateView):
         if User.objects.filter(email=request.POST.get('email')).exists():
             messages.error(request, 'Пользователь с такой почтой уже существует.')
             return render(request, self.template_name, {'form': form})
-
-            # Если пользователь не найден, сохраняем форму
         form.save()
+        return redirect(reverse_lazy('login'))
 
 class LoginUser(LoginView):
     form_class = AuthenticationForm
     template_name = 'login1.html'
 
     def get_success_url(self):
-        return reverse_lazy('start-page')
+        return reverse_lazy('start_page')

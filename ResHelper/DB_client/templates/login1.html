@@ -33,13 +33,12 @@
                       <input type="password" class="comment-field" placeholder="Пароль" required id="comment-input-password" name="password">
                     </div>
                 </div>
-                {% if f.errors %}
-                    <div class="form-error">{{ form.non_field_errors }}</div>
-                {% endif %}
+
+                <div class="form-error">{{ form.non_field_errors }}</div>
 
                 {% for f in form %}
                     {% if f.errors %}
-                        <div class="form-error">{{ form.errors }}</div>
+                        <div class="form-error">{{ f.errors }}</div>
                     {% endif %}
                 {% endfor %}
                 <button type="submit" class="login-window-button">
