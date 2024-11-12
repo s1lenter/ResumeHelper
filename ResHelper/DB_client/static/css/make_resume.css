@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.create-resume-header {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.create-resume-nav {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-resume-main {
+    margin: 0;
+    padding: 30px 0;
+    background-image: url("../../static/img/create_resume_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.main-field-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-field-info-header {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.main-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.main-field {
+    display: flex;
+    flex-direction: column;
+    width: 650px;
+    gap: 5px;
+}
+
+.main-field-header {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.main-input-field {
+    width: 100%;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black;
+
+    text-indent: 10px;
+}
+
+.main-sex-field {
+    display: flex;
+    flex-direction: column;
+}
+
+#sex-choice {
+    width: 100%;
+    height: 35.2px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-button {
+    margin-top: 5px;
+    align-self: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(116, 116, 116, 1);
+    background: none;
+    border: none;
+    border-bottom: 2px dotted;
+}
+
+.add-button:hover {
+    color: rgba(116, 116, 116, 0.5);
+}
+
+.main-education-degree-field {
+    display: flex;
+    flex-direction: column;
+}
+
+#education-degree {
+    width: 100%;
+    height: 35.2px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black;
+}
+
+.field-separator {
+    margin: 20px 0;
+    border: 2px solid black;
+}
+
+.create-resume-footer {
+    background-color: black;
+    height: 80px;
+}
