@@ -1,47 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>DB_Client</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form method="POST" action="create/">
-        {% csrf_token %}
-        <p>
-            <label>Введите имя</label><br>
-            <input type="text" name="first_name" />
-        </p>
-        <p>
-            <label>Введите фамилию</label><br>
-            <input type="text" name="last_name" />
-        </p>
-        <p>
-            <label>Введите электронную почту</label><br>
-            <input type="text" name="email" />
-        </p>
-        <p>
-            <label>Введите пароль</label><br>
-            <input type="password" name="password_hash" />
-        </p>
-<!--        <p>-->
-<!--            <label>Подтвердите пароль</label><br>-->
-<!--            <input type="text" name="last_name" />-->
-<!--        </p>-->
-    </form>
-    <input type="submit" value="Сохранить" >
-<!--    {% if people.count > 0 %}-->
-<!--    <h2>Список пользователей</h2>-->
-<!--    <table>-->
-<!--        <thead><th>Id</th><th>Имя</th><th>Фамилия</th><th></th></thead>-->
-<!--        {% for person in people %}-->
-<!--        <tr>-->
-<!--            <td>{{ person.id }}</td>-->
-<!--            <td>{{ person.First_Name }}</td>-->
-<!--            <td>{{ person.Last_Name }}</td>-->
-<!--            <td><a href="edit/{{person.id}}">Изменить</a> | <a href="delete/{{person.id}}">Удалить</a></td>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--    </table>-->
-<!--    {% endif %}-->
-</body>
-</html>
+    <header class="login-header">
+        <nav class="login-header-nav">
+            <a class="logo" href="{% url 'start_page' %}">
+                <img src="/static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+        </nav>
+    </header>
