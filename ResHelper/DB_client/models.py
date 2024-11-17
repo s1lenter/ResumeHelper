@@ -3,10 +3,10 @@ import datetime
 from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 from django.db import models
 from django.template.defaultfilters import default
+from django.contrib.auth.models import User
 
-class User(models.Model):
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=20)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     gender = models.CharField(
         max_length=10,
         choices=[
@@ -24,16 +24,12 @@ class User(models.Model):
             ('Employer', 'Работодатель')
         ],
         default='Job_Seeker')
-    password_hash = models.CharField(max_length=255)
-    email = models.EmailField()
     phone_number = models.CharField(
         max_length=15,
         validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$',
                                    message="Введите правильный номер телефона в формате: '+999999999'. До 15 цифр.")]
     )
-    is_verified = models.BooleanField(default=False)
-    created_at = models.DateTimeField(default = datetime.date.today())
-    updated_at = models.DateTimeField(auto_now=True)
+
 
 
 class Job(models.Model):
@@ -65,7 +61,8 @@ class Job(models.Model):
 
 
 class Resume(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(User, on_delete=models.CASCADE)
+
     contact_info = models.JSONField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
