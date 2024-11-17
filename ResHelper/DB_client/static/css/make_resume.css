@@ -60,9 +60,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: Inter;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 700;
-    line-height: 40px;
+    line-height: 32px;
 }
 
 .main-input-field {
@@ -112,6 +112,12 @@ form {
     flex-direction: column;
 }
 
+.make-resume-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 .add-button {
     margin-top: 5px;
     align-self: center;
@@ -126,6 +132,22 @@ form {
 
 .add-button:hover {
     color: rgba(116, 116, 116, 0.5);
+}
+
+.delete-button {
+    margin-top: 5px;
+    align-self: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255, 0, 0, 1);
+    background: none;
+    border: none;
+    border-bottom: 2px dotted;
+}
+
+.delete-button:hover {
+    color: rgba(255, 0, 0, 0.5);
 }
 
 .main-education-degree-field {
@@ -159,4 +181,25 @@ form {
 .create-resume-footer {
     background-color: black;
     height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.make-resume-footer-nav {
+    display: flex;
+}
+
+.make-resume-footer-nav-elem {
+    margin: 0;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    padding-left: 100px;
+}
+
+.make-resume-footer-nav-elem a {
+    text-decoration: none;
+    color: white;
 }
