@@ -10,6 +10,11 @@ from django.views.generic import ListView, CreateView
 from .forms import RegisterUserForm
 from .models import *
 
+from django.conf import settings
+
+def main_view(request):
+    return redirect(settings.DEFAULT_REDIRECT_URL)
+
 # def register(request):
 #     people = User.objects.all()
 #     return render(request, "registration.html", {"people":people})
@@ -22,21 +27,21 @@ class StartPage(ListView):
     model = User
     template_name = 'start_page.html'
 
-def index(request):
-    people = User.objects.all()
-    return render(request, "index.html", {"people": people})
-
-
-# сохранение данных в бд
-def create(request):
-    if request.method == "POST":
-        person = User()
-        person.first_name = request.POST.get("first_name")
-        person.last_name = request.POST.get("last_name")
-        person.email = request.POST.get("email")
-        person.password_hash = request.POST.get("password_hash")
-        person.save()
-    return redirect("/login/")
+# def index(request):
+#     people = User.objects.all()
+#     return render(request, "index.html", {"people": people})
+#
+#
+# # сохранение данных в бд
+# def create(request):
+#     if request.method == "POST":
+#         person = User()
+#         person.first_name = request.POST.get("first_name")
+#         person.last_name = request.POST.get("last_name")
+#         person.email = request.POST.get("email")
+#         person.password_hash = request.POST.get("password_hash")
+#         person.save()
+#     return redirect("/login/")
 
 # def login(request):
 #     people = User.objects.all()
@@ -104,3 +109,13 @@ class LoginUser(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('start_page')
+
+class CreateResume(ListView):
+    template_name = 'make_resume.html'
+    model = User
+    # def get_success_url(self):
+    #     return reverse_lazy('start_page')
+
+class CreateVacancy(ListView):
+    template_name = 'make_vacancy.html'
+    model = User
