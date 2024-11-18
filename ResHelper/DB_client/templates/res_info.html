@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your List Page</title>
+</head>
+<body>
+    {% if profile %}
+        <ul>
+            {% for obj in all_data %}
+                <li>{{ obj.age }}</li>
+                <li>{{ obj.gender }}</li>
+                <li>{{ obj.phone_number }}</li>
+            {% endfor %}
+            {% for obj in profile %}
+                <li>{{ obj.first_name }}</li>
+                <li>{{ obj.last_name }}</li>
+                <li>{{ obj.email }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Нет данных для отображения.</p>
+    {% endif %}
+</body>
+</html>

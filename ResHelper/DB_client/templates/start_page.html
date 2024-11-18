@@ -16,18 +16,25 @@
                 <img src="/static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
             </a>
             <ul class="site-navigation">
+
+<!--                <li class="site-navigation-item">-->
+<!--                    <a href="{% url 'create_vacancy' %}">Создание вакансии</a>-->
+<!--                </li>-->
+                {% if request.user.is_authenticated %}
                 <li class="site-navigation-item">
                     <a href="{% url 'create_resume' %}">Создание резюме</a>
                 </li>
-                <li class="site-navigation-item">
-                    <a href="{% url 'create_vacancy' %}">Создание вакансии</a>
+				<li class="site-navigation-item">
+                    <a href="{% url 'logout' %}">Выйти</a>
                 </li>
+                {% else %}
                 <li class="site-navigation-item">
                     <a href="{% url 'register' %}">Регистрация</a>
                 </li>
                 <li class="site-navigation-item">
                     <a href="{% url 'login' %}">Вход</a>
                 </li>
+                {% endif %}
             </ul>
         </nav>
     </header>

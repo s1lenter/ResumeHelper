@@ -1,13 +1,14 @@
 from django.contrib import messages
+from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.db import IntegrityError
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponseNotFound, HttpResponse
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
+from django.views.generic import *
 
-from .forms import RegisterUserForm
+from .forms import *
 from .models import *
 
 from django.conf import settings
@@ -110,12 +111,35 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('start_page')
 
-class CreateResume(ListView):
-    template_name = 'make_resume.html'
-    model = User
-    # def get_success_url(self):
-    #     return reverse_lazy('start_page')
+class CreateResume(CreateView):
+    model = Profile
+    form_class = AddPersonalInfoForm
+    template_name = 'login.html'
+
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        instance.user = self.request.user
+        instance.save()
+
+        return redirect(self.get_success_url())
+
+    def get_success_url(self):
+        return reverse_lazy('start_page')
 
 class CreateVacancy(ListView):
     template_name = 'make_vacancy.html'
     model = User
+
+class ResInfo(ListView):
+    template_name = 'res_info.html'
+    model = User
+    context_object_name = 'profile'
+
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+        context['all_data'] = Profile.objects.all()
+        return context
+
+def logout_user(request):
+    logout(request)
+    return redirect('start_page')
