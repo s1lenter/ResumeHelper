@@ -27,32 +27,32 @@
             </p>
             <form class="main-fields personal-info" method="post">
                 {% csrf_token %}
-<!--                <div class="main-field fname">-->
-<!--                    <label for="fname" class="main-field-header">Имя</label>-->
-<!--                    <input-->
-<!--                        type="text"-->
-<!--                        id="fname"-->
-<!--                        class="main-input-field"-->
-<!--                        pattern="[A-Za-zА-Яа-яЁё]{2,}"-->
-<!--                        name="first_name"-->
-<!--                        required>-->
-<!--                </div>-->
-<!--                <div class="main-field lname">-->
-<!--                    <label for="lname" class="main-field-header">Фамилия</label>-->
-<!--                    <input-->
-<!--                        type="text"-->
-<!--                        id="lname"-->
-<!--                        class="main-input-field"-->
-<!--                        pattern="[A-Za-zА-Яа-яЁё]{1,}"-->
-<!--                        name="last_name"-->
-<!--                        required>-->
-<!--                </div>-->
+                <div class="main-field fname">
+                    <label for="fname" class="main-field-header">Имя</label>
+                    <input
+                        type="text"
+                        id="fname"
+                        class="main-input-field"
+                        pattern="[A-Za-zА-Яа-яЁё]{2,}"
+                        name="first_name"
+                        required>
+                </div>
+                <div class="main-field lname">
+                    <label for="lname" class="main-field-header">Фамилия</label>
+                    <input
+                        type="text"
+                        id="lname"
+                        class="main-input-field"
+                        pattern="[A-Za-zА-Яа-яЁё]{1,}"
+                        name="last_name"
+                        required>
+                </div>
                 <div class="main-field sex">
                     <label for="sex-choice" class="main-field-header">Ваш пол</label>
                     <select id="sex-choice" name="gender">
                         <option value="Other" disabled selected>Выберите из списка</option>
-                        <option value="Female">Мужской</option>
-                        <option value="Male">Женский</option>
+                        <option value="Male">Мужской</option>
+                        <option value="Female">Женский</option>
                     </select>
                 </div>
                 <div class="main-field age">
@@ -65,15 +65,15 @@
                         name="age"
                         required>
                 </div>
-<!--                <div class="main-field email">-->
-<!--                    <label for="email" class="main-field-header">Электронная почта</label>-->
-<!--                    <input-->
-<!--                        type="email"-->
-<!--                        id="email"-->
-<!--                        class="main-input-field"-->
-<!--                        name="email"-->
-<!--                        required>-->
-<!--                </div>-->
+                <div class="main-field email">
+                    <label for="email" class="main-field-header">Электронная почта</label>
+                    <input
+                        type="email"
+                        id="email"
+                        class="main-input-field"
+                        name="email"
+                        required>
+                </div>
                 <div class="main-field phone">
                     <label for="phone" class="main-field-header">Номер телефона</label>
                     <input
@@ -84,8 +84,14 @@
                         placeholder="+7 (___) ___-__-__"
                         required>
                 </div>
-                <button type="submit">Войти</button>
+                {% for f in form %}
+                    {% if f.errors %}
+                        <div class="form-error">{{ form.errors }}</div>
+                    {% endif %}
+                {% endfor %}
+                <button type="submit">Сохранить</button>
             </form>
+
         </div>
     </main>
     <script src="../static/js/make_resume/make_resume.js"></script>

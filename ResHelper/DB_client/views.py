@@ -111,20 +111,20 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('start_page')
 
-class CreateResume(CreateView):
-    model = Profile
-    form_class = AddPersonalInfoForm
-    template_name = 'login.html'
-
-    def form_valid(self, form):
-        instance = form.save(commit=False)
-        instance.user = self.request.user
-        instance.save()
-
-        return redirect(self.get_success_url())
-
-    def get_success_url(self):
-        return reverse_lazy('start_page')
+# class CreateResume(CreateView):
+#     model = Profile
+#     form_class =
+#     template_name = 'login.html'
+#
+#     def form_valid(self, form):
+#         instance = form.save(commit=False)
+#         instance.user = self.request.user
+#         instance.save()
+#
+#         return redirect(self.get_success_url())
+#
+#     def get_success_url(self):
+#         return reverse_lazy('start_page')
 
 class CreateVacancy(ListView):
     template_name = 'make_vacancy.html'
@@ -143,3 +143,13 @@ class ResInfo(ListView):
 def logout_user(request):
     logout(request)
     return redirect('start_page')
+
+def create_resume(request):
+    if request.method == 'POST':
+        form = UserInfoForm(request.POST, initial={'user_id': request.user.id})
+        if form.is_valid():
+            return redirect('start_page')
+    else:
+        form = UserInfoForm(initial={'user': 7})
+
+    return render(request, 'login.html', {'form': form})

@@ -8,7 +8,7 @@ urlpatterns = [
     path("register/", RegisterUser.as_view(), name="register"),
     path("login/", LoginUser.as_view(), name="login"),
     path("logout/", logout_user, name="logout"),
-    path("create_resume/", CreateResume.as_view(), name="create_resume"),
+    path("create_resume/", create_resume, name="create_resume"),
     path("create_vacancy/", CreateVacancy.as_view(), name="create_vacancy"),
     path("res_info/", ResInfo.as_view(), name="res_info")
 ]
