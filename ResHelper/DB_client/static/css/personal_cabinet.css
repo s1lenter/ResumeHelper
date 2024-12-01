@@ -144,10 +144,20 @@ body {
     justify-content: space-between;
 }
 
+.field-columns {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+}
+
 .field-column {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.field-column.main {
+    width: 150px;
 }
 
 .field p {
