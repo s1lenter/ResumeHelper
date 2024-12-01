@@ -3,54 +3,99 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registartion</title>
-    <link rel="stylesheet" href="../../DB_client/static/css/registration.css">
+    <title>PersonalCabinet</title>
+    <link rel="stylesheet" href="../static/css/personal_cabinet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="registartion-header">
-        <nav class="registartion-header-nav">
-            <a class="logo" href="#">
-                <img src="../../DB_client/static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+    <header class="personal-cabinet-header">
+        <nav class="personal-cabinet-nav">
+            <a class="logo" href="{% url 'start_page' %}">
+                <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+            <a class="personal-cabinet-logo" href="#">
+                <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
             </a>
         </nav>
     </header>
-    <main class="registration-main">
-        <div class="registartion-window">
-            <h2 class="registartion-text-header">Регистрация</h2>
-            <div class="registartion-window-input">
-                <form action="create/" method="post" class="comment-form">
-                    <div class="comment-inner">
-                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" title="ты еблан" class="comment-field" placeholder="Имя" required id="comment-input-fname">
+    <main class="personal-cabinet-main">
+        <div class="personal-cabinet-fields">
+            <div class="personal-cabinet-info">
+                <p class="personal-cabinet-info-header">Профиль</p>
+                <div class="personal-cabinet-info-window">
+                    <div class="personal-cabinet-info-data">
+                        <div class="info-name-surname">
+                            <p class="info-fname">Имя</p>
+                            <p class="info-lname">Фамилия</p>
+                        </div>
+                        <button name="edit-info-data-button" type="button" class="edit-info-data-button">Редактировать</button>
                     </div>
-                </form>
-                <form action="create/" method="post" class="comment-form">
-                    <div class="comment-inner">
-                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Фамилия" required id="comment-input-sname">
-                    </div>
-                </form>
-                <form action="create/" method="post" class="comment-form">
-                    <div class="comment-inner">
-                      <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="comment-field" placeholder="Адрес электронной почты" required id="comment-input-email">
-                    </div>
-                </form>
-                <form action="create/" method="post" class="comment-form">
-                    <div class="comment-inner">
-                      <input type="password" class="comment-field" placeholder="Пароль" required id="comment-input-password">
-                    </div>
-                </form>
-                <form action="create/" method="post" class="comment-form">
-                    <div class="comment-inner">
-                      <input type="password" class="comment-field" placeholder="Подтверждение пароля" required id="comment-input-password-confirm">
-                    </div>
-                </form>
+                    <a class="info-image">
+                        <img src="../static/img/info-image.png" width="280" height="280" alt="Логотип персонального кабинета">
+                    </a>
+                </div>
             </div>
-            <button type="button" class="registartion-window-button">
-                Зарегистрироваться
-            </button>
+            <div class="field">
+                <p class="field header">Доп. информация</p>
+                <div class="field window">
+                    <div class="field-column">
+                        <p class="field-text">Пол</p>
+                        <p class="field-text">Возраст</p>
+                    </div>
+                    <div class="field-column">
+                        <p class="field-text">Мужской</p>
+                        <p class="field-text">20 лет</p>
+                    </div>
+                    <div class="field-buttons">
+                        <button class="field-button sex" type="button">Изменить</button>
+                        <button class="field-button age" type="button">Изменить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <p class="field header">Личные данные</p>
+                <div class="field window">
+                    <div class="field-column">
+                        <p class="field-text">Пароль</p>
+                        <p class="field-text">Email</p>
+                        <p class="field-text">Телефон</p>
+                        <p class="field-text">Соц. сети</p>
+                    </div>
+                    <div class="field-column">
+                        <p class="field-text">123456SK</p>
+                        <p class="field-text">namefamily@gmail.com</p>
+                        <p class="field-text">+7 903 565 44 76</p>
+                        <p class="field-text">https://id.vk.com/account</p>
+                    </div>
+                    <div class="field-buttons">
+                        <button class="field-button password" type="button">Изменить</button>
+                        <button class="field-button email" type="button">Изменить</button>
+                        <button class="field-button phone" type="button">Изменить</button>
+                        <button class="field-button social-media" type="button">Изменить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <p class="field header">Языки</p>
+                <div class="field window">
+                    <div class="field-column">
+                        <p class="field-text">Родной</p>
+                        <p class="field-text">Дополнительно</p>
+                    </div>
+                    <div class="field-column">
+                        <p class="field-text">Русский</p>
+                        <p class="field-text">Английский</p>
+                    </div>
+                    <div class="field-buttons">
+                        <button class="field-button main-language" type="button">Изменить</button>
+                        <button class="field-button extra-language" type="button">Изменить</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
+
 </body>
 </html>
