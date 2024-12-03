@@ -6,16 +6,12 @@
 <body>
     {% if profile %}
         <ul>
-            {% for obj in all_data %}
-                <li>{{ obj.age }}</li>
-                <li>{{ obj.gender }}</li>
-                <li>{{ obj.phone_number }}</li>
-            {% endfor %}
-            {% for obj in profile %}
-                <li>{{ obj.first_name }}</li>
-                <li>{{ obj.last_name }}</li>
-                <li>{{ obj.email }}</li>
-            {% endfor %}
+            <li>{{ profile.age }}</li>
+            <li>{{ profile.gender }}</li>
+            <li>{{ profile.phone_number }}</li>
+            <li>{{ user.first_name }}</li>
+            <li>{{ user.last_name }}</li>
+            <li>{{ user.email }}</li>
         </ul>
     {% else %}
         <p>Нет данных для отображения.</p>

@@ -130,14 +130,35 @@ class CreateVacancy(ListView):
     template_name = 'make_vacancy.html'
     model = User
 
+# class ResInfo(ListView):
+#     template_name = 'res_info.html'
+#     model = User
+#     context_object_name = 'profile'
+#     user_id = 0
+#
+#     def get(self, request, *args, **kwargs):
+#         current_user = self.request.user
+#         self.user_id = current_user.id
+#
+#     def get_context_data(self, **kwargs):
+#         context = super(ListView, self).get_context_data(**kwargs)
+#         context['all_data'] = Profile.objects.get(id=self.user_id)
+#         return context
+
 class ResInfo(ListView):
     template_name = 'res_info.html'
     model = User
-    context_object_name = 'profile'
+
+    # def get(self, request, *args, **kwargs):
+    #     response = super().get(request, *args, **kwargs)
+    #     current_user = self.request.user
+    #     self.user_id = current_user.id
+    #     return response
 
     def get_context_data(self, **kwargs):
-        context = super(ListView, self).get_context_data(**kwargs)
-        context['all_data'] = Profile.objects.all()
+        context = super().get_context_data(**kwargs)
+        context['profile'] = Profile.objects.get(user_id=self.request.user.id)
+        context['user'] = User.objects.get(id=self.request.user.id)
         return context
 
 def logout_user(request):
