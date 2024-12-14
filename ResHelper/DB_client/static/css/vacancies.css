@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.vacancies-header {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.vacancies-nav {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vacancies-main {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vacancies-info {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.vacancies-info-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vacancies-info-header-text {
+    margin: 0;
+    margin-top: 50px;
+    padding: 0;
+    font-family: Inter;
+    font-size: 48px;
+    font-weight: 600;
+    color: black;
+}
+
+.vacancies-info-header-undertext {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    color: #7b7676;
+}
+
+.vacancies {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 100px;
+}
+
+.vacancy {
+    padding: 25px;
+    width: 800px;
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.vacancy-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.vacancy-info-header {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.vacancy-info-salary {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    color: black;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.vacancy-info-company {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.vacancy-info-workplace {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.vacancy-apply-button {
+    margin: 0;
+    padding: 0;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    background: #00c4a9;
+    width: 200px;
+    height: 60px;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.vacancy-apply-button:hover {
+    background: rgba(0, 196, 169, 0.5);
+}
+
+.vacancy-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.vacancy-buttons button {
+    margin: 0;
+    padding: 0;
+    color: black;
+    border: none;
+    background: none;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.vacancy-buttons button:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
