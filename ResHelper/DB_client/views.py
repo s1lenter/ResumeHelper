@@ -7,6 +7,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponseNotFound, HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import *
+import requests
+from .api_handler import *
 
 from .forms import *
 from .models import *
@@ -174,3 +176,7 @@ def create_resume(request):
         form = UserInfoForm(initial={'user': 7})
 
     return render(request, 'login.html', {'form': form})
+
+def vacs_view(request):
+    vacancies = get_vacancies(5)
+    return render(request, 'vacancies.html', {'vacs': vacancies.items()})

@@ -27,32 +27,21 @@
                 <p class="vacancies-info-header-undertext">Подобрано специально под ваше резюме</p>
             </div>
             <div class="vacancies">
-                <div class="vacancy">
-                    <div class="vacancy-info">
-                        <p class="vacancy-info-header">Начинающий разработчик</p>
-                        <p class="vacancy-info-salary">от 50000 ₽ на руки</p>
-                        <p class="vacancy-info-company">ООО ГАЗПРОМ</p>
-                        <p class="vacancy-info-workplace">Москва</p>
-                        <button type="button" class="vacancy-apply-button">Откликнуться</button>
+                {% for key, info in vacs %}
+                    <div class="vacancy">
+                        <div class="vacancy-info">
+                            <p class="vacancy-info-header">{{info.name}}</p>
+                            <p class="vacancy-info-salary">{{info.salary}}</p>
+                            <p class="vacancy-info-company">{{info.employer}}</p>
+                            <p class="vacancy-info-workplace">{{info.area}}</p>
+                            <button type="button" class="vacancy-apply-button">Откликнуться</button>
+                        </div>
+                        <div class="vacancy-buttons">
+                            <button type="button" class="hide-vacancy-button">Скрыть</button>
+                            <button type="button" class="add-vacancy-button">+</button>
+                        </div>
                     </div>
-                    <div class="vacancy-buttons">
-                        <button type="button" class="hide-vacancy-button">Скрыть</button>
-                        <button type="button" class="add-vacancy-button">+</button>
-                    </div>
-                </div>
-                <div class="vacancy">
-                    <div class="vacancy-info">
-                        <p class="vacancy-info-header">Менеджер по рекламе</p>
-                        <p class="vacancy-info-salary">от 75000 ₽ на руки</p>
-                        <p class="vacancy-info-company">ООО Альянс</p>
-                        <p class="vacancy-info-workplace">Екатеринбург</p>
-                        <button type="button" class="vacancy-apply-button">Откликнуться</button>
-                    </div>
-                    <div class="vacancy-buttons">
-                        <button type="button" class="hide-vacancy-button">Скрыть</button>
-                        <button type="button" class="add-vacancy-button">+</button>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </main>

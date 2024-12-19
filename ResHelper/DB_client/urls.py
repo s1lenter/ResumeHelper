@@ -10,5 +10,6 @@ urlpatterns = [
     path("logout/", logout_user, name="logout"),
     path("create_resume/", create_resume, name="create_resume"),
     path("create_vacancy/", CreateVacancy.as_view(), name="create_vacancy"),
-    path("res_info/", ResInfo.as_view(), name="res_info")
+    path("res_info/", ResInfo.as_view(), name="res_info"),
+    path("vac_test/", vacs_view, name="vacs_view")
 ]
