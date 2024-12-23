@@ -180,3 +180,12 @@ def create_resume(request):
 def vacs_view(request):
     vacancies = get_vacancies(5)
     return render(request, 'vacancies.html', {'vacs': vacancies.items()})
+
+def about (request):
+    return render(request, 'about.html')
+
+def contacts (request):
+    return render(request, 'contacts.html')
+
+def personal_cabinet (request):
+    return render(request, 'personal_cabinet.html')

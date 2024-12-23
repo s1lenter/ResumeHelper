@@ -11,5 +11,10 @@ urlpatterns = [
     path("create_resume/", create_resume, name="create_resume"),
     path("create_vacancy/", CreateVacancy.as_view(), name="create_vacancy"),
     path("res_info/", ResInfo.as_view(), name="res_info"),
-    path("vac_test/", vacs_view, name="vacs_view")
+    path("vac_test/", vacs_view, name="vacs_view"),
+    path("about/", about, name="about"),
+    path("contacts/", contacts, name="contacts"),
+    path("personal_cabinet/", personal_cabinet, name="personal_cabinet")
+
 ]
+
