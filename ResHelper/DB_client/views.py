@@ -20,71 +20,9 @@ from django.conf import settings
 def main_view(request):
     return redirect(settings.DEFAULT_REDIRECT_URL)
 
-# def register(request):
-#     people = User.objects.all()
-#     return render(request, "registration.html", {"people":people})
-
-# получение данных из бд
-# def start_page(request):
-#     return render(request, "start_page.html")
-
 class StartPage(ListView):
     model = User
     template_name = 'start_page.html'
-
-# def index(request):
-#     people = User.objects.all()
-#     return render(request, "index.html", {"people": people})
-#
-#
-# # сохранение данных в бд
-# def create(request):
-#     if request.method == "POST":
-#         person = User()
-#         person.first_name = request.POST.get("first_name")
-#         person.last_name = request.POST.get("last_name")
-#         person.email = request.POST.get("email")
-#         person.password_hash = request.POST.get("password_hash")
-#         person.save()
-#     return redirect("/login/")
-
-# def login(request):
-#     people = User.objects.all()
-#     return render(request, "login1.html", {"people": people})
-
-# def check(request):
-#     email = request.POST.get('email')
-#     password = request.POST.get('password_hash')
-#     page = '/'
-#     if User.objects.filter(email=email).exists() and User.objects.filter(password_hash=password).exists():
-#         page = "/start_page/"
-#     return HttpResponseRedirect(page)
-
-
-# #изменение данных в бд
-# def edit(request, id):
-#     try:
-#         person = User.objects.get(id=id)
-#
-#         if request.method == "POST":
-#             person.First_Name = request.POST.get("First_Name")
-#             person.Second_Name = request.POST.get("Second_Name")
-#             person.save()
-#             return HttpResponseRedirect("/")
-#         else:
-#             return render(request, "edit.html", {"person": person})
-#     except User.DoesNotExist:
-#         return HttpResponseNotFound("<h2>Person not found</h2>")
-#
-#
-# # удаление данных из бд
-# def delete(request, id):
-#     try:
-#         person = User.objects.get(id=id)
-#         person.delete()
-#         return HttpResponseRedirect("/")
-#     except User.DoesNotExist:
-#         return HttpResponseNotFound("<h2>Person not found</h2>")
 
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
@@ -115,54 +53,24 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('start_page')
 
-# class CreateResume(CreateView):
-#     model = Profile
-#     form_class =
-#     template_name = 'login.html'
-#
-#     def form_valid(self, form):
-#         instance = form.save(commit=False)
-#         instance.user = self.request.user
-#         instance.save()
-#
-#         return redirect(self.get_success_url())
-#
-#     def get_success_url(self):
-#         return reverse_lazy('start_page')
-
 class CreateVacancy(ListView):
     template_name = 'make_vacancy.html'
     model = User
-
-# class ResInfo(ListView):
-#     template_name = 'res_info.html'
-#     model = User
-#     context_object_name = 'profile'
-#     user_id = 0
-#
-#     def get(self, request, *args, **kwargs):
-#         current_user = self.request.user
-#         self.user_id = current_user.id
-#
-#     def get_context_data(self, **kwargs):
-#         context = super(ListView, self).get_context_data(**kwargs)
-#         context['all_data'] = Profile.objects.get(id=self.user_id)
-#         return context
 
 class ResInfo(ListView):
     template_name = 'res_info.html'
     model = User
 
-    # def get(self, request, *args, **kwargs):
-    #     response = super().get(request, *args, **kwargs)
-    #     current_user = self.request.user
-    #     self.user_id = current_user.id
-    #     return response
-
     def get_context_data(self, **kwargs):
+        user_res = Resume.objects.get(profile=self.request.user)
+        print(Achievements.objects.filter(resume=user_res))
         context = super().get_context_data(**kwargs)
-        context['profile'] = Profile.objects.get(user_id=self.request.user.id)
-        context['user'] = User.objects.get(id=self.request.user.id)
+
+        context['achievements'] = Achievements.objects.filter(resume=user_res)[0]
+
+        context['skill'] = Skill.objects.filter(resume=user_res)[0]
+        context['education'] = Education.objects.filter(resume=user_res)[0]
+        context['work_experience'] = WorkExperience.objects.filter(resume=user_res)[0]
         return context
 
 def logout_user(request):
@@ -220,9 +128,3 @@ def contacts (request):
 def personal_cabinet (request):
     return render(request, 'personal_cabinet.html')
 
-# def upload_photos(request):
-#     if request.method == 'POST':
-#         formset = AchForm(request.POST, request.FILES)
-#         if formset.is_valid():
-#             for image in request.FILES.getlist('image'):
-#                 Achievements.objects.create(ach_img=image, )
