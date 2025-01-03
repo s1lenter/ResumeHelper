@@ -62,8 +62,6 @@ class Job(models.Model):
 
 class Resume(models.Model):
     profile = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    contact_info = models.JSONField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -90,7 +88,7 @@ class Application(models.Model):
 
 class Achievements(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    description = models.TextField()
+    ach_image = models.ImageField(upload_to='photos/', default=None)
 
 
 class Skill(models.Model):
@@ -99,10 +97,23 @@ class Skill(models.Model):
 
 
 class Education(models.Model):
+    level = models.CharField(
+        max_length=25,
+        choices=[
+            ('secondary', 'Среднее'),
+            ('secondary-specialised', 'Среднее специальное'),
+            ('uncompleted-higher', 'Неоконченное высшее'),
+            ('higher', 'Высшее'),
+            ('bachelor', 'Бакалвар'),
+            ('master', 'Магистр'),
+            ('Ph', 'Кандидат наук'),
+            ('PhD', 'Доктор наук'),
+        ],
+        default='Среднее'
+    )
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    degree = models.CharField(max_length=100)
-    institution = models.CharField(max_length=100)
-    year = models.IntegerField(
+    place = models.CharField(max_length=100)
+    year = models.CharField(max_length=10,
         verbose_name='Год',
         validators=[
             MinValueValidator(1940),
@@ -114,5 +125,5 @@ class WorkExperience(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
     job_title = models.CharField(max_length=100)
     company = models.CharField(max_length=100)
-    start_date = models.DateField()
-    end_date = models.DateField()
+    start_date = models.CharField(max_length=10)
+    end_date = models.CharField(max_length=10)

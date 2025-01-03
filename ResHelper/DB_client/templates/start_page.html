@@ -22,11 +22,11 @@
 <!--                </li>-->
                 {% if request.user.is_authenticated %}
                 <li class="site-navigation-item">
-                    <a href="{% url 'create_resume' %}">Создание резюме</a>
+                    <a href="{% url 'create_resume' %}">Создать резюме</a>
                 </li>
-                <li class="site-navigation-item">
-                    <a href="{% url 'vacs_view' %}">Посмотреть вакансии</a>
-                </li>
+<!--                <li class="site-navigation-item">-->
+<!--                    <a href="{% url 'vacs_view' %}">Посмотреть вакансии</a>-->
+<!--                </li>-->
 				<li class="site-navigation-item">
                     <a href="{% url 'logout' %}">Выйти</a>
                 </li>

@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -168,14 +170,42 @@ def logout_user(request):
     return redirect('start_page')
 
 def create_resume(request):
+    res = Resume.objects.get(profile=request.user)
+    if not res:
+        Resume.objects.create(profile=request.user, created_at=datetime.datetime.now())
+    request_res = Resume.objects.get(profile=request.user)
     if request.method == 'POST':
-        form = UserInfoForm(request.POST, initial={'user_id': request.user.id})
-        if form.is_valid():
-            return redirect('start_page')
-    else:
-        form = UserInfoForm(initial={'user': 7})
+        images = request.FILES.getlist('ach_image')
+        for image in images:
+            Achievements.objects.create(ach_image=image, resume=request_res)
+        skills = request.POST.getlist('skill')
+        for skill in skills:
+            Skill.objects.create(skill_name=skill, resume=request_res)
+        edu_level = request.POST.get('level')
+        place = request.POST.get('education-place')
+        year = request.POST.get('education-date')
+        Education.objects.create(resume=request_res,
+                                 level=edu_level,
+                                 place=place,
+                                 year=year)
+        prof = request.POST.getlist('profession')
+        comp = request.POST.getlist('company')
+        start_date = request.POST.getlist('startdate')
+        end_date = request.POST.getlist('enddate')
 
-    return render(request, 'login.html', {'form': form})
+        print(request.POST)
+
+        for i in range(len(prof)):
+            WorkExperience.objects.create(resume=request_res,
+                                          job_title=prof[i],
+                                          company=comp[i],
+                                          start_date=start_date[i],
+                                          end_date=end_date[i])
+
+        return redirect('start_page')
+    else:
+        form = ResumeForm()
+    return render(request, 'make_resume.html', {'from': form})
 
 def vacs_view(request):
     vacancies = get_vacancies(5)
@@ -189,3 +219,10 @@ def contacts (request):
 
 def personal_cabinet (request):
     return render(request, 'personal_cabinet.html')
+
+# def upload_photos(request):
+#     if request.method == 'POST':
+#         formset = AchForm(request.POST, request.FILES)
+#         if formset.is_valid():
+#             for image in request.FILES.getlist('image'):
+#                 Achievements.objects.create(ach_img=image, )

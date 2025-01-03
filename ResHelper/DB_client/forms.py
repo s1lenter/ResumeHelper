@@ -83,3 +83,18 @@ class UserInfoForm(forms.Form):
             raise forms.ValidationError("Пользователь с указанным ID не найден." + str(user_id))
 
         return cleaned_data
+
+
+class ResumeForm(forms.ModelForm):
+    class Meta:
+        model = Achievements
+        fields = ['ach_image']
+    ach_image = forms.ImageField(required=False)
+
+
+# class AchForm(forms.ModelForm):
+#     class Meta:
+#         model = Achievements
+#         fields = ['ach_img']
+#
+#     image = forms.ImageField(widget=forms.ClearableFileInput(attrs={'multiple': True}))

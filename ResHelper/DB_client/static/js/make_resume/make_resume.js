@@ -15,50 +15,50 @@ function addField(type) {
         const newInput = document.createElement('input');
         newInput.className = 'main-input-field';
         newInput.type = 'file';
-        newInput.name = 'achievements';
+        newInput.name = 'ach_image';
         newFieldBlock.appendChild(newInput);
     } else if (type === 'abilities') {
         const newInput = document.createElement('input');
         newInput.className = 'main-input-field';
         newInput.type = 'text';
-        newInput.name = 'abilities';
+        newInput.name = 'skill';
         newInput.placeholder = 'Введите навык';
         newFieldBlock.appendChild(newInput);
     } else if (type === 'work-experience') {
         const newProfession = document.createElement('div');
         newProfession.className = 'main-field work-experience';
         newProfession.innerHTML = `
-            <form>
+            <div>
                 <label for="profession" class="main-field-header">Профессия</label>
                 <input type="text" class="main-input-field" name="profession" required>
-            </form>
+            </div>
         `;
         
         const newCompany = document.createElement('div');
         newCompany.className = 'main-field work-company';
         newCompany.innerHTML = `
-            <form>
+            <div>
                 <label for="company" class="main-field-header">Компания</label>
                 <input type="text" class="main-input-field" name="company" required>
-            </form>
+            </div>
         `;
         
         const newStartDate = document.createElement('div');
         newStartDate.className = 'main-field work-startdate';
         newStartDate.innerHTML = `
-            <form>
+            <div>
                 <label for="startdate" class="main-field-header">Дата начала работы</label>
                 <input type="date" class="main-input-field" name="startdate" required>
-            </form>
+            </div>
         `;
         
         const newEndDate = document.createElement('div');
         newEndDate.className = 'main-field work-enddate';
         newEndDate.innerHTML = `
-            <form>
+            <div>
                 <label for="enddate" class="main-field-header">Дата окончания работы</label>
                 <input type="date" class="main-input-field" name="enddate" required>
-            </form>
+            </div>
         `;
         
         newFieldBlock.appendChild(newProfession);

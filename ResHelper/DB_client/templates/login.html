@@ -15,7 +15,7 @@
             <a class="logo" href="{% url 'start_page' %}">
                 <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
             </a>
-            <a class="personal-cabinet-logo" href="{% url 'personal_cabinet' %}">
+            <a class="personal-cabinet-logo" href="{% url 'res_info' %}">
                 <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
             </a>
         </nav>
@@ -89,6 +89,46 @@
                         <div class="form-error">{{ form.errors }}</div>
                     {% endif %}
                 {% endfor %}
+
+<!--                <div class="main-field-info achievments">-->
+<!--            <p class="main-field-info-header achievments-header">-->
+<!--                Достижения и навыки-->
+<!--            </p>-->
+<!--            <div class="main-fields achievments">-->
+<!--                <div class="main-field achievments">-->
+<!--                    <form id="achievements-form">-->
+<!--                        <label for="achievments" class="main-field-header">Достижения</label>-->
+<!--                        <input-->
+<!--                            type="file"-->
+<!--                            id="achievments"-->
+<!--                            class="main-input-field"-->
+<!--                            name="achievments"-->
+<!--                            required>-->
+<!--                        <div class="make-resume-buttons">-->
+<!--                            <button type="button" class="add-button" onclick="addField('achievements')">Добавить</button>-->
+<!--                            <button type="button" class="delete-button" onclick="deleteField('achievements')" hidden>Удалить</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--                <div class="main-field abilities">-->
+<!--                    <form id="abilities-form">-->
+<!--                        <label for="abilities" class="main-field-header">Навыки</label>-->
+<!--                        <input-->
+<!--                            type="text"-->
+<!--                            id="abilities"-->
+<!--                            class="main-input-field"-->
+<!--                            name="abilities"-->
+<!--                            placeholder='Введите навык'-->
+<!--                            required>-->
+<!--                        <div class="make-resume-buttons">-->
+<!--                            <button type="button" class="add-button" onclick="addField('abilities')">Добавить</button>-->
+<!--                            <button type="button" class="delete-button" onclick="deleteField('abilities')" hidden>Удалить</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+            </div>
+        </div>
+
                 <button type="submit">Сохранить</button>
             </form>
 
