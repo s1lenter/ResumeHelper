@@ -53,16 +53,16 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('start_page')
 
-class CreateVacancy(ListView):
-    template_name = 'make_vacancy.html'
-    model = User
+# class CreateVacancy(ListView):
+#     template_name = 'make_vacancy.html'
+#     model = User
 
 class ResInfo(ListView):
     template_name = 'res_info.html'
     model = User
 
     def get_context_data(self, **kwargs):
-        user_res = Resume.objects.get(profile=self.request.user)
+        user_res = Resume.objects.filter(profile=self.request.user).last()  #пока что возвращается последнее созданное резюме
         print(Achievements.objects.filter(resume=user_res))
         context = super().get_context_data(**kwargs)
 
@@ -77,12 +77,26 @@ def logout_user(request):
     logout(request)
     return redirect('start_page')
 
-def create_resume(request):
-    res = Resume.objects.get(profile=request.user)
-    if not res:
-        Resume.objects.create(profile=request.user, created_at=datetime.datetime.now())
-    request_res = Resume.objects.get(profile=request.user)
+def create_vacancy(request):
     if request.method == 'POST':
+        Job.objects.create(employer_id=request.user,
+                           name=request.POST.get('name'),
+                           company_name=request.POST.get('company'),
+                           description=request.POST.get('vacancy-description'),
+                           requirements=request.POST.get('requirements'),
+                           conditions=request.POST.get('conditions'),
+                           location=request.POST.get('area'),
+                           job_type=request.POST.get('work_type'),
+                           experience_level=request.POST.get('work_experience'),
+                           created_at=datetime.datetime.now(),
+                           updated_at=datetime.datetime.now())
+        return redirect('start_page')
+    return render(request, 'make_vacancy.html')
+
+def create_resume(request):
+    if request.method == 'POST':
+        Resume.objects.create(profile=request.user, created_at=datetime.datetime.now())
+        request_res = Resume.objects.filter(profile=request.user).last()
         images = request.FILES.getlist('ach_image')
         for image in images:
             Achievements.objects.create(ach_image=image, resume=request_res)
@@ -100,8 +114,6 @@ def create_resume(request):
         comp = request.POST.getlist('company')
         start_date = request.POST.getlist('startdate')
         end_date = request.POST.getlist('enddate')
-
-        print(request.POST)
 
         for i in range(len(prof)):
             WorkExperience.objects.create(resume=request_res,

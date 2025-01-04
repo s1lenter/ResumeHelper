@@ -34,7 +34,8 @@ class Profile(models.Model):
 
 class Job(models.Model):
     employer_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    company_name = models.CharField(max_length=100)
     description = models.TextField()
     requirements = models.JSONField()
     conditions = models.TextField()
