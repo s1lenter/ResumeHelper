@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PersonalCabinet</title>
+    <link rel="stylesheet" href="../static/css/personal_cabinet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="personal-cabinet-header">
+        <nav class="personal-cabinet-nav">
+            <a class="logo" href="{% url 'start_page' %}">
+                <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+            <a class="personal-cabinet-logo" href="#">
+                <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
+            </a>
+        </nav>
+    </header>
+    <main class="personal-cabinet-main">
+        <div class="personal-cabinet-fields">
+            <div class="personal-cabinet-info">
+                <p class="personal-cabinet-info-header">Профиль</p>
+                <div class="personal-cabinet-info-window">
+                    <div class="personal-cabinet-info-data">
+                        <div class="info-name-surname">
+                            <p class="info-fname">Кирилл</p>
+                            <p class="info-lname">Лисов</p>
+                        </div>
+                        <button name="edit-info-data-button" type="button" class="edit-info-data-button">Редактировать</button>
+                    </div>
+                    <a class="info-image">
+                        <img src="../static/img/info-image.png" width="280" height="280" alt="Логотип персонального кабинета">
+                    </a>
+                </div>
+            </div>
+            <div class="field">
+                <p class="field header">Доп. информация</p>
+                <div class="field window">
+                    <div class="field-columns">
+                        <div class="field-column main">
+                            <p class="field-text">Пол</p>
+                            <p class="field-text">Возраст</p>
+                        </div>
+                        <div class="field-column">
+                            <p class="field-text">Мужской</p>
+                            <p class="field-text">19 лет</p>
+                        </div>
+                    </div>
+                    <div class="field-buttons">
+                        <button class="field-button sex" type="button">Изменить</button>
+                        <button class="field-button age" type="button">Изменить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <p class="field header">Личные данные</p>
+                <div class="field window">
+                    <div class="field-columns">
+                        <div class="field-column main">
+<!--                            <p class="field-text">Пароль</p>-->
+                            <p class="field-text">Email</p>
+                            <p class="field-text">Телефон</p>
+<!--                            <p class="field-text">Соц. сети</p>-->
+                        </div>
+                        <div class="field-column">
+<!--                            <p class="field-text">123456SK</p>-->
+                            <p class="field-text">majik951@mail.ru</p>
+                            <p class="field-text">+7 999 458 13 29</p>
+<!--                            <p class="field-text">https://id.vk.com/pwk73645</p>-->
+                        </div>
+                    </div>
+                    <div class="field-buttons">
+<!--                        <button class="field-button password" type="button">Изменить</button>-->
+                        <button class="field-button email" type="button">Изменить</button>
+                        <button class="field-button phone" type="button">Изменить</button>
+<!--                        <button class="field-button social-media" type="button">Изменить</button>-->
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <p class="field header">Языки</p>
+                <div class="field window">
+                    <div class="field-columns">
+                        <div class="field-column main">
+                            <p class="field-text">Родной</p>
+                            <p class="field-text">Дополнительно</p>
+                        </div>
+                        <div class="field-column">
+                            <p class="field-text">Русский</p>
+                            <p class="field-text">Английский</p>
+                        </div>
+                    </div>
+                    <div class="field-buttons">
+                        <button class="field-button main-language" type="button">Изменить</button>
+                        <button class="field-button extra-language" type="button">Изменить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

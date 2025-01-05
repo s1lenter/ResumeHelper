@@ -1,0 +1,179 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.create-resume-header {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.create-resume-nav {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-resume-main {
+    margin: 0;
+    padding: 0;
+    background-image: url("../../static/img/create_resume_bg.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 93.9vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-field-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-field-info-header {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.main-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 650px;
+}
+
+.main-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.main-field-header {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+.main-input-field, select {
+    width: 100%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: 0;
+    padding: 0 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: black;
+    box-sizing: border-box;
+}
+
+.personal-qualities textarea {
+    height: 100px;
+    resize: none;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+button[type="submit"] {
+    width: 150px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: grey;
+}
+
+.form-error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.field-separator {
+    margin: 20px 0;
+    border: 2px solid black;
+}
+
+.create-resume-footer {
+    background-color: black;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.make-resume-footer-nav {
+    display: flex;
+}
+
+.make-resume-footer-nav-elem {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    padding-left: 100px;
+}
+
+.make-resume-footer-nav-elem a {
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .main-field-info-header {
+        font-size: 36px;
+    }
+
+    .main-field-header {
+        font-size: 20px;
+    }
+
+    .main-input-field, select {
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+
+    .make-resume-footer-nav-elem {
+        font-size: 24px;
+        padding-left: 50px;
+    }
+}

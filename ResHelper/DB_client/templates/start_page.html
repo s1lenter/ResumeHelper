@@ -13,18 +13,31 @@
     <header class="page-header">
         <nav class="start-page-header-nav">
             <a class="logo">
-                <img src="/static/img/logo_start.png" width="86" height="86" alt="Логотип КодовоеУбежище">
+                <img src="/static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
             </a>
             <ul class="site-navigation">
+
+<!--                <li class="site-navigation-item">-->
+<!--                    <a href="{% url 'create_vacancy' %}">Создание вакансии</a>-->
+<!--                </li>-->
+                {% if request.user.is_authenticated %}
                 <li class="site-navigation-item">
-                    <a href="#">Создание резюме</a>
+                    <a href="{% url 'create_resume' %}">Создать резюме</a>
+                </li>
+<!--                <li class="site-navigation-item">-->
+<!--                    <a href="{% url 'vacs_view' %}">Посмотреть вакансии</a>-->
+<!--                </li>-->
+				<li class="site-navigation-item">
+                    <a href="{% url 'logout' %}">Выйти</a>
+                </li>
+                {% else %}
+                <li class="site-navigation-item">
+                    <a href="{% url 'register' %}">Регистрация</a>
                 </li>
                 <li class="site-navigation-item">
-                    <a href="#">Регистрация</a>
+                    <a href="{% url 'login' %}">Вход</a>
                 </li>
-                <li class="site-navigation-item">
-                    <a href="#">Вход</a>
-                </li>
+                {% endif %}
             </ul>
         </nav>
     </header>
@@ -34,7 +47,11 @@
             <a class="input-field-logo" href="#">
                 <img src="/static/img/input-field-logo.png" width="37" height="49" alt="Лупа">
             </a>
-            <p class="input-field-text">Профессия, должность или компания</p>
+            <form action="#" method="post" class="comment-form">
+                <div class="comment-inner">
+                  <input type="text" class="comment-field" placeholder="Профессия, должность или компания" required id="input-field-text-id">
+                </div>
+            </form>
         </div>
     </main>
     <footer class="start_page_footer">
@@ -44,10 +61,10 @@
                     <a href="#">Помощь</a>
                 </li>
                 <li class="footer-site-navigation-item">
-                    <a href="#">Контакты</a>
+                    <a href="{% url 'contacts' %}">Контакты</a>
                 </li>
                 <li class="footer-site-navigation-item">
-                    <a href="#">О нас</a>
+                    <a href="{% url 'about' %}">О нас</a>
                 </li>
             </ul>
             <a class="footer-item">

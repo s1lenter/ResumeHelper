@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.vacancies-header {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.vacancies-nav {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vacancies-main {
+    margin: 0;
+    padding: 30px 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.vacancies-shown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 850px;
+}
+
+.vacancies-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92px;
+    border-radius: 20px;
+    background-color: rgba(219, 219, 219, 1);
+}
+
+.vacancies-filter.for {
+    width: 350px;
+}
+
+.vacancies-filter.all {
+    width: 280px;
+}
+
+.vacancies-filter-text {
+    padding: 0;
+    margin: 0;
+    font-family: Inter;
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 48px;
+    color: black;
+}
+
+.vacancy {
+    padding: 25px;
+    width: 800px;
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.vacancy-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.vacancy-info-head {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.vacancy-info-salary {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    color: black;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.vacancy-info-company {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.vacancy-info-workplace {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.vacancy-apply-button {
+    margin: 0;
+    padding: 0;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    background: #00c4a9;
+    width: 200px;
+    height: 60px;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.vacancy-apply-button:hover {
+    background: rgba(0, 196, 169, 0.5);
+}
+
+.vacancy-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.vacancy-buttons button {
+    margin: 0;
+    padding: 0;
+    color: black;
+    border: none;
+    background: none;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.vacancy-buttons button:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.vacancies-footer {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.vacancies-footer-nav {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    gap: 50px;
+}
+
+.footer-site-navigation {
+    padding: 0;
+    padding-left: 60px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    gap: 75px;
+}
+
+.footer-site-navigation-item a {
+    text-decoration: none;
+    color: white;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38.73px;
+    text-align: left;
+}

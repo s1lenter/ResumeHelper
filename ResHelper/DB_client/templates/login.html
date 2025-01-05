@@ -1,21 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Войти</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MakeResume</title>
+    <link rel="stylesheet" href="../static/css/make_resume.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form method="POST" action="check/">
-        {% csrf_token %}
-        <p>
-            <label>Введите электронную почту</label><br>
-            <input type="text" name="email" />
-        </p>
-        <p>
-            <label>Введите пароль</label><br>
-            <input type="password" name="password_hash" />
-        </p>
-        <input type="submit" value="Войти" >
-    </form>
+    <header class="create-resume-header">
+        <nav class="create-resume-nav">
+            <a class="logo" href="{% url 'start_page' %}">
+                <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+            <a class="personal-cabinet-logo" href="{% url 'res_info' %}">
+                <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
+            </a>
+        </nav>
+    </header>
+    <main class="create-resume-main">
+        <div class="main-field-info personal-info">
+            <p class="main-field-info-header personal-info-header">
+                Личная информация
+            </p>
+            <form class="main-fields personal-info" method="post">
+                {% csrf_token %}
+                <div class="main-field fname">
+                    <label for="fname" class="main-field-header">Имя</label>
+                    <input
+                        type="text"
+                        id="fname"
+                        class="main-input-field"
+                        pattern="[A-Za-zА-Яа-яЁё]{2,}"
+                        name="first_name"
+                        required>
+                </div>
+                <div class="main-field lname">
+                    <label for="lname" class="main-field-header">Фамилия</label>
+                    <input
+                        type="text"
+                        id="lname"
+                        class="main-input-field"
+                        pattern="[A-Za-zА-Яа-яЁё]{1,}"
+                        name="last_name"
+                        required>
+                </div>
+                <div class="main-field sex">
+                    <label for="sex-choice" class="main-field-header">Ваш пол</label>
+                    <select id="sex-choice" name="gender">
+                        <option value="Other" disabled selected>Выберите из списка</option>
+                        <option value="Male">Мужской</option>
+                        <option value="Female">Женский</option>
+                    </select>
+                </div>
+                <div class="main-field age">
+                    <label for="age" class="main-field-header">Возраст</label>
+                    <input
+                        type="text"
+                        id="age"
+                        class="main-input-field"
+                        pattern="[0-9]{1,}"
+                        name="age"
+                        required>
+                </div>
+                <div class="main-field email">
+                    <label for="email" class="main-field-header">Электронная почта</label>
+                    <input
+                        type="email"
+                        id="email"
+                        class="main-input-field"
+                        name="email"
+                        required>
+                </div>
+                <div class="main-field phone">
+                    <label for="phone" class="main-field-header">Номер телефона</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        class="main-input-field"
+                        name="phone_number"
+                        placeholder="+7 (___) ___-__-__"
+                        required>
+                </div>
+                {% for f in form %}
+                    {% if f.errors %}
+                        <div class="form-error">{{ form.errors }}</div>
+                    {% endif %}
+                {% endfor %}
+
+<!--                <div class="main-field-info achievments">-->
+<!--            <p class="main-field-info-header achievments-header">-->
+<!--                Достижения и навыки-->
+<!--            </p>-->
+<!--            <div class="main-fields achievments">-->
+<!--                <div class="main-field achievments">-->
+<!--                    <form id="achievements-form">-->
+<!--                        <label for="achievments" class="main-field-header">Достижения</label>-->
+<!--                        <input-->
+<!--                            type="file"-->
+<!--                            id="achievments"-->
+<!--                            class="main-input-field"-->
+<!--                            name="achievments"-->
+<!--                            required>-->
+<!--                        <div class="make-resume-buttons">-->
+<!--                            <button type="button" class="add-button" onclick="addField('achievements')">Добавить</button>-->
+<!--                            <button type="button" class="delete-button" onclick="deleteField('achievements')" hidden>Удалить</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--                <div class="main-field abilities">-->
+<!--                    <form id="abilities-form">-->
+<!--                        <label for="abilities" class="main-field-header">Навыки</label>-->
+<!--                        <input-->
+<!--                            type="text"-->
+<!--                            id="abilities"-->
+<!--                            class="main-input-field"-->
+<!--                            name="abilities"-->
+<!--                            placeholder='Введите навык'-->
+<!--                            required>-->
+<!--                        <div class="make-resume-buttons">-->
+<!--                            <button type="button" class="add-button" onclick="addField('abilities')">Добавить</button>-->
+<!--                            <button type="button" class="delete-button" onclick="deleteField('abilities')" hidden>Удалить</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+            </div>
+        </div>
+
+                <button type="submit">Сохранить</button>
+            </form>
+
+        </div>
+    </main>
+    <script src="../static/js/make_resume/make_resume.js"></script>
 </body>
 </html>

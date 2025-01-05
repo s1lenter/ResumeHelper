@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MakeVacancy</title>
+    <link rel="stylesheet" href="../static/css/make_vacancy.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="create-vacancy-header">
+        <nav class="create-vacancy-nav">
+            <a class="logo" href="{% url 'start_page' %}">
+                <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+            <a class="personal-cabinet-logo" href="#">
+                <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
+            </a>
+        </nav>
+    </header>
+    <main class="create-vacancy-main">
+        <form method="post">
+            {% csrf_token %}
+            <div class="main-field-info make-vacancy">
+                <p class="main-field-info-header make-vacancy">
+                    Создание вакансии
+                </p>
+                <div class="main-fields make-vacancy">
+                    <div class="main-field employer">
+                        <label for="employer" class="main-field-header">Название вакансии</label>
+                        <input
+                            type="text"
+                            id="employer"
+                            class="main-input-field"
+                            name="name"
+                            required>
+                    </div>
+                    <div class="main-field company">
+                        <label for="company" class="main-field-header">Название фирмы/компании</label>
+                        <input
+                            type="text"
+                            id="company"
+                            class="main-input-field"
+                            name="company"
+                            required>
+                    </div>
+                    <div class="main-field vacancy-description">
+                        <label for="vacancy-description" class="main-field-header">Описание вакансии</label>
+                        <input
+                            type="text"
+                            id="vacancy-description"
+                            class="main-input-field"
+                            name="vacancy-description"
+                            required>
+                    </div>
+                    <div class="main-field requirements">
+                        <label for="requirements" class="main-field-header">Требования к вакансии</label>
+                        <input
+                            type="text"
+                            id="requirements"
+                            class="main-input-field"
+                            name="requirements"
+                            required>
+                    </div>
+                    <div class="main-field conditions">
+                        <label for="conditions" class="main-field-header">Условия</label>
+                        <input
+                            type="text"
+                            id="conditions"
+                            class="main-input-field"
+                            name="conditions"
+                            required>
+                    </div>
+                    <div class="main-field area">
+                        <label for="area" class="main-field-header">Местоположение</label>
+                        <input
+                            type="text"
+                            id="area"
+                            class="main-input-field"
+                            name="area"
+                            required>
+                    </div>
+                    <div class="main-field work-type">
+                        <div class="main-work-type-field">
+                            <label for="work-type" class="main-field-header">Тип работы</label>
+                            <select id="work-type" name="work_type">
+                                <option value="" disabled selected>Выберите из списка</option>
+                                <option value="on-site">Очный</option>
+                                <option value="online">Онлайн</option>
+                                <option value="both">Есть возможность работать как очно, так и онлайн</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="main-field work-experience">
+                        <div class="main-work-type-field">
+                            <label for="work-experience" class="main-field-header">Требуемый опыт работы</label>
+                            <select id="work-experience" name="work_experience">
+                                <option value="" disabled selected>Выберите из списка</option>
+                                <option value="zero">Без опыта</option>
+                                <option value="one-three">От 1 года до 3 лет</option>
+                                <option value="three-six">От 3 лет до 6 лет</option>
+                                <option value="more-than-six">Более 6 лет</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Сохранить</button>
+        </form>
+    </main>
+    <footer class="create-vacancy-footer">
+        <nav class="make-vacancy-footer-nav">
+            <p class="make-vacancy-footer-nav-elem">
+                <a href="#">Контакты</a>
+            </p>
+        </nav>
+    </footer>
+</body>
+</html>
