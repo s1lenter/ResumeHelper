@@ -15,231 +15,141 @@
             <a class="logo" href="{% url 'start_page' %}">
                 <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
             </a>
-            <a class="personal-cabinet-logo" href="#">
+            <a class="personal-cabinet-logo" href="{% url 'res_info' %}">
                 <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
             </a>
         </nav>
     </header>
     <main class="create-resume-main">
-        <div class="main-field-info personal-info">
-            <p class="main-field-info-header personal-info-header">
-                Личная информация
-            </p>
-            <div class="main-fields personal-info">
-                <div class="main-field fname">
-                    <form>
-                        <label for="fname" class="main-field-header">Имя</label>
-                        <input 
-                            type="text" 
-                            id="fname" 
-                            class="main-input-field" 
-                            pattern="[A-Za-zА-Яа-яЁё]{2,}" 
-                            name="first_name"
-                            required>
-                    </form>
-                </div>
-                <div class="main-field lname">
-                    <form>
-                        <label for="lname" class="main-field-header">Фамилия</label>
-                        <input 
-                            type="text" 
-                            id="lname" 
-                            class="main-input-field" 
-                            pattern="[A-Za-zА-Яа-яЁё]{1,}" 
-                            name="last_name"
-                            required>
-                    </form>
-                </div>
-                <div class="main-field sex">
-                    <form class="main-sex-field">
-                        <label for="sex-choice" class="main-field-header">Ваш пол</label>
-                        <select id="sex-choice" name="sex-choice">
-                            <option value="" disabled selected>Выберите из списка</option>
-                            <option value="male">Мужской</option>
-                            <option value="female">Женский</option>
-                        </select>
-                    </form>
-                </div>
-                <div class="main-field age">
-                    <form>
-                        <label for="age" class="main-field-header">Возраст</label>
-                        <input 
-                            type="text" 
-                            id="age" 
-                            class="main-input-field" 
-                            pattern="[0-9]{1,}" 
-                            name="age"
-                            required>
-                    </form>
-                </div>
-                <div class="main-field email">
-                    <form>
-                        <label for="email" class="main-field-header">Электронная почта</label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            class="main-input-field" 
-                            name="email"
-                            required>
-                    </form>
-                </div>
-                <div class="main-field phone">
-                    <form>
-                        <label for="phone" class="main-field-header">Номер телефона</label>
-                        <input 
-                            type="tel" 
-                            id="phone" 
-                            class="main-input-field" 
-                            name="phone" 
-                            placeholder="+7 (___) ___-__-__"
-                            pattern="^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$" 
-                            title="Введите номер в формате: +7 (123) 456-78-90" 
-                            required>
-                    </form>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="main-field-info achievments">
+                <p class="main-field-info-header achievments-header">
+                    Достижения и навыки
+                </p>
+                <div class="main-fields achievments">
+                    <div class="main-field achievments" id="achievements-form">
+                            <label for="achievments" class="main-field-header">Достижения</label>
+                            <input
+                                type="file"
+                                id="ach_image"
+                                class="main-input-field"
+                                name="ach_image"
+                                required>
+                            <div class="make-resume-buttons">
+                                <button type="button" class="add-button" onclick="addField('achievements')">Добавить</button>
+                                <button type="button" class="delete-button" onclick="deleteField('achievements')" hidden>Удалить</button>
+                            </div>
+                    </div>
+                    <div class="main-field abilities" id="abilities-form">
+                            <label for="abilities" class="main-field-header">Навыки</label>
+                            <input
+                                type="text"
+                                id="abilities"
+                                class="main-input-field"
+                                name="skill"
+                                placeholder='Введите навык'
+                                required>
+                            <div class="make-resume-buttons">
+                                <button type="button" class="add-button" onclick="addField('abilities')">Добавить</button>
+                                <button type="button" class="delete-button" onclick="deleteField('abilities')" hidden>Удалить</button>
+                            </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="main-field-info achievments">
-            <p class="main-field-info-header achievments-header">
-                Достижения и навыки
-            </p>
-            <div class="main-fields achievments">
-                <div class="main-field achievments">
-                    <form id="achievements-form">
-                        <label for="achievments" class="main-field-header">Достижения</label>
-                        <input 
-                            type="file" 
-                            id="achievments" 
-                            class="main-input-field" 
-                            name="achievments"
-                            required>
-                        <div class="make-resume-buttons">
-                            <button type="button" class="add-button" onclick="addField('achievements')">Добавить</button>
-                            <button type="button" class="delete-button" onclick="deleteField('achievements')" hidden>Удалить</button>
+            <div class="main-field-info education">
+                <p class="main-field-info-header personal-info-header">
+                    Образование
+                </p>
+                <div class="main-fields education">
+                    <div class="main-field education-degree">
+                        <div class="main-education-degree-field">
+                            <label for="education-degree" class="main-field-header">Уровень образования</label>
+                            <select id="education-degree" name="level">
+                                <option value="" disabled selected>Выберите из списка</option>
+                                <option value="secondary">Среднее</option>
+                                <option value="secondary-specialised">Среднее специальное</option>
+                                <option value="uncompleted-higher">Неоконченное высшее</option>
+                                <option value="higher">Высшее</option>
+                                <option value="bachelor">Бакалавр</option>
+                                <option value="master">Магистр</option>
+                                <option value="Ph">Кандидат наук</option>
+                                <option value="PhD">Доктор наук</option>
+                            </select>
                         </div>
-                    </form>
-                </div>
-                <div class="main-field abilities">
-                    <form id="abilities-form">
-                        <label for="abilities" class="main-field-header">Навыки</label>
-                        <input 
-                            type="text" 
-                            id="abilities" 
-                            class="main-input-field" 
-                            name="abilities"
-                            placeholder='Введите навык'
-                            required>
-                        <div class="make-resume-buttons">
-                            <button type="button" class="add-button" onclick="addField('abilities')">Добавить</button>
-                            <button type="button" class="delete-button" onclick="deleteField('abilities')" hidden>Удалить</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="main-field-info education">
-            <p class="main-field-info-header personal-info-header">
-                Образование
-            </p>
-            <div class="main-fields education">
-                <div class="main-field education-degree">
-                    <form class="main-education-degree-field">
-                        <label for="education-degree" class="main-field-header">Уровень образования</label>
-                        <select id="education-degree" name="education-degree">
-                            <option value="" disabled selected>Выберите из списка</option>
-                            <option value="secondary">Среднее</option>
-                            <option value="secondary-specialised">Среднее специальное</option>
-                            <option value="uncompleted-higher">Неоконченное высшее</option>
-                            <option value="higher">Высшее</option>
-                            <option value="bachelor">Бакалавр</option>
-                            <option value="master">Магистр</option>
-                            <option value="Ph">Кандидат наук</option>
-                            <option value="PhD">Доктор наук</option>
-                        </select>
-                    </form>
-                </div>
-                <div class="main-field education-place">
-                    <form>
-                        <label for="education-place" class="main-field-header">Учебное заведение</label>
-                        <input 
-                            type="text" 
-                            id="education-place" 
-                            class="main-input-field" 
-                            pattern="[A-Za-zА-Яа-яЁё]{1,}" 
-                            name="education-place"
-                            required>
-                    </form>
-                </div>
-                <div class="main-field education-date">
-                    <form>
-                        <label for="education-date" class="main-field-header">Дата окончания</label>
-                        <input 
-                            type="date"
-                            id="education-date" 
-                            class="main-input-field" 
-                            name="education-date"
-                            required>
-                    </form>
+                    </div>
+                    <div class="main-field education-place">
+                            <label for="education-place" class="main-field-header">Учебное заведение</label>
+                            <input
+                                type="text"
+                                id="education-place"
+                                class="main-input-field"
+                                pattern="[A-Za-zА-Яа-яЁё]{1,}"
+                                name="education-place"
+                                required>
+                    </div>
+                    <div class="main-field education-date">
+                            <label for="education-date" class="main-field-header">Дата окончания</label>
+                            <input
+                                type="date"
+                                id="education-date"
+                                class="main-input-field"
+                                name="education-date"
+                                required>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="main-field-info work-experience" id="work-experience-form">
-            <p class="main-field-info-header work-experience">
-                Опыт работы
-            </p>
-            <div class="main-fields work-experience">
-                <div class="main-field work-experience">
-                    <form>
-                        <label for="profession" class="main-field-header">Профессия</label>
-                        <input 
-                            type="text" 
-                            id="profession" 
-                            class="main-input-field" 
-                            name="profession"
-                            required>
-                    </form>
-                </div>
-                <div class="main-field work-company">
-                    <form>
-                        <label for="company" class="main-field-header">Компания</label>
-                        <input 
-                            type="text" 
-                            id="company" 
-                            class="main-input-field" 
-                            name="company"
-                            required>
-                    </form>
-                </div>
-                <div class="main-field work-startdate">
-                    <form>
-                        <label for="startdate" class="main-field-header">Дата начала работы</label>
-                        <input 
-                            type="date" 
-                            id="startdate" 
-                            class="main-input-field" 
-                            name="startdate"
-                            required>
-                    </form>
-                </div>
-                <div class="main-field work-enddate">
-                    <form>
-                        <label for="enddate" class="main-field-header">Дата окончания работы</label>
-                        <input 
-                            type="date" 
-                            id="enddate" 
-                            class="main-input-field" 
-                            name="enddate"
-                            required>
-                    </form>
-                    <div id="work-experience-form">
-                        <div class="make-resume-buttons">
-                            <button type="button" class="add-button" onclick="addField('work-experience')">Добавить</button>
-                            <button type="button" class="delete-button" onclick="deleteField('work-experience')" hidden>Удалить</button>
+            <div class="main-field-info work-experience" id="work-experience-form">
+                <p class="main-field-info-header work-experience">
+                    Опыт работы
+                </p>
+                <div class="main-fields work-experience">
+                    <div class="main-field work-experience">
+                            <label for="profession" class="main-field-header">Профессия</label>
+                            <input
+                                type="text"
+                                id="profession"
+                                class="main-input-field"
+                                name="profession"
+                                required>
+                    </div>
+                    <div class="main-field work-company">
+                            <label for="company" class="main-field-header">Компания</label>
+                            <input
+                                type="text"
+                                id="company"
+                                class="main-input-field"
+                                name="company"
+                                required>
+                    </div>
+                    <div class="main-field work-startdate">
+                            <label for="startdate" class="main-field-header">Дата начала работы</label>
+                            <input
+                                type="date"
+                                id="startdate"
+                                class="main-input-field"
+                                name="startdate"
+                                required>
+                    </div>
+                    <div class="main-field work-enddate">
+                            <label for="enddate" class="main-field-header">Дата окончания работы</label>
+                            <input
+                                type="date"
+                                id="enddate"
+                                class="main-input-field"
+                                name="enddate"
+                                required>
+                        <div id="work-experience-form">
+                            <div class="make-resume-buttons">
+                                <button type="button" class="add-button" onclick="addField('work-experience')">Добавить</button>
+                                <button type="button" class="delete-button" onclick="deleteField('work-experience')" hidden>Удалить</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <button type="submit">Сохранить</button>
+        </form>
     </main>
     <footer class="create-resume-footer">
         <nav class="make-resume-footer-nav">
