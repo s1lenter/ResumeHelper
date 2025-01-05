@@ -20,7 +20,7 @@ body {
     margin: 0;
     padding: 0;
     background-image: url("../../static/img/contacts_bg.png");
-    height: 657px;
+    min-height: 93.9vh;
     background-size: cover;
     display: flex;
     flex-direction: column;

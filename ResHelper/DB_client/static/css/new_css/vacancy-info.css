@@ -3,20 +3,20 @@ body {
     padding: 0;
 }
 
-.vacancies-header {
+.vacancy-info-header {
     margin: 0;
     padding: 0;
     background-color: black;
 }
 
-.vacancies-nav {
+.vacancy-info-nav {
     display: flex;
     height: 80px;
     justify-content: space-between;
     align-items: center;
 }
 
-.vacancies-main {
+.vacancy-info-main {
     margin: 0;
     padding: 30px 0;
     background-color: white;
@@ -24,40 +24,6 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-}
-
-.vacancies-shown {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 850px;
-}
-
-.vacancies-filter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 92px;
-    border-radius: 20px;
-    background-color: rgba(219, 219, 219, 1);
-}
-
-.vacancies-filter.for {
-    width: 350px;
-}
-
-.vacancies-filter.all {
-    width: 280px;
-}
-
-.vacancies-filter-text {
-    padding: 0;
-    margin: 0;
-    font-family: Inter;
-    font-size: 38px;
-    font-weight: 600;
-    line-height: 48px;
-    color: black;
 }
 
 .vacancy {
@@ -152,7 +118,39 @@ body {
     color: rgba(0, 0, 0, 0.5);
 }
 
-.vacancies-footer {
+.vacancy-about {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 850px;
+}
+
+.vacancy-about-header {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    color: black;
+}
+
+.vacancy-about-items {
+    margin: 0;
+    padding: 0;
+}
+
+.vacancy-about-item {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    color: black;
+}
+
+.vacancy-info-footer {
     margin: 0;
     padding: 0;
     background-color: black;
@@ -162,7 +160,7 @@ body {
     width: 100%;
 }
 
-.vacancies-footer-nav {
+.vacancy-info-footer-nav {
     display: flex;
     flex-direction: row;
     margin: 0;

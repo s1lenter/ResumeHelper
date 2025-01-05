@@ -15,7 +15,7 @@
             <a class="logo" href="{% url 'start_page' %}">
                 <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
             </a>
-            <a class="personal-cabinet-logo" href="{% url 'res_info' %}">
+            <a class="personal-cabinet-logo" href="{% url 'personal_cabinet' %}">
                 <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
             </a>
         </nav>
@@ -84,51 +84,42 @@
                         placeholder="+7 (___) ___-__-__"
                         required>
                 </div>
+                <div class="main-field work-experience">
+                    <label for="work-experience" class="main-field-header">Опыт работы</label>
+                    <select id="work-experience" name="work_experience">
+                        <option value="NoExperience">Нет опыта</option>
+                        <option value="1Year">1 год</option>
+                        <option value="1to3Years">1-3 года</option>
+                        <option value="3PlusYears">3+ года</option>
+                    </select>
+                </div>
+                <div class="main-field desired-salary">
+                    <label for="desired-salary" class="main-field-header">Желаемый оклад (в рублях)</label>
+                    <input
+                        type="number"
+                        id="desired-salary"
+                        min="0"
+                        step="1000"
+                        class="main-input-field"
+                        name="desired_salary"
+                        placeholder="100000"
+                        required>
+                </div>
+                <div class="main-field personal-qualities">
+                    <label for="personal-qualities" class="main-field-header">Личные качества</label>
+                    <textarea
+                        id="personal-qualities"
+                        class="main-input-field"
+                        name="personal_qualities"
+                        rows="4"
+                        maxlength="1000"
+                        required></textarea>
+                </div>
                 {% for f in form %}
                     {% if f.errors %}
                         <div class="form-error">{{ form.errors }}</div>
                     {% endif %}
                 {% endfor %}
-
-<!--                <div class="main-field-info achievments">-->
-<!--            <p class="main-field-info-header achievments-header">-->
-<!--                Достижения и навыки-->
-<!--            </p>-->
-<!--            <div class="main-fields achievments">-->
-<!--                <div class="main-field achievments">-->
-<!--                    <form id="achievements-form">-->
-<!--                        <label for="achievments" class="main-field-header">Достижения</label>-->
-<!--                        <input-->
-<!--                            type="file"-->
-<!--                            id="achievments"-->
-<!--                            class="main-input-field"-->
-<!--                            name="achievments"-->
-<!--                            required>-->
-<!--                        <div class="make-resume-buttons">-->
-<!--                            <button type="button" class="add-button" onclick="addField('achievements')">Добавить</button>-->
-<!--                            <button type="button" class="delete-button" onclick="deleteField('achievements')" hidden>Удалить</button>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--                <div class="main-field abilities">-->
-<!--                    <form id="abilities-form">-->
-<!--                        <label for="abilities" class="main-field-header">Навыки</label>-->
-<!--                        <input-->
-<!--                            type="text"-->
-<!--                            id="abilities"-->
-<!--                            class="main-input-field"-->
-<!--                            name="abilities"-->
-<!--                            placeholder='Введите навык'-->
-<!--                            required>-->
-<!--                        <div class="make-resume-buttons">-->
-<!--                            <button type="button" class="add-button" onclick="addField('abilities')">Добавить</button>-->
-<!--                            <button type="button" class="delete-button" onclick="deleteField('abilities')" hidden>Удалить</button>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                </div>-->
-            </div>
-        </div>
-
                 <button type="submit">Сохранить</button>
             </form>
 

@@ -21,94 +21,102 @@
         </nav>
     </header>
     <main class="create-vacancy-main">
-        <form method="post">
-            {% csrf_token %}
-            <div class="main-field-info make-vacancy">
-                <p class="main-field-info-header make-vacancy">
-                    Создание вакансии
-                </p>
-                <div class="main-fields make-vacancy">
-                    <div class="main-field employer">
-                        <label for="employer" class="main-field-header">Название вакансии</label>
-                        <input
-                            type="text"
-                            id="employer"
-                            class="main-input-field"
-                            name="name"
+        <div class="main-field-info make-vacancy">
+            <p class="main-field-info-header make-vacancy">
+                Создание вакансии
+            </p>
+            <div class="main-fields make-vacancy">
+                <div class="main-field employer">
+                    <form>
+                        <label for="employer" class="main-field-header">Работодатель</label>
+                        <input 
+                            type="text" 
+                            id="employer" 
+                            class="main-input-field" 
+                            name="employer"
                             required>
-                    </div>
-                    <div class="main-field company">
+                    </form>
+                </div>
+                <div class="main-field company">
+                    <form>
                         <label for="company" class="main-field-header">Название фирмы/компании</label>
-                        <input
-                            type="text"
-                            id="company"
-                            class="main-input-field"
+                        <input 
+                            type="text" 
+                            id="company" 
+                            class="main-input-field" 
                             name="company"
                             required>
-                    </div>
-                    <div class="main-field vacancy-description">
+                    </form>
+                </div>
+                <div class="main-field vacancy-description">
+                    <form>
                         <label for="vacancy-description" class="main-field-header">Описание вакансии</label>
-                        <input
-                            type="text"
-                            id="vacancy-description"
-                            class="main-input-field"
+                        <input 
+                            type="text" 
+                            id="vacancy-description" 
+                            class="main-input-field" 
                             name="vacancy-description"
                             required>
-                    </div>
-                    <div class="main-field requirements">
+                    </form>
+                </div>
+                <div class="main-field requirements">
+                    <form>
                         <label for="requirements" class="main-field-header">Требования к вакансии</label>
-                        <input
-                            type="text"
-                            id="requirements"
-                            class="main-input-field"
+                        <input 
+                            type="text" 
+                            id="requirements" 
+                            class="main-input-field" 
                             name="requirements"
                             required>
-                    </div>
-                    <div class="main-field conditions">
+                    </form>
+                </div>
+                <div class="main-field conditions">
+                    <form>
                         <label for="conditions" class="main-field-header">Условия</label>
-                        <input
-                            type="text"
-                            id="conditions"
-                            class="main-input-field"
+                        <input 
+                            type="text" 
+                            id="conditions" 
+                            class="main-input-field" 
                             name="conditions"
                             required>
-                    </div>
-                    <div class="main-field area">
+                    </form>
+                </div>
+                <div class="main-field area">
+                    <form>
                         <label for="area" class="main-field-header">Местоположение</label>
-                        <input
-                            type="text"
-                            id="area"
-                            class="main-input-field"
+                        <input 
+                            type="text" 
+                            id="area" 
+                            class="main-input-field" 
                             name="area"
                             required>
-                    </div>
-                    <div class="main-field work-type">
-                        <div class="main-work-type-field">
-                            <label for="work-type" class="main-field-header">Тип работы</label>
-                            <select id="work-type" name="work_type">
-                                <option value="" disabled selected>Выберите из списка</option>
-                                <option value="on-site">Очный</option>
-                                <option value="online">Онлайн</option>
-                                <option value="both">Есть возможность работать как очно, так и онлайн</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="main-field work-experience">
-                        <div class="main-work-type-field">
-                            <label for="work-experience" class="main-field-header">Требуемый опыт работы</label>
-                            <select id="work-experience" name="work_experience">
-                                <option value="" disabled selected>Выберите из списка</option>
-                                <option value="zero">Без опыта</option>
-                                <option value="one-three">От 1 года до 3 лет</option>
-                                <option value="three-six">От 3 лет до 6 лет</option>
-                                <option value="more-than-six">Более 6 лет</option>
-                            </select>
-                        </div>
-                    </div>
+                    </form>
+                </div>
+                <div class="main-field work-type">
+                    <form class="main-work-type-field">
+                        <label for="work-type" class="main-field-header">Тип работы</label>
+                        <select id="work-type" name="work-type">
+                            <option value="" disabled selected>Выберите из списка</option>
+                            <option value="on-site">Очный</option>
+                            <option value="online">Онлайн</option>
+                            <option value="both">Есть возможность работать как очно, так и онлайн</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="main-field work-experience">
+                    <form class="main-work-type-field">
+                        <label for="work-experience" class="main-field-header">Требуемый опыт работы</label>
+                        <select id="work-experience" name="work-experience">
+                            <option value="" disabled selected>Выберите из списка</option>
+                            <option value="zero">Без опыта</option>
+                            <option value="one-three">От 1 года до 3 лет</option>
+                            <option value="three-six">От 3 лет до 6 лет</option>
+                            <option value="more-than-six">Более 6 лет</option>
+                        </select>
+                    </form>
                 </div>
             </div>
-            <button type="submit">Сохранить</button>
-        </form>
+        </div>
     </main>
     <footer class="create-vacancy-footer">
         <nav class="make-vacancy-footer-nav">

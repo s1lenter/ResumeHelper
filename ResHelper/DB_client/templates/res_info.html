@@ -1,95 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MakeResume</title>
-    <link rel="stylesheet" href="../static/css/make_resume.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Your List Page</title>
 </head>
 <body>
-    <header class="create-resume-header">
-        <nav class="create-resume-nav">
-            <a class="logo" href="{% url 'start_page' %}">
-                <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
-            </a>
-            <a class="personal-cabinet-logo" href="{% url 'res_info' %}">
-                <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
-            </a>
-        </nav>
-    </header>
-    <main class="create-resume-main">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="main-field-info achievments">
-                <p class="main-field-info-header achievments-header">
-                    Достижения и навыки
-                </p>
-                <div class="main-fields achievments">
-                    <div class="main-field achievments" id="achievements-form">
-                            <label for="achievments" class="main-field-header">Достижения</label>
-                            <p><img src="../media/{{achievements.ach_image}}"></p>
-                    </div>
-                    <div class="main-field abilities" id="abilities-form">
-                            <label for="abilities" class="main-field-header">Навыки</label>
-                            <p>{{ skill.skill_name }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="main-field-info education">
-                <p class="main-field-info-header personal-info-header">
-                    Образование
-                </p>
-                <div class="main-fields education">
-                    <div class="main-field education-degree">
-                        <div class="main-education-degree-field">
-                            <label for="education-degree" class="main-field-header">Уровень образования</label>
-                            <p>{{ education.level }}</p>
-                        </div>
-                    </div>
-                    <div class="main-field education-place">
-                            <label for="education-place" class="main-field-header">Учебное заведение</label>
-                            <p>{{ education.place }}</p>
-                    </div>
-                    <div class="main-field education-date">
-                            <label for="education-date" class="main-field-header">Дата окончания</label>
-                            <p>{{ education.year }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="main-field-info work-experience" id="work-experience-form">
-                <p class="main-field-info-header work-experience">
-                    Опыт работы
-                </p>
-                <div class="main-fields work-experience">
-                    <div class="main-field work-experience">
-                            <label for="profession" class="main-field-header">Профессия</label>
-                            <p>{{ work_experience.job_title }}</p>
-                    </div>
-                    <div class="main-field work-company">
-                            <label for="company" class="main-field-header">Компания</label>
-                            <p>{{ work_experience.company }}</p>
-                    </div>
-                    <div class="main-field work-startdate">
-                            <label for="startdate" class="main-field-header">Дата начала работы</label>
-                            <p>{{ work_experience.start_date }}</p>
-                    </div>
-                    <div class="main-field work-enddate">
-                            <label for="enddate" class="main-field-header">Дата окончания работы</label>
-                            <p>{{ work_experience.end_date }}</p>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </main>
-    <footer class="create-resume-footer">
-        <nav class="make-resume-footer-nav">
-            <p class="make-resume-footer-nav-elem">
-                <a href="#">Контакты</a>
-            </p>
-        </nav>
-    </footer>
+    {% if profile %}
+        <ul>
+            <li>{{ profile.age }}</li>
+            <li>{{ profile.gender }}</li>
+            <li>{{ profile.phone_number }}</li>
+            <li>{{ user.first_name }}</li>
+            <li>{{ user.last_name }}</li>
+            <li>{{ user.email }}</li>
+        </ul>
+    {% else %}
+        <p>Нет данных для отображения.</p>
+    {% endif %}
+
 </body>
 </html>
