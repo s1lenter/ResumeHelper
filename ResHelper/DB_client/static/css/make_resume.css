@@ -1,5 +1,4 @@
 body {
-    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -19,24 +18,20 @@ body {
 
 .create-resume-main {
     margin: 0;
-    padding: 0;
+    padding: 30px 0;
     background-image: url("../../static/img/resume.png");
-    background-size: cover;
-    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 93.9vh;
-    position: relative;
-    overflow: hidden;
+    gap: 35px;
 }
 
 .main-field-info {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 0;
-    padding: 0;
 }
 
 .main-field-info-header {
@@ -52,52 +47,108 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 650px;
 }
 
 .main-field {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 650px;
     gap: 5px;
 }
 
 .main-field-header {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: Inter;
     font-size: 26px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 32px;
+    color: white;
 }
 
-.main-input-field, select {
+.main-input-field {
     width: 100%;
-    height: 40px;
+    height: 32px;
     background: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
-    border: 2px solid black;
+    border-style: solid;
+    border-color: black;
+
     margin: 0;
-    padding: 0 10px;
-    font-family: 'Inter', sans-serif;
+    padding: 0;
+    font-family: Inter;
     font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
     color: black;
-    box-sizing: border-box;
+
+    text-indent: 10px;
 }
 
-.personal-qualities textarea {
-    height: 100px;
-    resize: none;
+.main-sex-field {
+    display: flex;
+    flex-direction: column;
+}
+
+#sex-choice {
+    width: 100%;
+    height: 35.2px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black;
 }
 
 form {
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
+}
+
+.make-resume-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.add-button {
+    margin-top: 5px;
+    align-self: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    background: none;
+    border: none;
+    border-bottom: 2px dotted;
+}
+
+.add-button:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.delete-button {
+    margin-top: 5px;
+    align-self: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255, 0, 0, 1);
+    background: none;
+    border: none;
+    border-bottom: 2px dotted;
+}
+
+.delete-button:hover {
+    color: rgba(255, 0, 0, 0.5);
 }
 
 button[type="submit"] {
@@ -118,10 +169,27 @@ button[type="submit"]:hover {
     background-color: grey;
 }
 
-.form-error {
-    color: red;
-    margin-top: 10px;
-    font-size: 14px;
+.main-education-degree-field {
+    display: flex;
+    flex-direction: column;
+}
+
+#education-degree {
+    width: 100%;
+    height: 35.2px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black;
 }
 
 .field-separator {
@@ -143,7 +211,7 @@ button[type="submit"]:hover {
 
 .make-resume-footer-nav-elem {
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: Inter;
     font-size: 32px;
     font-weight: 400;
     line-height: 40px;
