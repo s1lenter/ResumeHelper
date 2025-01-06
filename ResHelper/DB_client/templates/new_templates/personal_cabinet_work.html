@@ -12,12 +12,22 @@
 <body>
     <header class="personal-cabinet-work-header">
         <nav class="personal-cabinet-work-nav">
-            <a class="logo" href="{% url 'start_page' %}">
-                <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
-            </a>
-            <a class="personal-cabinet-work-logo" href="#">
-                <img src="../../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
-            </a>
+            <div class="part-nav">
+                <a class="logo" href="{% url 'start_page' %}">
+                    <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+                </a>
+                <div class="nav-link">
+                    <a href="#">Смотреть отклики</a>
+                </div>
+            </div>
+            <div class="part-nav">
+                <div class="nav-link">
+                    <a href="#">Создать вакансию</a>
+                </div>
+                <a class="personal-cabinet-work-logo" href="#">
+                    <img src="../../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
+                </a>
+            </div>
         </nav>
     </header>
     <main class="personal-cabinet-work-main">

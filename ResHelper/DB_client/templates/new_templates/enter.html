@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="../../static/css/new_css/enter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="enter-header">
+        <nav class="enter-header-nav">
+            <a class="logo" href="{% url 'start_page' %}">
+                <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+        </nav>
+    </header>
+    <main class="enter-main">
+        <p class="enter-text-header">Вход</p>
+        <div class="enter-window">
+            <div class="enter-window-input">
+                <form method="post" class="enter-window-input">
+                    <div class="comment-inner">
+                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Логин" required id="login" name="login">
+                    </div>
+                    <div class="comment-inner">
+                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field last" placeholder="Пароль" required id="password" name="password">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="enter-footer">
+        <nav class="enter-footer-nav">
+            <ul class="footer-site-navigation">
+                <li class="footer-site-navigation-item">
+                    <a href="">Контакты</a>
+                </li>
+                <li class="footer-site-navigation-item">
+                    <a href="">О нас</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
