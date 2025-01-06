@@ -20,9 +20,8 @@ from django.conf import settings
 def main_view(request):
     return redirect(settings.DEFAULT_REDIRECT_URL)
 
-class StartPage(ListView):
-    model = User
-    template_name = 'start_page.html'
+def start_page(request):
+    return render(request, "new_templates/main_page.html")
 
 class RegisterUser(CreateView):
     form_class = RegisterUserForm

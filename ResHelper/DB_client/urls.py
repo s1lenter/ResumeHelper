@@ -4,7 +4,7 @@ from DB_client.views import *
 
 urlpatterns = [
     path("", main_view, name="home"), #перенаправление через settings
-    path("start_page/", StartPage.as_view(), name="start_page"),
+    path("start_page/", start_page, name="start_page"),
     path("register/", RegisterUser.as_view(), name="register"),
     path("login/", LoginUser.as_view(), name="login"),
     path("logout/", logout_user, name="logout"),
