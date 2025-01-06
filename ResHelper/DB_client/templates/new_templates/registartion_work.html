@@ -22,17 +22,12 @@
         <div class="registartion-window">
             <div class="registartion-window-input">
                 <form method="post" class="registartion-window-input">
+                    {% csrf_token %}
                     <div class="comment-inner">
                       <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Имя" required id="fname" name="first_name">
                     </div>
                     <div class="comment-inner">
                       <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Фамилия" required id="lname" name="last_name">
-                    </div>
-                    <div class="comment-inner">
-                        <input type="text" pattern="[A-Za-zА-Яа-яЁё]{1,}" class="comment-field" placeholder="Пол" required id="sex" name="sex">
-                    </div>
-                    <div class="comment-inner">
-                        <input type="text" pattern="[0-9]{1,}" class="comment-field" placeholder="Возраст" required id="age" name="age">
                     </div>
                     <div class="comment-inner">
                       <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="comment-field" placeholder="Электронная почта" required id="email" name="email">
@@ -43,6 +38,18 @@
                     <div class="comment-inner">
                       <input type="password" class="comment-field" placeholder="Подтверждение пароля" required id="password-confirm" name="password2">
                     </div>
+                    {% for f in form %}
+                        {% if f.errors %}
+                        <div class="form-error">{{ f.errors }}</div>
+                        {% endif %}
+                    {% endfor %}
+                    {% if messages %}
+                        <div class="alert alert-danger" role="alert">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                     <button type="submit" class="registartion-window-button">
                         Далее
                     </button>

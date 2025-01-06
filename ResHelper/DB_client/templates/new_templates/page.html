@@ -27,17 +27,17 @@
                             Чтобы воспользоваться сервисом,<br>
                             нужно зарегистрироваться
                         </p>
-                        <button type="submit" class="page-window-button registration">
+                        <a href="{% url 'register' %}" class="page-window-button registration">
                             Регистрация
-                        </button>
+                        </a>
                     </div>
                     <div class="page-window-info-part">
                         <p class="page-window-info-part__text">
                             Уже есть аккаунт?
                         </p> 
-                        <button type="submit" class="page-window-button">
+                        <a href="{% url 'login' %}" class="page-window-button">
                             Войти
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

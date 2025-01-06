@@ -12,9 +12,9 @@
 <body>
     <header class="main-page-header">
         <nav class="main-page-nav">
-            <a class="logo" href="{% url 'start_page' %}">
+            <div class="logo">
                 <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
-            </a>
+            </div>
         </nav>
     </header>
     <main class="main-page-main">
@@ -24,7 +24,7 @@
                 работы
             </p>
             <div class="main-block-button">
-                <a href="">Перейти</a>
+                <a href="{% url 'prelogin_page' %}">Перейти</a>
             </div>
         </div>
         <div class="main-block">
@@ -33,7 +33,7 @@
                 работников
             </p>
             <div class="main-block-button">
-                <a href="">Перейти</a>
+                <a href="{% url 'prelogin_page_work' %}">Перейти</a>
             </div>
         </div>
     </main>

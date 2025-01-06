@@ -12,9 +12,9 @@
 <body>
     <header class="enter-work-header">
         <nav class="enter-work-header-nav">
-            <a class="logo" href="{% url 'start_page' %}">
+            <div class="logo">
                 <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
-            </a>
+            </div>
         </nav>
     </header>
     <main class="enter-work-main">
@@ -22,12 +22,25 @@
         <div class="enter-work-window">
             <div class="enter-work-window-input">
                 <form method="post" class="enter-work-window-input">
+                    {% csrf_token %}
                     <div class="comment-inner">
-                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field" placeholder="Логин" required id="login" name="login">
+                      <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="comment-field" placeholder="Адрес электронной почты" required id="comment-input-email" name="username">
                     </div>
                     <div class="comment-inner">
-                      <input type="text" pattern="[A-Za-zА-Яа-яЁё]{2,}" class="comment-field last" placeholder="Пароль" required id="password" name="password">
+                      <input type="password" class="comment-field" placeholder="Пароль" required id="comment-input-password" name="password">
                     </div>
+                    {% if form.non_field_errors %}
+                    <div class="form-error">Неверная почта или пароль. Повторите ввод</div>
+                    {% endif %}
+
+                    {% for f in form %}
+                        {% if f.errors %}
+                            <div class="form-error">{{ form.errors }}</div>
+                        {% endif %}
+                    {% endfor %}
+                    <button type="submit">
+                        Войти
+                    </button>
                 </form>
             </div>
         </div>

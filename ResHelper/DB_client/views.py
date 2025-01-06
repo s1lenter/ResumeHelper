@@ -21,11 +21,24 @@ def main_view(request):
     return redirect(settings.DEFAULT_REDIRECT_URL)
 
 def start_page(request):
+    if request.user:
+        user_profile = Profile.objects.get(user=request.user)
+        if user_profile.role == 'Job_Seeker':
+            return redirect(personal_cabinet)
+        elif user_profile.role == 'Employer':
+            return redirect(personal_cabinet_work)
     return render(request, "new_templates/main_page.html")
+
+def prelogin_page(request):
+    print(request.user.id)
+    return render(request, "new_templates/page.html")
+
+def prelogin_page_work(request):
+    return render(request, "new_templates/work_page.html")
 
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
-    template_name = 'registration.html'
+    template_name = 'new_templates/registration.html'
     success_url = None
 
     def get_success_url(self):
@@ -36,7 +49,31 @@ class RegisterUser(CreateView):
 
         if form.is_valid():
             try:
-                form.save()
+                user = form.save()
+                Profile.objects.create(user=user, role='Job_Seeker')
+                return redirect(self.get_success_url())
+
+            except IntegrityError:
+                messages.error(request, 'Пользователь с такой почтой уже существует.')
+                return render(request, self.template_name, {'form': form})
+
+        return render(request, self.template_name, {'form': form})
+
+class RegisterUserWork(CreateView):
+    form_class = RegisterUserForm
+    template_name = 'new_templates/registartion_work.html'
+    success_url = None
+
+    def get_success_url(self):
+        return reverse_lazy('login')
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+
+        if form.is_valid():
+            try:
+                user = form.save()
+                Profile.objects.create(user=user, role='Employer')
                 return redirect(self.get_success_url())
 
             except IntegrityError:
@@ -47,14 +84,20 @@ class RegisterUser(CreateView):
 
 class LoginUser(LoginView):
     form_class = AuthenticationForm
-    template_name = 'login1.html'
+    template_name = 'new_templates/enter.html'
 
     def get_success_url(self):
-        return reverse_lazy('start_page')
+        return reverse_lazy('personal_cabinet.html')
 
-# class CreateVacancy(ListView):
-#     template_name = 'make_vacancy.html'
-#     model = User
+class LoginUserWork(LoginView):
+    form_class = AuthenticationForm
+    template_name = 'new_templates/enter_work.html'
+
+    def post(self, request, *args, **kwargs):
+        print(request)
+
+    def get_success_url(self):
+        return reverse_lazy('new_templates/personal_cabinet_work.html')
 
 class ResInfo(ListView):
     template_name = 'res_info.html'
@@ -138,4 +181,7 @@ def contacts (request):
 
 def personal_cabinet (request):
     return render(request, 'personal_cabinet.html')
+
+def personal_cabinet_work (request):
+    return render(request, 'new_templates/personal_cabinet_work.html')
 
