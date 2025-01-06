@@ -1,5 +1,5 @@
 function addField(type) {
-    const form = document.querySelector('.main-fields.personal-info');
+    const form = document.getElementById(`${type}-form`);
 
     const newFieldBlock = document.createElement('div');
     newFieldBlock.className = `main-fields ${type}`;
@@ -15,42 +15,50 @@ function addField(type) {
         const newInput = document.createElement('input');
         newInput.className = 'main-input-field';
         newInput.type = 'file';
-        newInput.name = 'achievements';
+        newInput.name = 'ach_image';
         newFieldBlock.appendChild(newInput);
     } else if (type === 'abilities') {
         const newInput = document.createElement('input');
         newInput.className = 'main-input-field';
         newInput.type = 'text';
-        newInput.name = 'abilities';
+        newInput.name = 'skill';
         newInput.placeholder = 'Введите навык';
         newFieldBlock.appendChild(newInput);
     } else if (type === 'work-experience') {
         const newProfession = document.createElement('div');
         newProfession.className = 'main-field work-experience';
         newProfession.innerHTML = `
-            <label for="profession" class="main-field-header">Профессия</label>
-            <input type="text" class="main-input-field" name="profession" required>
+            <div>
+                <label for="profession" class="main-field-header">Профессия</label>
+                <input type="text" class="main-input-field" name="profession" required>
+            </div>
         `;
 
         const newCompany = document.createElement('div');
         newCompany.className = 'main-field work-company';
         newCompany.innerHTML = `
-            <label for="company" class="main-field-header">Компания</label>
-            <input type="text" class="main-input-field" name="company" required>
+            <div>
+                <label for="company" class="main-field-header">Компания</label>
+                <input type="text" class="main-input-field" name="company" required>
+            </div>
         `;
 
         const newStartDate = document.createElement('div');
         newStartDate.className = 'main-field work-startdate';
         newStartDate.innerHTML = `
-            <label for="startdate" class="main-field-header">Дата начала работы</label>
-            <input type="date" class="main-input-field" name="startdate" required>
+            <div>
+                <label for="startdate" class="main-field-header">Дата начала работы</label>
+                <input type="date" class="main-input-field" name="startdate" required>
+            </div>
         `;
 
         const newEndDate = document.createElement('div');
         newEndDate.className = 'main-field work-enddate';
         newEndDate.innerHTML = `
-            <label for="enddate" class="main-field-header">Дата окончания работы</label>
-            <input type="date" class="main-input-field" name="enddate" required>
+            <div>
+                <label for="enddate" class="main-field-header">Дата окончания работы</label>
+                <input type="date" class="main-input-field" name="enddate" required>
+            </div>
         `;
 
         newFieldBlock.appendChild(newProfession);
@@ -69,8 +77,8 @@ function addField(type) {
     form.appendChild(deleteButton);
 }
 
-function deleteField() {
-    const form = document.querySelector('.main-fields.personal-info');
+function deleteField(type) {
+    const form = document.getElementById(`${type}-form`);
     const fields = form.querySelectorAll('.main-fields');
     const separators = form.querySelectorAll('.separator');
 
@@ -91,10 +99,11 @@ function deleteField() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const startDateInput = document.getElementById('startdate');
+    const endDateInput = document.getElementById('enddate');
+    const educationDate = document.getElementById('education-date');
     const today = new Date().toISOString().split('T')[0];
-    const startDateInputs = document.querySelectorAll('input[type="date"][name="startdate"]');
-    const endDateInputs = document.querySelectorAll('input[type="date"][name="enddate"]');
-
-    startDateInputs.forEach(input => input.setAttribute('max', today));
-    endDateInputs.forEach(input => input.setAttribute('max', today));
+    startDateInput.setAttribute('max', today);
+    endDateInput.setAttribute('max', today);
+    educationDate.setAttribute('max', today);
 });

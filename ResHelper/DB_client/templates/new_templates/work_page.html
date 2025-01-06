@@ -27,17 +27,17 @@
                             Чтобы воспользоваться сервисом,<br>
                             нужно зарегистрироваться
                         </p>
-                        <button type="submit" class="work-window-button registration">
+                        <a href="{% url 'register_work' %}" class="work-window-button registration">
                             Регистрация
-                        </button>
+                        </a>
                     </div>
                     <div class="work-window-info-part">
                         <p class="work-window-info-part__text">
                             Уже есть аккаунт?
                         </p> 
-                        <button type="submit" class="work-window-button">
+                        <a href="{% url 'login_work' %}" class="work-window-button">
                             Войти
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
