@@ -1,0 +1,190 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.resume-info-header {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.resume-info-nav {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.resume-info-main {
+    margin: 0;
+    padding: 30px 0;
+    background: url(../../img/work_page.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.resume {
+    padding: 25px;
+    width: 800px;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.resume-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.resume-info-head {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.resume-info-salary {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    color: black;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.resume-info-company {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.resume-info-workplace {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.resume-apply-button {
+    margin: 0;
+    padding: 0;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    background: #00c4a9;
+    width: 200px;
+    height: 60px;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.resume-apply-button:hover {
+    background: rgba(0, 196, 169, 0.5);
+}
+
+.resume-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.resume-buttons button {
+    margin: 0;
+    padding: 0;
+    color: black;
+    border: none;
+    background: none;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.resume-buttons button:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.resume-about {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 850px;
+}
+
+.resume-about-header {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    color: black;
+}
+
+.resume-about-items {
+    margin: 0;
+    padding: 0;
+}
+
+.resume-about-item {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    color: black;
+}
+
+.resume-info-footer {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.resume-info-footer-nav {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    gap: 50px;
+}
+
+.footer-site-navigation {
+    padding: 0;
+    padding-left: 60px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    gap: 75px;
+}
+
+.footer-site-navigation-item a {
+    text-decoration: none;
+    color: white;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38.73px;
+    text-align: left;
+}
