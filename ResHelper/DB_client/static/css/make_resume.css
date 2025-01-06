@@ -20,7 +20,7 @@ body {
 .create-resume-main {
     margin: 0;
     padding: 0;
-    background-image: url("../../static/img/create_resume_bg.png");
+    background-image: url("../../static/img/resume.png");
     background-size: cover;
     background-position: center;
     display: flex;
