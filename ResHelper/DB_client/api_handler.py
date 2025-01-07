@@ -31,4 +31,3 @@ def get_vacancies(count=10, name_filter=''):
                 info_list[key] = item[key]
         result[item['id']] = info_list
     return result
-print(get_vacancies().items())

@@ -39,6 +39,8 @@ class Job(models.Model):
     description = models.TextField()
     requirements = models.JSONField()
     conditions = models.TextField()
+    salary_from = models.DecimalField(max_digits=8, decimal_places=0, null=True)
+    salary_to = models.DecimalField(max_digits=8, decimal_places=0, null=True)
     location = models.CharField(max_length=100)
     job_type = models.CharField(
         max_length=10,
@@ -128,3 +130,16 @@ class WorkExperience(models.Model):
     company = models.CharField(max_length=100)
     start_date = models.CharField(max_length=10)
     end_date = models.CharField(max_length=10)
+
+class AdditionalInfo(models.Model):
+    desired_salary = models.DecimalField(max_digits=8, decimal_places=0, null=True)
+    personal_qualities = models.TextField()
+    experience_level = models.CharField(
+        max_length=20,
+        choices=[
+            ('no_expirience', 'Без опыта'),
+            ('1_between_3', 'От 1 года до 3 лет'),
+            ('3_between_6', 'От 3 до 6 лет'),
+            ('more_than_6', 'От 3 до 6 лет'),
+        ]
+    )
