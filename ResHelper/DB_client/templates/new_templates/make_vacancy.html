@@ -22,14 +22,15 @@
         <div class="make-vacancy-window">
             <div class="make-vacancy-window-input">
                 <form method="post" class="make-vacancy-window-input">
+                    {% csrf_token %}
                     <div class="comment-inner">
-                      <input type="text" class="comment-field" placeholder="Работодатель" required id="employer" name="employer">
+                      <input type="text" class="comment-field" placeholder="Работодатель" required id="employer" name="name">
                     </div>
                     <div class="comment-inner">
-                      <input type="text" class="comment-field" placeholder="Название" required id="name" name="name">
+                      <input type="text" class="comment-field" placeholder="Название" required id="name" name="company">
                     </div>
                     <div class="comment-inner">
-                        <input type="text" class="comment-field" placeholder="Описание" required id="description" name="description">
+                        <input type="text" class="comment-field" placeholder="Описание" required id="description" name="vacancy-description">
                     </div>
                     <div class="comment-inner">
                         <input type="text" class="comment-field" placeholder="Требования" required id="requirements" name="requirements">
@@ -38,7 +39,7 @@
                       <input type="text" class="comment-field" placeholder="Условия" required id="conditions" name="conditions">
                     </div>
                     <div class="comment-inner">
-                      <input type="password" class="comment-field" placeholder="Местоположение" required id="location" name="location">
+                      <input type="text" class="comment-field" placeholder="Местоположение" required id="location" name="area">
                     </div>
                     <div class="main-field work-type">
                         <div class="main-work-type-field">

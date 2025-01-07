@@ -133,7 +133,10 @@ def create_vacancy(request):
                            created_at=datetime.datetime.now(),
                            updated_at=datetime.datetime.now())
         return redirect('start_page')
-    return render(request, 'make_vacancy.html')
+    user_role = Profile.objects.filter(user=request.user)[0].role
+    if user_role == 'Job_Seeker':
+        return render(request, 'new_templates/403-page.html')
+    return render(request, 'new_templates/make_vacancy.html')
 
 def create_resume(request):
     if request.method == 'POST':
@@ -163,15 +166,19 @@ def create_resume(request):
                                           company=comp[i],
                                           start_date=start_date[i],
                                           end_date=end_date[i])
-
         return redirect('start_page')
-    else:
-        form = ResumeForm()
-    return render(request, 'make_resume.html', {'from': form})
+    user_role = Profile.objects.filter(user=request.user)[0].role
+    if user_role == 'Employer':
+        return render(request, 'new_templates/403-page.html')
+    return render(request, 'make_resume.html')
 
-def vacs_view(request):
-    vacancies = get_vacancies(5)
-    return render(request, 'vacancies.html', {'vacs': vacancies.items()})
+# def vacs_view(request):
+#     vacancies = get_vacancies(5)
+#     return render(request, 'vacancies.html', {'vacs': vacancies.items()})
+
+def vacancies(request):
+    vacs = Job.objects.all()
+    return render(request, 'new_templates/vacancies.html', {'vacs': vacs})
 
 def about (request):
     return render(request, 'about.html')
