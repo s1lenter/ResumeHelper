@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const logo = document.querySelector('.personal-cabinet-work-logo').querySelector('img');
+    const logo = document.querySelector('.personal-cabinet-logo').querySelector('img');
     const imageLink = document.querySelector('.info-image');
     const imageElement = imageLink.querySelector('img');
     const fileInput = document.querySelector('.upload-image-input');
@@ -84,23 +84,31 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const persInfoRadio = document.getElementById('pers-info');
     const vacanciesInfoRadio = document.getElementById('vacancies-info');
+    const otklikInfoRadio = document.getElementById('otklik-info');
     const fieldsToChange = document.querySelector('.fields__toChange');
 
     const savedData = {
         password: '123456SK',
         email: 'namefamily@gmail.com',
         phone: '+7 903 565 44 76',
-        job: '...',
-        comment: '...',
-        specialOne: '...',
-        specialTwo: '...'
+        socNetwork: 'https://id.vk.com/account/',
+        sex: 'Мужской',
+        age: '20 лет',
+        main: 'Русский',
+        extra: 'Английский'
     };
 
     function updateFieldsContent() {
-        if (vacanciesInfoRadio.checked) {
+        if (otklikInfoRadio.checked) {
+            fieldsToChange.innerHTML = `
+            <div class="field">
+                <p class="field header">Ваши отклики</p>
+            </div>
+        `;
+        } else if (vacanciesInfoRadio.checked) {
             fieldsToChange.innerHTML = `
                 <div class="field">
-                    <p class="field header">Мои вакансии</p>
+                    <p class="field header">Ваши резюме</p>
                 </div>
             `;
         } else if (persInfoRadio.checked) {
@@ -110,17 +118,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="field window">
                         <div class="field-columns">
                             <div class="field-column main">
-                                <p class="field-text">Должность</p>
-                                <p class="field-text">Комментарий</p>
+                                <p class="field-text">Пол</p>
+                                <p class="field-text">Возраст</p>
                             </div>
                             <div class="field-column">
-                                <p class="field-text job">${savedData.job}</p>
-                                <p class="field-text comment">${savedData.comment}</p>
+                                <p class="field-text sex">${savedData.sex}</p>
+                                <p class="field-text age">${savedData.age}</p>
                             </div>
                         </div>
                         <div class="field-buttons">
-                            <button class="field-button job" type="button">Изменить</button>
-                            <button class="field-button comment" type="button">Изменить</button>
+                            <button class="field-button sex" type="button">Изменить</button>
+                            <button class="field-button age" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>
@@ -132,36 +140,39 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <p class="field-text">Пароль</p>
                                 <p class="field-text">Email</p>
                                 <p class="field-text">Телефон</p>
+                                <p class="field-text">Социальные сети</p>
                             </div>
                             <div class="field-column">
                                 <p class="field-text password">${savedData.password}</p>
                                 <p class="field-text email">${savedData.email}</p>
                                 <p class="field-text phone">${savedData.phone}</p>
+                                <p class="field-text phone">${savedData.socNetwork}</p>
                             </div>
                         </div>
                         <div class="field-buttons">
                             <button class="field-button password" type="button">Изменить</button>
                             <button class="field-button email" type="button">Изменить</button>
                             <button class="field-button phone" type="button">Изменить</button>
+                            <button class="field-button soc-network" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>
                 <div class="field">
-                    <p class="field header">Спецпризнаки</p>
+                    <p class="field header">Языки</p>
                     <div class="field window">
                         <div class="field-columns">
                             <div class="field-column main">
-                                <p class="field-text">Спецпризнак 1</p>
-                                <p class="field-text">Спецпризнак 2</p>
+                                <p class="field-text">Родной</p>
+                                <p class="field-text">Дополнительно</p>
                             </div>
                             <div class="field-column">
-                                <p class="field-text special-one">${savedData.specialOne}</p>
-                                <p class="field-text special-two">${savedData.specialTwo}</p>
+                                <p class="field-text main">${savedData.main}</p>
+                                <p class="field-text extra">${savedData.extra}</p>
                             </div>
                         </div>
                         <div class="field-buttons">
-                            <button class="field-button special-one" type="button">Изменить</button>
-                            <button class="field-button special-two" type="button">Изменить</button>
+                            <button class="field-button main" type="button">Изменить</button>
+                            <button class="field-button extra" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>
@@ -169,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addEditListeners();
         }
     }
-
+    
     function addEditListeners() {
         document.querySelectorAll('.field-button').forEach(button => {
             button.addEventListener('click', () => {
@@ -202,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     persInfoRadio.addEventListener('change', updateFieldsContent);
     vacanciesInfoRadio.addEventListener('change', updateFieldsContent);
+    otklikInfoRadio.addEventListener('change', updateFieldsContent);
 
     updateFieldsContent();
 });

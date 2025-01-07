@@ -28,7 +28,7 @@ body {
 
 .resume {
     padding: 25px;
-    width: 800px;
+    width: 860px;
     background-color: rgba(0, 0, 0, 0.3);
 
     display: flex;
@@ -117,6 +117,12 @@ body {
 
 .resume-buttons button:hover {
     color: rgba(0, 0, 0, 0.5);
+}
+
+.resume-block {
+    background-color: rgba(108, 108, 108, 0.4);
+    border-radius: 20px;
+    padding: 30px;
 }
 
 .resume-about {

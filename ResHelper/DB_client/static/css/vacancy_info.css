@@ -19,7 +19,8 @@ body {
 .vacancy-info-main {
     margin: 0;
     padding: 30px 0;
-    background-color: white;
+    background: url(../img/page.png);
+    background-size: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
