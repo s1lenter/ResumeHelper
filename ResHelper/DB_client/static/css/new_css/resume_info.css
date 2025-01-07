@@ -3,45 +3,46 @@ body {
     padding: 0;
 }
 
-.vacancy-info-header {
+.resume-info-header {
     margin: 0;
     padding: 0;
     background-color: black;
 }
 
-.vacancy-info-nav {
+.resume-info-nav {
     display: flex;
     height: 80px;
     justify-content: space-between;
     align-items: center;
 }
 
-.vacancy-info-main {
+.resume-info-main {
     margin: 0;
     padding: 30px 0;
-    background-color: white;
+    background: url(../../img/work_page.png);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
 }
 
-.vacancy {
+.resume {
     padding: 25px;
-    width: 800px;
-    background-color: #e6e6e6;
+    width: 860px;
+    background-color: rgba(0, 0, 0, 0.3);
+
     display: flex;
     justify-content: space-between;
     border-radius: 20px;
 }
 
-.vacancy-info {
+.resume-info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
 }
 
-.vacancy-info-head {
+.resume-info-head {
     margin: 0;
     padding: 0;
     color: black;
@@ -50,7 +51,7 @@ body {
     font-weight: 600;
 }
 
-.vacancy-info-salary {
+.resume-info-salary {
     margin: 0;
     padding: 0;
     font-family: Inter;
@@ -59,7 +60,7 @@ body {
     font-weight: 400;
 }
 
-.vacancy-info-company {
+.resume-info-company {
     margin: 0;
     padding: 0;
     color: black;
@@ -68,7 +69,7 @@ body {
     font-weight: 500;
 }
 
-.vacancy-info-workplace {
+.resume-info-workplace {
     margin: 0;
     padding: 0;
     color: black;
@@ -77,7 +78,7 @@ body {
     font-weight: 400;
 }
 
-.vacancy-apply-button {
+.resume-apply-button {
     margin: 0;
     padding: 0;
     color: white;
@@ -92,18 +93,18 @@ body {
     font-weight: 600;
 }
 
-.vacancy-apply-button:hover {
+.resume-apply-button:hover {
     background: rgba(0, 196, 169, 0.5);
 }
 
-.vacancy-buttons {
+.resume-buttons {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 15px;
 }
 
-.vacancy-buttons button {
+.resume-buttons button {
     margin: 0;
     padding: 0;
     color: black;
@@ -114,18 +115,24 @@ body {
     font-weight: 600;
 }
 
-.vacancy-buttons button:hover {
+.resume-buttons button:hover {
     color: rgba(0, 0, 0, 0.5);
 }
 
-.vacancy-about {
+.resume-block {
+    background-color: rgba(108, 108, 108, 0.4);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.resume-about {
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 850px;
 }
 
-.vacancy-about-header {
+.resume-about-header {
     margin: 0;
     padding: 0;
     font-family: Inter;
@@ -135,12 +142,12 @@ body {
     color: black;
 }
 
-.vacancy-about-items {
+.resume-about-items {
     margin: 0;
     padding: 0;
 }
 
-.vacancy-about-item {
+.resume-about-item {
     margin: 0;
     padding: 0;
     font-family: Inter;
@@ -150,7 +157,7 @@ body {
     color: black;
 }
 
-.vacancy-info-footer {
+.resume-info-footer {
     margin: 0;
     padding: 0;
     background-color: black;
@@ -160,7 +167,7 @@ body {
     width: 100%;
 }
 
-.vacancy-info-footer-nav {
+.resume-info-footer-nav {
     display: flex;
     flex-direction: row;
     margin: 0;

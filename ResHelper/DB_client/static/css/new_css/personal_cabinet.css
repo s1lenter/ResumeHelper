@@ -3,13 +3,13 @@ body {
     padding: 0;
 }
 
-.personal-cabinet-work-header {
+.personal-cabinet-header {
     margin: 0;
     padding: 0;
     background-color: black;
 }
 
-.personal-cabinet-work-nav {
+.personal-cabinet-nav {
     display: flex;
     height: 80px;
     justify-content: space-between;
@@ -49,10 +49,10 @@ body {
     text-decoration: none;
 }
 
-.personal-cabinet-work-main {
+.personal-cabinet-main {
     margin: 0;
     padding: 0;
-    background-image: url("../../img/personal_cabinet_bg.png");
+    background-image: url("../../img/page.png");
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -62,21 +62,21 @@ body {
     transition: background-size 0.3s ease;
 }
 
-.personal-cabinet-work-fields {
+.personal-cabinet-fields {
     display: flex;
     flex-direction: column;
     gap: 35px;
     margin-bottom: 35px;
 }
 
-.personal-cabinet-work-info {
+.personal-cabinet-info {
     display: flex;
     margin-top: 30px;
     flex-direction: column;
     gap: 5px;
 }
 
-.personal-cabinet-work-info-header {
+.personal-cabinet-info-header {
     margin: 0;
     padding: 0;
     font-family: Inter;
@@ -87,7 +87,7 @@ body {
     color: white;
 }
 
-.personal-cabinet-work-info-window {
+.personal-cabinet-info-window {
     width: 850px;
     padding: 30px;
     padding-bottom: 15px;
@@ -99,7 +99,7 @@ body {
     justify-content: space-between;
 }
 
-.personal-cabinet-work-info-data {
+.personal-cabinet-info-data {
     display: flex;
     flex-direction: column;
     gap: 80px;
@@ -126,7 +126,7 @@ body {
 }
 
 .edit-info-data-button {
-    background: rgba(217, 217, 217, 1);
+    background: rgba(180, 180, 180, 1);
     width: 175px;
     height: 45px;
     border-radius: 10px;
@@ -141,7 +141,7 @@ body {
 }
 
 .edit-info-data-button:hover {
-    background: rgba(217, 217, 217, 0.5);
+    background: rgba(180, 180, 180, 0.5);
 }
 
 .info-image {

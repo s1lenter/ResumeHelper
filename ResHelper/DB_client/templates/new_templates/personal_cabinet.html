@@ -3,15 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PersonalCabinetWork</title>
-    <link rel="stylesheet" href="../../static/css/new_css/personal_cabinet_work.css">
+    <title>PersonalCabinet</title>
+    <link rel="stylesheet" href="../../static/css/new_css/personal_cabinet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="personal-cabinet-work-header">
-        <nav class="personal-cabinet-work-nav">
+    <header class="personal-cabinet-header">
+        <nav class="personal-cabinet-nav">
             <div class="part-nav">
                 <a class="logo" href="{% url 'start_page' %}">
                     <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
@@ -24,23 +24,25 @@
                 <div class="nav-link">
                     <a href="#">Создать вакансию</a>
                 </div>
-                <a class="personal-cabinet-work-logo" href="#">
+                <a class="personal-cabinet-logo" href="#">
                     <img src="../../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
                 </a>
             </div>
         </nav>
     </header>
-    <main class="personal-cabinet-work-main">
-        <div class="personal-cabinet-work-fields">
-            <div class="personal-cabinet-work-info">
+    <main class="personal-cabinet-main">
+        <div class="personal-cabinet-fields">
+            <div class="personal-cabinet-info">
                 <div class="radioButtons">
                     <label for="pers-info" class="label-text pers">Личная информация</label>
                     <input type="radio" id="pers-info" name="info-button" checked>
-                    <label for="vacancies-info" class="label-text vacancies">Мои вакансии</label>
+                    <label for="vacancies-info" class="label-text vacancies">Мои резюме</label>
                     <input type="radio" id="vacancies-info" name="info-button">
+                    <label for="otklik-info" class="label-text otklik">Мои отклики</label>
+                    <input type="radio" id="otklik-info" name="info-button">
                 </div>
-                <div class="personal-cabinet-work-info-window">
-                    <div class="personal-cabinet-work-info-data">
+                <div class="personal-cabinet-info-window">
+                    <div class="personal-cabinet-info-data">
                         <div class="info-name-surname">
                             <p class="info-fname">Имя</p>
                             <p class="info-lname">Фамилия</p>
@@ -59,17 +61,17 @@
                     <div class="field window">
                         <div class="field-columns">
                             <div class="field-column main">
-                                <p class="field-text">Должность</p>
-                                <p class="field-text">Комментарий</p>
+                                <p class="field-text">Пол</p>
+                                <p class="field-text">Возраст</p>
                             </div>
                             <div class="field-column">
-                                <p class="field-text job">...</p>
-                                <p class="field-text comment">...</p>
+                                <p class="field-text sex">Мужской</p>
+                                <p class="field-text age">20 лет</p>
                             </div>
                         </div>
                         <div class="field-buttons">
-                            <button class="field-button job" type="button">Изменить</button>
-                            <button class="field-button comment" type="button">Изменить</button>
+                            <button class="field-button sex" type="button">Изменить</button>
+                            <button class="field-button age" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>
@@ -81,42 +83,45 @@
                                 <p class="field-text">Пароль</p>
                                 <p class="field-text">Email</p>
                                 <p class="field-text">Телефон</p>
+                                <p class="field-text">Социальные сети</p>
                             </div>
                             <div class="field-column">
                                 <p class="field-text  password">123456SK</p>
                                 <p class="field-text  email">namefamily@gmail.com</p>
                                 <p class="field-text  phone">+7 903 565 44 76</p>
+                                <p class="field-text  soc-network">https://id.vk.com/account/</p>
                             </div>
                         </div>
                         <div class="field-buttons">
                             <button class="field-button password" type="button">Изменить</button>
                             <button class="field-button email" type="button">Изменить</button>
                             <button class="field-button phone" type="button">Изменить</button>
+                            <button class="field-button soc-network" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>
                 <div class="field">
-                    <p class="field header">Спецпризнаки</p>
+                    <p class="field header">Языки</p>
                     <div class="field window">
                         <div class="field-columns">
                             <div class="field-column main">
-                                <p class="field-text">Спецпризнак 1</p>
-                                <p class="field-text">Спецпризнак 2</p>
+                                <p class="field-text">Родной</p>
+                                <p class="field-text">Дополнительно</p>
                             </div>
                             <div class="field-column">
-                                <p class="field-text special-one">...</p>
-                                <p class="field-text special-two">...</p>
+                                <p class="field-text main">Русский</p>
+                                <p class="field-text extra">Английский</p>
                             </div>
                         </div>
                         <div class="field-buttons">
-                            <button class="field-button special-one" type="button">Изменить</button>
-                            <button class="field-button special-two" type="button">Изменить</button>
+                            <button class="field-button main" type="button">Изменить</button>
+                            <button class="field-button extra" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <script src="../../static/js/personal_cabinet_work.js"></script>
+    <script src="../../static/js/personal_cabinet.js"></script>
 </body>
 </html>
