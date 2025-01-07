@@ -126,6 +126,8 @@ def create_vacancy(request):
                            company_name=request.POST.get('company'),
                            description=request.POST.get('vacancy-description'),
                            requirements=request.POST.get('requirements'),
+                           salary_from=request.POST.get('salary_from'),
+                           salary_to=request.POST.get('salary_to'),
                            conditions=request.POST.get('conditions'),
                            location=request.POST.get('area'),
                            job_type=request.POST.get('work_type'),
@@ -134,8 +136,8 @@ def create_vacancy(request):
                            updated_at=datetime.datetime.now())
         return redirect('start_page')
     user_role = Profile.objects.filter(user=request.user)[0].role
-    if user_role == 'Job_Seeker':
-        return render(request, 'new_templates/403-page.html')
+    # if user_role == 'Job_Seeker':
+    #     return render(request, 'new_templates/403-page.html')
     return render(request, 'new_templates/make_vacancy.html')
 
 def create_resume(request):
@@ -177,7 +179,16 @@ def create_resume(request):
 #     return render(request, 'vacancies.html', {'vacs': vacancies.items()})
 
 def vacancies(request):
-    vacs = Job.objects.all()
+    vacs = Job.objects.all().values()
+    for vac in vacs:
+        if vac['salary_from'] is not None and vac['salary_to'] is not None:
+            vac['salary_info'] = f'От {vac["salary_from"]} до {vac["salary_to"]} рублей'
+        elif vac['salary_from'] is None and vac['salary_to'] is not None:
+            vac['salary_info'] = f'До {vac["salary_to"]} рублей'
+        elif vac['salary_from'] is not None and vac.salary_to is None:
+            vac['salary_info'] = f'От {vac["salary_from"]} рублей'
+        else:
+            vac['salary_info'] = 'Зарплата не указана'
     return render(request, 'new_templates/vacancies.html', {'vacs': vacs})
 
 def about (request):
