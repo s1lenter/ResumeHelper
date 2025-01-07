@@ -5,8 +5,9 @@ from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.db import IntegrityError
+from django.forms import model_to_dict
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect, HttpResponseNotFound, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponseNotFound, HttpResponse, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import *
 import requests
@@ -21,7 +22,7 @@ def main_view(request):
     return redirect(settings.DEFAULT_REDIRECT_URL)
 
 def start_page(request):
-    if request.user:
+    if request.user.id:
         user_profile = Profile.objects.get(user=request.user)
         if user_profile.role == 'Job_Seeker':
             return redirect(personal_cabinet)
@@ -30,7 +31,6 @@ def start_page(request):
     return render(request, "new_templates/main_page.html")
 
 def prelogin_page(request):
-    print(request.user.id)
     return render(request, "new_templates/page.html")
 
 def prelogin_page_work(request):
@@ -65,7 +65,7 @@ class RegisterUserWork(CreateView):
     success_url = None
 
     def get_success_url(self):
-        return reverse_lazy('login')
+        return reverse_lazy('login_work')
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -87,17 +87,14 @@ class LoginUser(LoginView):
     template_name = 'new_templates/enter.html'
 
     def get_success_url(self):
-        return reverse_lazy('personal_cabinet.html')
+        return reverse_lazy('personal_cabinet')
 
 class LoginUserWork(LoginView):
     form_class = AuthenticationForm
     template_name = 'new_templates/enter_work.html'
 
-    def post(self, request, *args, **kwargs):
-        print(request)
-
     def get_success_url(self):
-        return reverse_lazy('new_templates/personal_cabinet_work.html')
+        return reverse_lazy('personal_cabinet_work')
 
 class ResInfo(ListView):
     template_name = 'res_info.html'
@@ -136,8 +133,8 @@ def create_vacancy(request):
                            updated_at=datetime.datetime.now())
         return redirect('start_page')
     user_role = Profile.objects.filter(user=request.user)[0].role
-    # if user_role == 'Job_Seeker':
-    #     return render(request, 'new_templates/403-page.html')
+    if user_role == 'Job_Seeker':
+        return render(request, 'new_templates/403-page.html')
     return render(request, 'new_templates/make_vacancy.html')
 
 def create_resume(request):
@@ -181,15 +178,25 @@ def create_resume(request):
 def vacancies(request):
     vacs = Job.objects.all().values()
     for vac in vacs:
-        if vac['salary_from'] is not None and vac['salary_to'] is not None:
-            vac['salary_info'] = f'От {vac["salary_from"]} до {vac["salary_to"]} рублей'
-        elif vac['salary_from'] is None and vac['salary_to'] is not None:
-            vac['salary_info'] = f'До {vac["salary_to"]} рублей'
-        elif vac['salary_from'] is not None and vac.salary_to is None:
-            vac['salary_info'] = f'От {vac["salary_from"]} рублей'
-        else:
-            vac['salary_info'] = 'Зарплата не указана'
+        get_salary_info(vac)
     return render(request, 'new_templates/vacancies.html', {'vacs': vacs})
+
+def get_salary_info(vac):
+    if vac['salary_from'] is not None and vac['salary_to'] is not None:
+        vac['salary_info'] = f'От {vac["salary_from"]} до {vac["salary_to"]} рублей'
+    elif vac['salary_from'] is None and vac['salary_to'] is not None:
+        vac['salary_info'] = f'До {vac["salary_to"]} рублей'
+    elif vac['salary_from'] is not None and vac.salary_to is None:
+        vac['salary_info'] = f'От {vac["salary_from"]} рублей'
+    else:
+        vac['salary_info'] = 'Зарплата не указана'
+
+def vacancy_detail(request, vac_id):
+    vacancy = model_to_dict(Job.objects.get(id=vac_id))
+    get_salary_info(vacancy)
+    vacancy['requirements'] = vacancy['requirements'].split(', ')
+    print(vacancy)
+    return render(request, 'new_templates/vacancy_info.html', {'vacancy': vacancy})
 
 def about (request):
     return render(request, 'about.html')
@@ -198,8 +205,22 @@ def contacts (request):
     return render(request, 'contacts.html')
 
 def personal_cabinet (request):
-    return render(request, 'personal_cabinet.html')
+    role = Profile.objects.get(user_id=request.user.id).role
+    if role == 'Employer':
+        return render(request, 'new_templates/personal_cabinet_work.html')
+    else:
+        return render(request, 'new_templates/personal_cabinet.html')
 
-def personal_cabinet_work (request):
-    return render(request, 'new_templates/personal_cabinet_work.html')
+def personal_data(request):
+    user = User.objects.get(id=request.user.id)
+    profile = Profile.objects.get(user_id=user.id)
+    data = {
+        "email": user.email,
+        "phone": profile.phone_number,
+        "socNetwork": 'надо добавить ввод ссылки на тг или вк',
+        "sex": profile.gender,
+        "age": profile.age,
+    }
+    return JsonResponse(data)
+
 

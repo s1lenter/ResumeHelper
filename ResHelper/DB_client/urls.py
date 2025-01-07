@@ -15,10 +15,12 @@ urlpatterns = [
     path("create_resume/", create_resume, name="create_resume"),
     path("create_vacancy/", create_vacancy, name="create_vacancy"),
     path("res_info/", ResInfo.as_view(), name="res_info"),
-    path("vac_test/", vacancies, name="vacs_view"),
+    path("vacancies/", vacancies, name="vacancies"),
     path("about/", about, name="about"),
     path("contacts/", contacts, name="contacts"),
-    path("personal_cabinet/", personal_cabinet, name="personal_cabinet")
+    path("personal_cabinet/", personal_cabinet, name="personal_cabinet"),
+    path("api/personal_data/", personal_data, name="personal_data"),
+    path("vacancy_detail/<int:vac_id>/", vacancy_detail, name="vacancy_detail"),
 ]
 
 if settings.DEBUG:

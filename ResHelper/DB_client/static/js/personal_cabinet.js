@@ -87,16 +87,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const otklikInfoRadio = document.getElementById('otklik-info');
     const fieldsToChange = document.querySelector('.fields__toChange');
 
-    const savedData = {
-        password: '123456SK',
-        email: 'namefamily@gmail.com',
-        phone: '+7 903 565 44 76',
-        socNetwork: 'https://id.vk.com/account/',
-        sex: 'Мужской',
-        age: '20 лет',
-        main: 'Русский',
-        extra: 'Английский'
-    };
+    let savedData = {};
+
+    async function fetchData() {
+    try {
+        const response = await fetch('/api/personal_data/');
+        const data = await response.json();
+        console.log('Полученные данные:', data);
+        processData(data);
+    } catch (error) {
+        console.error('Ошибка:', error);
+    }
+}
 
     function updateFieldsContent() {
         if (otklikInfoRadio.checked) {
@@ -123,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                             <div class="field-column">
                                 <p class="field-text sex">${savedData.sex}</p>
-                                <p class="field-text age">${savedData.age}</p>
+                                <p class="field-text age">${savedData.sex}</p>
                             </div>
                         </div>
                         <div class="field-buttons">

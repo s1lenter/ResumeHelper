@@ -23,10 +23,10 @@
     <main class="vacancy-info-main">
         <div class="vacancy">
             <div class="vacancy-info">
-                <p class="vacancy-info-head">Начинающий разработчик</p>
-                <p class="vacancy-info-salary">от 50000 Р на руки</p>
-                <p class="vacancy-info-company">ООО Альянс</p>
-                <p class="vacancy-info-workplace">Екатеринбург</p>
+                <p class="vacancy-info-head">{{ vacancy.name }}</p>
+                <p class="vacancy-info-salary">{{ vacancy.salary_info }}</p>
+                <p class="vacancy-info-company">{{ vacancy.company_name }}</p>
+                <p class="vacancy-info-workplace">{{ vacancy.location }}</p>
                 <button type="button" class="vacancy-apply-button">Откликнуться</button>
             </div>
             <div class="vacancy-buttons">
@@ -36,55 +36,24 @@
         </div>
         <div class="vacancy-block">
             <div class="vacancy-about">
-                <p class="vacancy-about-header">Обязанности:</p>
-                <ul class="vacancy-about-items">
-                    <li class="vacancy-about-item">
-                        Разработка дизайна для карточек маркетплейсов (Озон, ВБ, Яндекс)
-                    </li>
-                    <li class="vacancy-about-item">
-                        Подбор фото, обработка и ретушь
-                    </li>
-                    <li class="vacancy-about-item">
-                        Подбор фона, шрифтов и подготовка для инфографики
-                    </li>
-                </ul>
+                <p class="vacancy-about-header">Описание:</p>
+                <p class="vacancy-about-item">{{ vacancy.description }}</p>
             </div>
             <div class="vacancy-about">
                 <p class="vacancy-about-header">Требования:</p>
                 <ul class="vacancy-about-items">
+                    {% for skill in vacancy.requirements %}
                     <li class="vacancy-about-item">
-                        Законченное образование в сфере IT
+                        {{ skill }}
                     </li>
-                    <li class="vacancy-about-item">
-                        Умение работать в режиме многозадачности
-                    </li>
-                    <li class="vacancy-about-item">
-                        Опыт работы с электротоварами
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="vacancy-about">
-                <p class="vacancy-about-header">Условия:</p>
+                <p class="vacancy-about-header">Условия:</p> <!--здесь скорее всего надо парсить будет и цикл-->
                 <ul class="vacancy-about-items">
                     <li class="vacancy-about-item">
-                        График: 5/2 8:00-16:30
-                    </li>
-                    <li class="vacancy-about-item">
-                        Соц. пакет: корпоративные обеды, компенсация проезда, 13 зарплата
-                    </li>
-                    <li class="vacancy-about-item">
-                        Выплаты ЗП 2 раза в месяц
-                    </li>
-                </ul>
-            </div>
-            <div class="vacancy-about">
-                <p class="vacancy-about-header">Контакты:</p>
-                <ul class="vacancy-about-items">
-                    <li class="vacancy-about-item">
-                        Кузьминых Наталья, 89025436599
-                    </li>
-                    <li class="vacancy-about-item">
-                        Терентьев Виктор, 89433335677
+                        {{ vacancy.conditions }}
                     </li>
                 </ul>
             </div>
