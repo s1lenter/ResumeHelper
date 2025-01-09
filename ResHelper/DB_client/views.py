@@ -24,10 +24,7 @@ def main_view(request):
 def start_page(request):
     if request.user.id:
         user_profile = Profile.objects.get(user=request.user)
-        if user_profile.role == 'Job_Seeker':
-            return redirect(personal_cabinet)
-        elif user_profile.role == 'Employer':
-            return redirect(personal_cabinet_work)
+        return redirect('personal_cabinet')
     return render(request, "new_templates/main_page.html")
 
 def prelogin_page(request):
@@ -94,7 +91,7 @@ class LoginUserWork(LoginView):
     template_name = 'new_templates/enter_work.html'
 
     def get_success_url(self):
-        return reverse_lazy('personal_cabinet_work')
+        return reverse_lazy('personal_cabinet')
 
 class ResInfo(ListView):
     template_name = 'res_info.html'

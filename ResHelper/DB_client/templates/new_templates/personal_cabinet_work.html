@@ -22,7 +22,10 @@
             </div>
             <div class="part-nav">
                 <div class="nav-link">
-                    <a href="#">Создать вакансию</a>
+                    <a href="{% url 'logout' %}">Выйти</a>
+                </div>
+                <div class="nav-link">
+                    <a href="{% url 'create_vacancy' %}">Создать вакансию</a>
                 </div>
                 <a class="personal-cabinet-work-logo" href="#">
                     <img src="../../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
