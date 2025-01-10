@@ -6,6 +6,27 @@ body {
     background-repeat: no-repeat;
 }
 
+.page-window-button {
+    padding: 0;
+    margin-top: 16px;
+    
+
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    
+
+    width: 170px;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(0, 196, 169, 1);
+}
+
 .enter-work-header {
     margin: 0;
     padding: 0;

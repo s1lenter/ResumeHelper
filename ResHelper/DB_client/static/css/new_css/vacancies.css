@@ -3,6 +3,10 @@ body {
     padding: 0;
 }
 
+.button-text{
+    margin-top: 17px;
+    
+}
 .vacancies-header {
     margin: 0;
     padding: 0;
@@ -112,7 +116,7 @@ body {
 }
 
 .vacancy-apply-button {
-    margin: 0;
+    margin-top: 0;
     padding: 0;
     color: white;
     border: none;
@@ -120,6 +124,9 @@ body {
     background: #00c4a9;
     width: 200px;
     height: 60px;
+    text-align: center;
+    vertical-align:bottom;
+    text-decoration: none;
 
     font-family: Inter;
     font-size: 20px;

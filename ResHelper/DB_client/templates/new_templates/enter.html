@@ -38,7 +38,7 @@
                             <div class="form-error">{{ form.errors }}</div>
                         {% endif %}
                     {% endfor %}
-                    <button type="submit">
+                    <button href="{% url 'personal_cabinet' %}" class="page-window-button">
                         Войти
                     </button>
                 </form>

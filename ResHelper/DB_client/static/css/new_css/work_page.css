@@ -80,6 +80,7 @@ body {
 .work-window-button {
     padding: 0;
     margin-top: 16px;
+    padding-top: 12px;
 
     font-family: Inter;
     font-size: 36px;
@@ -87,6 +88,7 @@ body {
     line-height: 44px;
     text-align: center;
     color: white;
+    text-decoration: none;
     
 
     width: 170px;

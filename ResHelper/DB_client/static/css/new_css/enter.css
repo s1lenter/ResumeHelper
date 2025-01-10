@@ -1,9 +1,29 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("../../img/page.png");
+    background-image: url("../../img/create_resume_bg.png");
     background-size: auto;
     background-repeat: no-repeat;
+}
+
+.page-window-button {
+    padding: 0;
+    margin-top: 16px;
+
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    
+
+    width: 170px;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(0, 196, 169, 1);
 }
 
 .enter-header {
