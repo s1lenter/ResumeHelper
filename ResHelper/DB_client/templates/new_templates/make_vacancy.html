@@ -7,99 +7,107 @@
     <link rel="stylesheet" href="../../static/css/new_css/make_vacancy.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
 </head>
 <body>
-    <header class="make-vacancy-header">
-        <nav class="make-vacancy-header-nav">
-            <a class="logo" href="{% url 'start_page' %}">
-                <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
-            </a>
-        </nav>
-    </header>
-    <main class="make-vacancy-main">
-        <p class="make-vacancy-text-header">Создание вакансии</p>
-        <div class="make-vacancy-window">
-            <div class="make-vacancy-window-input">
-                <form method="post" class="make-vacancy-window-input">
-                    {% csrf_token %}
-                    <div class="comment-inner">
-                      <input type="text" class="comment-field" placeholder="Работодатель" required id="employer" name="name">
-                    </div>
-                    <div class="comment-inner">
-                      <input type="text" class="comment-field" placeholder="Название" required id="name" name="company">
-                    </div>
-                    <div class="comment-inner">
-                        <input type="text" class="comment-field" placeholder="Описание" required id="description" name="vacancy-description">
-                    </div>
-                    <div class="comment-inner">
-                        <input
+<header class="make-vacancy-header">
+    <nav class="make-vacancy-header-nav">
+        <a class="logo" href="{% url 'start_page' %}">
+            <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+        </a>
+    </nav>
+</header>
+<main class="make-vacancy-main">
+    <p class="make-vacancy-text-header">Создание вакансии</p>
+    <div class="make-vacancy-window">
+        <div class="make-vacancy-window-input">
+            <form method="post" class="make-vacancy-window-input">
+                {% csrf_token %}
+                <div class="comment-inner">
+                    <input type="text" class="comment-field" placeholder="Работодатель" required id="employer"
+                           name="name">
+                </div>
+                <div class="comment-inner">
+                    <input type="text" class="comment-field" placeholder="Название" required id="name" name="company">
+                </div>
+                <div class="comment-inner">
+                    <textarea id="description" class="comment-field" placeholder="Описание" rows="3" ></textarea>
+                </div>
+                <div class="comment-inner">
+                    <input
+                            placeholder="От"
                             type="number"
+                            min=0
                             id="salary_from"
                             class="comment-field"
                             name="salary_from"
-                            step="10000"
+                            step="1000"
                             required>
-                    </div>
-                    <div class="comment-inner">
-                        <input
+                </div>
+                <div class="comment-inner">
+                    <input
+                            placeholder="До"
+                            min=0
                             type="number"
                             id="salary_to"
                             class="comment-field"
                             name="salary_to"
-                            step="10000"
+                            step="1000"
                             required>
+                </div>
+                <div class="comment-inner">
+                    <textarea id="requirements" class="comment-field" placeholder="Требования" rows="3" ></textarea>
+                </div>
+                <div class="comment-inner">
+                    <input type="text" class="comment-field" placeholder="Условия" required id="conditions"
+                           name="conditions">
+                </div>
+                <div class="comment-inner">
+                    <input type="text" class="comment-field" placeholder="Местоположение" required id="location"
+                           name="area">
+                </div>
+                <div class="main-field work-type">
+                    <div class="main-work-type-field">
+                        <label for="work-type" class="main-field-header"></label>
+                        <select title="Тип работы" id="work-type" name="work_type">
+                            <option value="" disabled selected>Тип работы (Выберите из списка)</option>
+                            <option value="on-site">Очный</option>
+                            <option value="online">Онлайн</option>
+                            <option value="both">Есть возможность работать как очно, так и онлайн</option>
+                        </select>
                     </div>
-                    <div class="comment-inner">
-                        <input type="text" class="comment-field" placeholder="Требования" required id="requirements" name="requirements">
+                </div>
+                <div class="main-field work-experience">
+                    <div class="main-work-type-field">
+                        <label for="work-experience" class="main-field-header"></label>
+                        <select title="Опыт работы" id="work-experience" name="work_experience">
+                            <option value="" disabled selected>Опыт работы (Выберите из списка)</option>
+                            <option value="zero">Без опыта</option>
+                            <option value="one-three">От 1 года до 3 лет</option>
+                            <option value="three-six">От 3 лет до 6 лет</option>
+                            <option value="more-than-six">Более 6 лет</option>
+                        </select>
                     </div>
-                    <div class="comment-inner">
-                      <input type="text" class="comment-field" placeholder="Условия" required id="conditions" name="conditions">
-                    </div>
-                    <div class="comment-inner">
-                      <input type="text" class="comment-field" placeholder="Местоположение" required id="location" name="area">
-                    </div>
-                    <div class="main-field work-type">
-                        <div class="main-work-type-field">
-                            <label for="work-type" class="main-field-header"></label>
-                            <select title="Тип работы" id="work-type" name="work_type">
-                                <option value="" disabled selected>Тип работы (Выберите из списка)</option>
-                                <option value="on-site">Очный</option>
-                                <option value="online">Онлайн</option>
-                                <option value="both">Есть возможность работать как очно, так и онлайн</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="main-field work-experience">
-                        <div class="main-work-type-field">
-                            <label for="work-experience" class="main-field-header"></label>
-                            <select title="Опыт работы" id="work-experience" name="work_experience">
-                                <option value="" disabled selected>Опыт работы (Выберите из списка)</option>
-                                <option value="zero">Без опыта</option>
-                                <option value="one-three">От 1 года до 3 лет</option>
-                                <option value="three-six">От 3 лет до 6 лет</option>
-                                <option value="more-than-six">Более 6 лет</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="make-vacancy-window-button">
-                        Создать
-                    </button>
-                </form>
-            </div>
+                </div>
+                <button type="submit" class="make-vacancy-window-button">
+                    Создать
+                </button>
+            </form>
         </div>
-    </main>
-    <footer class="make-vacancy-footer">
-        <nav class="make-vacancy-footer-nav">
-            <ul class="footer-site-navigation">
-                <li class="footer-site-navigation-item">
-                    <a href="">Контакты</a>
-                </li>
-                <li class="footer-site-navigation-item">
-                    <a href="">О нас</a>
-                </li>
-            </ul>
-        </nav>
-    </footer>
+    </div>
+</main>
+<footer class="make-vacancy-footer">
+    <nav class="make-vacancy-footer-nav">
+        <ul class="footer-site-navigation">
+            <li class="footer-site-navigation-item">
+                <a href="">Контакты</a>
+            </li>
+            <li class="footer-site-navigation-item">
+                <a href="">О нас</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
 </body>
 </html>
