@@ -36,19 +36,21 @@
                         <input
                             type="number"
                             id="salary_from"
+                            placeholder="Минимальная зарплата"
                             class="comment-field"
                             name="salary_from"
-                            step="10000"
-                            required>
+                            step="1000"
+                            min="0">
                     </div>
                     <div class="comment-inner">
                         <input
                             type="number"
                             id="salary_to"
                             class="comment-field"
+                            placeholder="Максимальная зарплата"
                             name="salary_to"
-                            step="10000"
-                            required>
+                            step="1000"
+                            min="0">
                     </div>
                     <div class="comment-inner">
                         <input type="text" class="comment-field" placeholder="Требования" required id="requirements" name="requirements">

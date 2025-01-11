@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const editButton = document.querySelector('.edit-info-data-button');
     const fnameElement = document.querySelector('.info-fname');
     const lnameElement = document.querySelector('.info-lname');
+    const hiddenInputs = document.querySelectorAll('.hidden-input');
 
     editButton.addEventListener('click', () => {
         if (editButton.textContent === 'Редактировать') {
@@ -9,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
             enableEditing(lnameElement);
             editButton.textContent = 'Сохранить';
         } else {
-            saveEditing(fnameElement);
-            saveEditing(lnameElement);
+            saveEditing(fnameElement, 'fn');
+            saveEditing(lnameElement, 'ln');
             editButton.textContent = 'Редактировать';
         }
     });
@@ -22,13 +23,21 @@ document.addEventListener('DOMContentLoaded', () => {
         input.value = currentText;
         input.classList.add('edit-input');
         element.textContent = '';
+
         element.appendChild(input);
     }
 
-    function saveEditing(element) {
+    function saveEditing(element, name) {
         const input = element.querySelector('.edit-input');
         if (input) {
-            element.textContent = input.value;
+            if (name === 'fn'){
+                element.textContent = input.value;
+                hiddenInputs[0].value = input.value;
+            }
+            else if (name === 'ln'){
+                element.textContent = input.value;
+                hiddenInputs[1].value = input.value;
+            }
         }
     }
 });
@@ -38,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageLink = document.querySelector('.info-image');
     const imageElement = imageLink.querySelector('img');
     const fileInput = document.querySelector('.upload-image-input');
+    const hiddenInput = document.querySelector('.hidden-input-file');
 
     imageLink.addEventListener('click', (event) => {
         event.preventDefault();
@@ -51,6 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
             reader.onload = (e) => {
                 imageElement.src = e.target.result;
                 logo.src = e.target.result;
+
+                const blob = new Blob([file], { type: file.type });
+                const newFile = new File([blob], file.name, { type: file.type });
+
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(newFile);
+                hiddenInput.files = dataTransfer.files;
             };
             reader.readAsDataURL(file);
         }
@@ -86,21 +103,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const vacanciesInfoRadio = document.getElementById('vacancies-info');
     const fieldsToChange = document.querySelector('.fields__toChange');
 
-    const savedData = {
-        password: '123456SK',
-        email: 'namefamily@gmail.com',
-        phone: '+7 903 565 44 76',
-        job: '...',
-        comment: '...',
-        specialOne: '...',
-        specialTwo: '...'
-    };
+    async function fetchData() {
+        try {
+            const response = await fetch('/api/personal_data/');
+            if (!response.ok) {
+                throw new Error('Сеть ответила с проблемой: ' + response.statusText);
+            }
+            personalData = await response.json();
+            console.log(personalData);
+
+            updateFieldsContent();
+
+        } catch (error) {
+            console.error('Ошибка:', error);
+        }
+    }
+
+    fetchData();
 
     function updateFieldsContent() {
+        if (!personalData) return;
+
         if (vacanciesInfoRadio.checked) {
             fieldsToChange.innerHTML = `
                 <div class="field">
-                    <p class="field header">Мои вакансии</p>
+                    <p class="field header">Ваши резюме</p>
                 </div>
             `;
         } else if (persInfoRadio.checked) {
@@ -110,17 +137,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="field window">
                         <div class="field-columns">
                             <div class="field-column main">
-                                <p class="field-text">Должность</p>
-                                <p class="field-text">Комментарий</p>
+                                <p class="field-text">Пол</p>
+                                <p class="field-text">Возраст</p>
                             </div>
                             <div class="field-column">
-                                <p class="field-text job">${savedData.job}</p>
-                                <p class="field-text comment">${savedData.comment}</p>
+                                <p class="field-text sex">${personalData.sex}</p>
+                                <p class="field-text age">${personalData.age}</p>
                             </div>
                         </div>
                         <div class="field-buttons">
-                            <button class="field-button job" type="button">Изменить</button>
-                            <button class="field-button comment" type="button">Изменить</button>
+                            <button class="field-button sex" type="button">Изменить</button>
+                            <button class="field-button age" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>
@@ -129,39 +156,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="field window">
                         <div class="field-columns">
                             <div class="field-column main">
-                                <p class="field-text">Пароль</p>
                                 <p class="field-text">Email</p>
                                 <p class="field-text">Телефон</p>
+                                <p class="field-text">Социальные сети</p>
                             </div>
                             <div class="field-column">
-                                <p class="field-text password">${savedData.password}</p>
-                                <p class="field-text email">${savedData.email}</p>
-                                <p class="field-text phone">${savedData.phone}</p>
+                                <p class="field-text email">${personalData.email}</p>
+                                <p class="field-text phone">${personalData.phone}</p>
+                                <p class="field-text soc-network">${personalData.socNetwork}</p>
                             </div>
                         </div>
                         <div class="field-buttons">
-                            <button class="field-button password" type="button">Изменить</button>
                             <button class="field-button email" type="button">Изменить</button>
                             <button class="field-button phone" type="button">Изменить</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <p class="field header">Спецпризнаки</p>
-                    <div class="field window">
-                        <div class="field-columns">
-                            <div class="field-column main">
-                                <p class="field-text">Спецпризнак 1</p>
-                                <p class="field-text">Спецпризнак 2</p>
-                            </div>
-                            <div class="field-column">
-                                <p class="field-text special-one">${savedData.specialOne}</p>
-                                <p class="field-text special-two">${savedData.specialTwo}</p>
-                            </div>
-                        </div>
-                        <div class="field-buttons">
-                            <button class="field-button special-one" type="button">Изменить</button>
-                            <button class="field-button special-two" type="button">Изменить</button>
+                            <button class="field-button soc-network" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>
@@ -175,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', () => {
                 const targetClass = button.classList[1];
                 const textElement = document.querySelector(`.field-text.${targetClass}`);
+                const hiddenInputs = document.querySelectorAll('.hidden-input-dopinfo');
 
                 if (!textElement) return;
 
@@ -191,7 +200,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     const input = textElement.querySelector('.edit-input');
                     if (input) {
                         const newValue = input.value;
-                        savedData[targetClass] = newValue;
+                        personalData[targetClass] = newValue;
+                        if (targetClass === 'sex'){
+                            hiddenInputs[0].value = newValue;
+                        }
+                        else if (targetClass === 'age'){
+                            hiddenInputs[1].value = newValue;
+                        }
+                        else if (targetClass === 'email'){
+                            hiddenInputs[2].value = newValue;
+                        }
+                        else if (targetClass === 'phone'){
+                            hiddenInputs[3].value = newValue;
+                        }
+                        else if (targetClass === 'soc-network'){
+                            hiddenInputs[4].value = newValue;
+                        }
+
                         textElement.textContent = newValue;
                     }
                     button.textContent = 'Изменить';
@@ -202,7 +227,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     persInfoRadio.addEventListener('change', updateFieldsContent);
     vacanciesInfoRadio.addEventListener('change', updateFieldsContent);
-
-    updateFieldsContent();
 });
 
