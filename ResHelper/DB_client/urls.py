@@ -19,7 +19,7 @@ urlpatterns = [
     path("about/", about, name="about"),
     path("contacts/", contacts, name="contacts"),
     path("personal_cabinet/", personal_cabinet, name="personal_cabinet"),
-    path("api/personal_data/", personal_data, name="personal_data"),
+    path("api/personal_data/", send_personal_data, name="personal_data"),
     path("vacancy_detail/<int:vac_id>/", vacancy_detail, name="vacancy_detail"),
 ]
 

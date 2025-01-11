@@ -28,13 +28,13 @@
                     <a href="{% url 'create_resume' %}">Создать резюме</a>
                 </div>
                 <a class="personal-cabinet-logo" href="#">
-                    <img src="../../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
+                    <img src="../media/{{profile.avatar}}" width="60" height="60" alt="Логотип персонального кабинета">
                 </a>
             </div>
         </nav>
     </header>
     <main class="personal-cabinet-main">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="personal-cabinet-fields">
                 <div class="personal-cabinet-info">
@@ -55,7 +55,7 @@
                             <button name="edit-info-data-button" type="button" class="edit-info-data-button">Редактировать</button>
                         </div>
                         <a class="info-image">
-                            <img src="../../static/img/info-image.png" width="280" height="280" alt="Логотип персонального кабинета">
+                            <img src="../media/{{profile.avatar}}" width="280" height="280">
                         </a>
                         <input type="file" title="upload-image" class="upload-image-input" accept="image/*">
                     </div>
@@ -108,27 +108,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="field">
-                        <p class="field header">Языки</p>
-                        <div class="field window">
-                            <div class="field-columns">
-                                <div class="field-column main">
-                                    <p class="field-text">Родной</p>
-                                    <p class="field-text">Дополнительно</p>
-                                </div>
-                                <div class="field-column">
-                                    <p class="field-text main">Русский</p>
-                                    <p class="field-text extra">Английский</p>
-                                </div>
-                            </div>
-                            <div class="field-buttons">
-                                <button class="field-button main" type="button">Изменить</button>
-                                <button class="field-button extra" type="button">Изменить</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
+            <input type="text" title="upload-image" class="hidden-input" name="first_name" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input" name="last_name" style="display: none;">
+            <input type="file" title="upload-image" class="hidden-input-file" name="avatar" style="display: none;">
+
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="gender" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="age" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="email" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="phone" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="soc_net" style="display: none;">
+            <button type="submit">Сохранить</button>
         </form>
     </main>
     <script src="../../static/js/personal_cabinet.js"></script>

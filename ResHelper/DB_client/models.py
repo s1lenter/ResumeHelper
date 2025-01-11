@@ -14,7 +14,7 @@ class Profile(models.Model):
             ('Female', 'Женский'),
             ('Other', 'Другое')
         ],
-        default='Male'
+        null=True
     )
     age = models.IntegerField(null=True)
     role = models.CharField(
@@ -24,11 +24,14 @@ class Profile(models.Model):
             ('Employer', 'Работодатель')
         ],
         default='Job_Seeker')
+    social_network = models.TextField(null=True)
     phone_number = models.CharField(
         max_length=15,
         validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$',
-                                   message="Введите правильный номер телефона в формате: '+999999999'. До 15 цифр.")]
+                                   message="Введите правильный номер телефона в формате: '+999999999'. До 15 цифр.")],
+        null=True
     )
+    avatar = models.ImageField(upload_to='avatars/', null=True)
 
 
 

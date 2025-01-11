@@ -1,5 +1,3 @@
-import datetime
-
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -201,23 +199,48 @@ def about (request):
 def contacts (request):
     return render(request, 'contacts.html')
 
-def personal_cabinet (request):
-    role = Profile.objects.get(user_id=request.user.id).role
-    if role == 'Employer':
-        return render(request, 'new_templates/personal_cabinet_work.html')
+def change_model(field, field_name, request):
+    if request.POST.get(field_name) != '':
+        return request.POST.get(field_name)
     else:
-        return render(request, 'new_templates/personal_cabinet.html')
+        return field
 
-def personal_data(request):
+def personal_cabinet (request):
+    user = User.objects.get(id=request.user.id)
+    profile = Profile.objects.get(user_id=request.user.id)
+    if request.method == 'POST':
+        user.first_name = change_model(user.first_name, 'first_name', request)
+        user.last_name = change_model(user.last_name, 'last_name', request)
+        profile.gender = change_model(profile.gender, 'gender', request)
+        profile.age = change_model(profile.age, 'age', request)
+        profile.email = change_model(profile.gender, 'email', request)
+        profile.phone_number = change_model(profile.gender, 'phone', request)
+        profile.social_network = change_model(profile.gender, 'soc_net', request)
+        if request.FILES.getlist('avatar'):
+            profile.avatar = request.FILES.getlist('avatar')[0]
+        else:
+            profile.avatar = profile.avatar
+
+        user.save()
+        profile.save()
+
+    if profile.role == 'Employer':
+        return render(request, 'new_templates/personal_cabinet_work.html', {'user': user})
+    else:
+        return render(request, 'new_templates/personal_cabinet.html', {'user': user, 'profile': profile})
+
+
+def send_personal_data(request):
     user = User.objects.get(id=request.user.id)
     profile = Profile.objects.get(user_id=user.id)
     data = {
         "email": user.email,
         "phone": profile.phone_number,
-        "socNetwork": 'надо добавить ввод ссылки на тг или вк',
+        "socNetwork": profile.social_network,
         "sex": profile.gender,
         "age": profile.age,
     }
+    for key in data:
+        if data[key] is None:
+            data[key] = 'Не указано'
     return JsonResponse(data)
-
-
