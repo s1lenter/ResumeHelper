@@ -113,13 +113,19 @@ def logout_user(request):
 
 def create_vacancy(request):
     if request.method == 'POST':
+        salary_from = request.POST.get('salary_from')
+        if salary_from == '':
+            salary_from = None
+        salary_to = request.POST.get('salary_to')
+        if salary_to == '':
+            salary_to = None
         Job.objects.create(employer_id=request.user,
                            name=request.POST.get('name'),
                            company_name=request.POST.get('company'),
                            description=request.POST.get('vacancy-description'),
                            requirements=request.POST.get('requirements'),
-                           salary_from=request.POST.get('salary_from'),
-                           salary_to=request.POST.get('salary_to'),
+                           salary_from=salary_from,
+                           salary_to=salary_to,
                            conditions=request.POST.get('conditions'),
                            location=request.POST.get('area'),
                            job_type=request.POST.get('work_type'),
@@ -213,9 +219,10 @@ def personal_cabinet (request):
         user.last_name = change_model(user.last_name, 'last_name', request)
         profile.gender = change_model(profile.gender, 'gender', request)
         profile.age = change_model(profile.age, 'age', request)
-        profile.email = change_model(profile.email, 'email', request)
-        profile.phone_number = change_model(profile.phone, 'phone', request)
-        profile.social_network = change_model(profile.soc_net, 'soc_net', request)
+        user.email = change_model(user.email, 'email', request)
+        user.username = change_model(user.username, 'email', request)
+        profile.phone_number = change_model(profile.phone_number, 'phone', request)
+        profile.social_network = change_model(profile.social_network, 'soc_net', request)
         if request.FILES.getlist('avatar'):
             profile.avatar = request.FILES.getlist('avatar')[0]
         else:
@@ -225,7 +232,7 @@ def personal_cabinet (request):
         profile.save()
 
     if profile.role == 'Employer':
-        return render(request, 'new_templates/personal_cabinet_work.html', {'user': user})
+        return render(request, 'new_templates/personal_cabinet_work.html', {'user': user, 'profile': profile})
     else:
         return render(request, 'new_templates/personal_cabinet.html', {'user': user, 'profile': profile})
 
