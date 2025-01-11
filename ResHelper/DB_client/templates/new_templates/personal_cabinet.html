@@ -34,7 +34,7 @@
         </nav>
     </header>
     <main class="personal-cabinet-main">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" class="main-form">
             {% csrf_token %}
             <div class="personal-cabinet-fields">
                 <div class="personal-cabinet-info">
@@ -116,7 +116,7 @@
             <input type="text" title="upload-image" class="hidden-input-dopinfo" name="email" style="display: none;">
             <input type="text" title="upload-image" class="hidden-input-dopinfo" name="phone" style="display: none;">
             <input type="text" title="upload-image" class="hidden-input-dopinfo" name="soc_net" style="display: none;">
-            <button type="submit">Сохранить</button>
+            <button type="submit" class="fullsave-button">Сохранить</button>
         </form>
     </main>
     <script src="../../static/js/personal_cabinet.js"></script>

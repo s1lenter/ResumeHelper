@@ -21,7 +21,7 @@
         </nav>
     </header>
     <main class="create-resume-main">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" class="main-form">
             {% csrf_token %}
             <div class="main-field-info achievments">
                 <p class="main-field-info-header achievments-header">
@@ -148,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit">Сохранить</button>
+            <button type="submit" class="save-button">Сохранить</button>
         </form>
     </main>
     <footer class="create-resume-footer">

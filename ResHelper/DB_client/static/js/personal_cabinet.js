@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         radioButtons.forEach(radio => {
             const label = document.querySelector(`label[for="${radio.id}"]`);
             if (radio.checked) {
-                label.style.color = 'white';
+                label.style.color = 'rgba(0, 196, 169, 1)';
             } else {
                 label.style.color = 'black';
             }

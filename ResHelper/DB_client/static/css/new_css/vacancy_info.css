@@ -19,8 +19,8 @@ body {
 .vacancy-info-main {
     margin: 0;
     padding: 30px 0;
-    background: url(../../img/page.png);
-    background-size: auto;
+    background: url(../../img/new_bg.png);
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +30,7 @@ body {
 .vacancy {
     padding: 25px;
     width: 860px;
-    background-color: #e6e6e6;
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: space-between;
     border-radius: 20px;
@@ -120,7 +120,7 @@ body {
 }
 
 .vacancy-block {
-    background-color: rgba(217, 217, 217, 0.4);
+    background-color: rgba(131, 131, 131, 0.4);
     border-radius: 20px;
     padding: 30px;
 }

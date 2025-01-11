@@ -1,14 +1,15 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("../../img/create_resume_bg.png");
-    background-size: auto;
+    background-image: url("../../img/new_bg.png");
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
 .page-window-button {
     padding: 0;
     margin-top: 16px;
+    margin-bottom: 25px;
 
     font-family: Inter;
     font-size: 36px;
@@ -54,8 +55,7 @@ body {
     align-items: center;
     width: 650px;
     height: auto;
-    background-color: rgba(217, 217, 217, 0.5);
-
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 40px; 
     align-self: center;
     padding-top: 25px;

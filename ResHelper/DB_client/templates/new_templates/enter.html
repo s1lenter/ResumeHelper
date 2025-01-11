@@ -24,7 +24,7 @@
                 <form method="post" class="enter-window-input">
                     {% csrf_token %}
                     <div class="comment-inner">
-                      <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="comment-field" placeholder="Адрес электронной почты" required id="login" name="username">
+                      <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="comment-field" placeholder="Логин" required id="login" name="username">
                     </div>
                     <div class="comment-inner">
                       <input type="password" class="comment-field last" placeholder="Пароль" required id="password" name="password">
