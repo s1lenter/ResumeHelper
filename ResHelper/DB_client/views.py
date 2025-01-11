@@ -213,9 +213,9 @@ def personal_cabinet (request):
         user.last_name = change_model(user.last_name, 'last_name', request)
         profile.gender = change_model(profile.gender, 'gender', request)
         profile.age = change_model(profile.age, 'age', request)
-        profile.email = change_model(profile.gender, 'email', request)
-        profile.phone_number = change_model(profile.gender, 'phone', request)
-        profile.social_network = change_model(profile.gender, 'soc_net', request)
+        profile.email = change_model(profile.email, 'email', request)
+        profile.phone_number = change_model(profile.phone, 'phone', request)
+        profile.social_network = change_model(profile.soc_net, 'soc_net', request)
         if request.FILES.getlist('avatar'):
             profile.avatar = request.FILES.getlist('avatar')[0]
         else:
