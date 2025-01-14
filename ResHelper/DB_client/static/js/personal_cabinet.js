@@ -188,51 +188,72 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addEditListeners() {
-        document.querySelectorAll('.field-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const targetClass = button.classList[1];
-                const textElement = document.querySelector(`.field-text.${targetClass}`);
-                const hiddenInputs = document.querySelectorAll('.hidden-input-dopinfo');
+      document.querySelectorAll('.field-button').forEach(button => {
+          button.addEventListener('click', () => {
+              const targetClass = button.classList[1];
+              const textElement = document.querySelector(`.field-text.${targetClass}`);
+              const hiddenInputs = document.querySelectorAll('.hidden-input-dopinfo');
 
-                if (!textElement) return;
+              if (!textElement) return;
 
-                if (button.textContent === 'Изменить') {
-                    const currentText = textElement.textContent;
-                    const input = document.createElement('input');
-                    input.type = 'text';
-                    input.value = currentText;
-                    input.classList.add('edit-input');
-                    textElement.textContent = '';
-                    textElement.appendChild(input);
-                    button.textContent = 'Сохранить';
-                } else {
-                    const input = textElement.querySelector('.edit-input');
-                    if (input) {
-                        const newValue = input.value;
-                        personalData[targetClass] = newValue;
-                        if (targetClass === 'sex'){
-                            hiddenInputs[0].value = newValue;
-                        }
-                        else if (targetClass === 'age'){
-                            hiddenInputs[1].value = newValue;
-                        }
-                        else if (targetClass === 'email'){
-                            hiddenInputs[2].value = newValue;
-                        }
-                        else if (targetClass === 'phone'){
-                            hiddenInputs[3].value = newValue;
-                        }
-                        else if (targetClass === 'soc-network'){
-                            hiddenInputs[4].value = newValue;
-                        }
+              if (button.textContent === 'Изменить') {
+                  if (targetClass === 'sex') {
+                      const currentText = textElement.textContent;
+                      const select = document.createElement('select');
+                      select.classList.add('edit-select');
 
-                        textElement.textContent = newValue;
-                    }
-                    button.textContent = 'Изменить';
-                }
-            });
-        });
-    }
+                      const maleOption = document.createElement('option');
+                      maleOption.value = 'Мужской';
+                      maleOption.textContent = 'Мужской';
+                      select.appendChild(maleOption);
+
+                      const femaleOption = document.createElement('option');
+                      femaleOption.value = 'Женский';
+                      femaleOption.textContent = 'Женский';
+                      select.appendChild(femaleOption);
+
+                      select.value = currentText;
+
+                      textElement.textContent = '';
+                      textElement.appendChild(select);
+                  } else {
+                      const currentText = textElement.textContent;
+                      const input = document.createElement('input');
+                      input.type = 'text';
+                      input.value = currentText;
+                      input.classList.add('edit-input');
+                      textElement.textContent = '';
+                      textElement.appendChild(input);
+                  }
+                  button.textContent = 'Сохранить';
+              } else {
+                  if (targetClass === 'sex') {
+                      const select = textElement.querySelector('.edit-select');
+                      if (select) {
+                          const newValue = select.value;
+                          personalData[targetClass] = newValue;
+                          hiddenInputs[0].value = newValue;
+                          textElement.textContent = newValue;
+                      }
+                  } else {
+                      const input = textElement.querySelector('.edit-input');
+                      if (input) {
+                          const newValue = input.value;
+                          personalData[targetClass] = newValue;
+
+                          if (targetClass === 'age') hiddenInputs[1].value = newValue;
+                          else if (targetClass === 'email') hiddenInputs[2].value = newValue;
+                          else if (targetClass === 'phone') hiddenInputs[3].value = newValue;
+                          else if (targetClass === 'soc-network') hiddenInputs[4].value = newValue;
+
+                          textElement.textContent = newValue;
+                      }
+                  }
+                  button.textContent = 'Изменить';
+              }
+          });
+      });
+  }
 
     persInfoRadio.addEventListener('change', updateFieldsContent);
     vacanciesInfoRadio.addEventListener('change', updateFieldsContent);

@@ -29,10 +29,13 @@
                 <p class="vacancy-info-workplace">{{ vacancy.location }}</p>
                 <button type="button" class="vacancy-apply-button">Откликнуться</button>
             </div>
-            <div class="vacancy-buttons">
-                <button type="button" class="hide-vacancy-button">Скрыть</button>
-                <button type="button" class="add-vacancy-button">+</button>
-            </div>
+            <button type="button" class="favorite-vacancy-button" title="heart-button"></button>
+            <script>
+              const button = document.querySelector('.favorite-vacancy-button');
+              button.addEventListener('click', () => {
+                button.classList.toggle('active');
+              });
+            </script>
         </div>
         <div class="vacancy-block">
             <div class="vacancy-about">

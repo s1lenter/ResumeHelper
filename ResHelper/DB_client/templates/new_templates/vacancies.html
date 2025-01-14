@@ -23,10 +23,10 @@
     <main class="vacancies-main">
         <div class="vacancies-shown">
             <div class="vacancies-filter for">
-                <p class="vacancies-filter-text for">Вакансии для вас</p>
+                <a href="#" class="vacancies-filter-text for">Вакансии для вас</a>
             </div>
             <div class="vacancies-filter all">
-                <p class="vacancies-filter-text all">Все вакансии</p>
+                <a href="#" class="vacancies-filter-text all">Все вакансии</a>
             </div>
         </div>
         {% for vac in vacs %}
@@ -36,12 +36,15 @@
                     <p class="vacancy-info-salary">{{vac.salary_info}}</p>
                     <p class="vacancy-info-company">{{vac.company_name}}</p>
                     <p class="vacancy-info-workplace">{{vac.location}}</p>
-                    <a href="{% url 'vacancy_detail' vac.id %}" class="vacancy-apply-button"><p class="button-text">Откликнуться</p></a>
+                    <a href="{% url 'vacancy_detail' vac.id %}" class="vacancy-apply-button"><p class="button-text">Перейти</p></a>
                 </div>
-                <div class="vacancy-buttons">
-                    <button type="button" class="hide-vacancy-button">Скрыть</button>
-                    <button type="button" class="add-vacancy-button">+</button>
-                </div>
+                <button type="button" class="favorite-vacancy-button" title="heart-button"></button>
+                <script>
+                  const button = document.querySelector('.favorite-vacancy-button');
+                  button.addEventListener('click', () => {
+                      button.classList.toggle('active');
+                  });
+                </script>
             </div>
         {% endfor %}
 <!--        <div class="vacancy">-->

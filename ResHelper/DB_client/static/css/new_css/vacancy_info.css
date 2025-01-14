@@ -97,26 +97,40 @@ body {
     background: rgba(0, 196, 169, 0.5);
 }
 
-.vacancy-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 15px;
+.favorite-vacancy-button {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
-.vacancy-buttons button {
-    margin: 0;
-    padding: 0;
-    color: black;
-    border: none;
-    background: none;
-    font-family: Inter;
-    font-size: 20px;
-    font-weight: 600;
+.favorite-vacancy-button::before,
+.favorite-vacancy-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 7px;
+  width: 12px;
+  height: 20px;
+  background-color: black;
+  border-radius: 12px 12px 0 0;
+  transition: background-color 0.3s;
 }
 
-.vacancy-buttons button:hover {
-    color: rgba(0, 0, 0, 0.5);
+.favorite-vacancy-button::after {
+  left: 0;
+  transform: rotate(-45deg);
+}
+
+.favorite-vacancy-button::before {
+  transform: rotate(45deg);
+}
+
+.favorite-vacancy-button.active::before,
+.favorite-vacancy-button.active::after {
+  background-color: red;
 }
 
 .vacancy-block {
