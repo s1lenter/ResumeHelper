@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../static/css/new_css/vacancies.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -29,6 +30,14 @@
                 <a href="#" class="vacancies-filter-text all">Все вакансии</a>
             </div>
         </div>
+        <div class="search">
+          <form action="#" class="search-form">
+              <input type="text" placeholder="Найти вакансию" name="search" class="search-input">
+              <button>
+                  <i class="fa fa-search"></i>
+              </button>
+          </form>
+        </div>
         {% for vac in vacs %}
             <div class="vacancy">
                 <div class="vacancy-info">
@@ -39,12 +48,6 @@
                     <a href="{% url 'vacancy_detail' vac.id %}" class="vacancy-apply-button"><p class="button-text">Перейти</p></a>
                 </div>
                 <button type="button" class="favorite-vacancy-button" title="heart-button"></button>
-                <script>
-                  const button = document.querySelector('.favorite-vacancy-button');
-                  button.addEventListener('click', () => {
-                      button.classList.toggle('active');
-                  });
-                </script>
             </div>
         {% endfor %}
 <!--        <div class="vacancy">-->
@@ -86,5 +89,13 @@
             </ul>
         </nav>
     </footer>
+    <script>
+      const buttons = document.querySelectorAll('.favorite-vacancy-button');
+      for (let button of buttons) {
+        button.addEventListener('click', () => {
+          button.classList.toggle('active');
+        });
+      }
+    </script>
 </body>
 </html>
