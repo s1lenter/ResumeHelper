@@ -128,17 +128,48 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!personalData) return;
 
         if (otklikInfoRadio.checked) {
-            fieldsToChange.innerHTML = `
+            let otklikHTML = `
             <div class="field">
                 <p class="field header">Ваши отклики</p>
             </div>
             `;
+            const count = 4;
+
+            for (let i = 0; i < count; i++) {
+                otklikHTML += `
+                    <div class="js-main">
+                        <div class="info">
+                          <p class="name">Начинающий веб-разработчик #${i + 1}</p>
+                          <p class="salary">от ${150000 + i * 5000} ₽ на руки</p>
+                        </div>
+                        <button type="button" class="delete-button">Удалить</button>
+                    </div>
+                `;
+            }
+
+            fieldsToChange.innerHTML = otklikHTML;
         } else if (vacanciesInfoRadio.checked) {
-            fieldsToChange.innerHTML = `
-                <div class="field">
-                    <p class="field header">Ваши резюме</p>
-                </div>
+            let vacanciesHTML = `
+            <div class="field">
+                <p class="field header">Ваши резюме</p>
+            </div>
             `;
+            const count = 4;
+
+            for (let i = 0; i < count; i++) {
+              vacanciesHTML += `
+                    <div class="js-main">
+                        <div class="info">
+                          <p class="name">Начинающий веб-разработчик #${i + 1}</p>
+                          <p class="salary">от ${150000 + i * 5000} ₽ на руки</p>
+                          <p class="city">Екатеринбург</p>
+                        </div>
+                        <button type="button" class="delete-button">Удалить</button>
+                    </div>
+                `;
+            }
+
+            fieldsToChange.innerHTML = vacanciesHTML;
         } else if (persInfoRadio.checked) {
             fieldsToChange.innerHTML = `
                 <div class="field">

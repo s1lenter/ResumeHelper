@@ -103,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const vacanciesInfoRadio = document.getElementById('vacancies-info');
     const fieldsToChange = document.querySelector('.fields__toChange');
 
+    let personalData;
+
     async function fetchData() {
         try {
             const response = await fetch('/api/personal_data/');
@@ -125,31 +127,51 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!personalData) return;
 
         if (vacanciesInfoRadio.checked) {
-            fieldsToChange.innerHTML = `
-                <div class="field">
-                    <p class="field header">Ваши резюме</p>
-                </div>
-            `;
+          let vacanciesHTML = `
+          <div class="field">
+              <p class="field header">Ваши резюме</p>
+          </div>
+          `;
+          const count = 4;
+
+          for (let i = 0; i < count; i++) {
+            vacanciesHTML += `
+                  <div class="js-main">
+                      <div class="info">
+                        <p class="name">Начинающий разработчик #${i + 1}</p>
+                        <p class="salary">от ${150000 + i * 5000} ₽ на руки</p>
+                        <p class="company">ООО хуеть</p>
+                        <p class="city">Екатеринбург</p>
+                      </div>
+                      <div class="js-main-buttons">
+                        <button type="button" class="delete-button">x</button>
+                        <button type="button" class="delete-button">Редактировать</button>
+                      </div>
+                  </div>
+              `;
+          }
+
+          fieldsToChange.innerHTML = vacanciesHTML;
         } else if (persInfoRadio.checked) {
             fieldsToChange.innerHTML = `
                 <div class="field">
                     <p class="field header">Доп. информация</p>
                     <div class="field window">
-                        <div class="field-columns">
-                            <div class="field-column main">
-                                <p class="field-text">Пол</p>
-                                <p class="field-text">Возраст</p>
+                            <div class="field-columns">
+                                <div class="field-column main">
+                                    <p class="field-text">Должность</p>
+                                    <p class="field-text">Комментарий</p>
+                                </div>
+                                <div class="field-column">
+                                    <p class="field-text job">${personalData.job}</p>
+                                    <p class="field-text comment">${personalData.comment}</p>
+                                </div>
                             </div>
-                            <div class="field-column">
-                                <p class="field-text sex">${personalData.sex}</p>
-                                <p class="field-text age">${personalData.age}</p>
+                            <div class="field-buttons">
+                                <button class="field-button job" type="button">Изменить</button>
+                                <button class="field-button comment" type="button">Изменить</button>
                             </div>
                         </div>
-                        <div class="field-buttons">
-                            <button class="field-button sex" type="button">Изменить</button>
-                            <button class="field-button age" type="button">Изменить</button>
-                        </div>
-                    </div>
                 </div>
                 <div class="field">
                     <p class="field header">Личные данные</p>
@@ -158,18 +180,34 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="field-column main">
                                 <p class="field-text">Email</p>
                                 <p class="field-text">Телефон</p>
-                                <p class="field-text">Социальные сети</p>
                             </div>
                             <div class="field-column">
                                 <p class="field-text email">${personalData.email}</p>
                                 <p class="field-text phone">${personalData.phone}</p>
-                                <p class="field-text soc-network">${personalData.socNetwork}</p>
                             </div>
                         </div>
                         <div class="field-buttons">
                             <button class="field-button email" type="button">Изменить</button>
                             <button class="field-button phone" type="button">Изменить</button>
-                            <button class="field-button soc-network" type="button">Изменить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <p class="field header">Спецпризнаки</p>
+                    <div class="field window">
+                        <div class="field-columns">
+                            <div class="field-column main">
+                                <p class="field-text">Спецпризнак 1</p>
+                                <p class="field-text">Спецпризнак 2</p>
+                            </div>
+                            <div class="field-column">
+                                <p class="field-text special-one">${personalData.specialOne}</p>
+                                <p class="field-text special-two">${personalData.specialTwo}</p>
+                            </div>
+                        </div>
+                        <div class="field-buttons">
+                            <button class="field-button email" type="button">Изменить</button>
+                            <button class="field-button phone" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>

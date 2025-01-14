@@ -298,3 +298,67 @@ input[type='radio'] {
 .fullsave-button:hover {
     background-color: rgba(0, 196, 169, 0.5);
 }
+
+.js-main {
+  width: 850px;
+  padding: 25px;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  justify-content: space-between;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.name {
+  margin: 0;
+  padding: 0;
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  color: white;
+}
+
+.salary {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.city {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+
+  margin: 0;
+  padding: 0;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  color: white;
+}
+
+.delete-button:hover {
+  color: rgba(255, 255, 255, 0.5);
+}

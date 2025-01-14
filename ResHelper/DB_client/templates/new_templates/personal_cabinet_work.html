@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PersonalCabinetWork</title>
+    <title>Личный кабинет</title>
     <link rel="stylesheet" href="../../static/css/new_css/personal_cabinet_work.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
         </nav>
     </header>
     <main class="personal-cabinet-work-main">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" class="main-form">
             {% csrf_token %}
             <div class="personal-cabinet-work-fields">
                 <div class="personal-cabinet-work-info">
@@ -83,12 +83,10 @@
                         <div class="field window">
                             <div class="field-columns">
                                 <div class="field-column main">
-                                    <p class="field-text">Пароль</p>
                                     <p class="field-text">Email</p>
                                     <p class="field-text">Телефон</p>
                                 </div>
                                 <div class="field-column">
-                                    <p class="field-text  password">123456SK</p>
                                     <p class="field-text  email">namefamily@gmail.com</p>
                                     <p class="field-text  phone">+7 903 565 44 76</p>
                                 </div>
@@ -96,7 +94,6 @@
                             <div class="field-buttons">
                                 <button class="field-button password" type="button">Изменить</button>
                                 <button class="field-button email" type="button">Изменить</button>
-                                <button class="field-button phone" type="button">Изменить</button>
                             </div>
                         </div>
                     </div>
@@ -130,7 +127,7 @@
             <input type="text" title="upload-image" class="hidden-input-dopinfo" name="email" style="display: none;">
             <input type="text" title="upload-image" class="hidden-input-dopinfo" name="phone" style="display: none;">
             <input type="text" title="upload-image" class="hidden-input-dopinfo" name="soc_net" style="display: none;">
-            <button type="submit">Сохранить</button>
+            <button type="submit" class="fullsave-button">Сохранить</button>
         </form>
     </main>
     <script src="../../static/js/personal_cabinet_work.js"></script>
