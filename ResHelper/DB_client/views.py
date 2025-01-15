@@ -162,10 +162,11 @@ def create_resume(request):
         desired_salary = request.POST.get('desired_salary')
         personal_qualities = request.POST.get('personal_qualities')
 
-        AdditionalInfo.objects.create(profession=profession,
-                                     experience_level=experience_level,
-                                     desired_salary=desired_salary,
-                                     personal_qualities=personal_qualities)
+        AdditionalInfo.objects.create(resume=request_res,
+                                        profession=profession,
+                                        experience_level=experience_level,
+                                        desired_salary=desired_salary,
+                                        personal_qualities=personal_qualities)
 
         prof = request.POST.getlist('profession')
         comp = request.POST.getlist('company')

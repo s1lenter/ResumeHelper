@@ -148,3 +148,4 @@ class AdditionalInfo(models.Model):
             ('more_than_6', 'От 3 до 6 лет'),
         ]
     )
+    resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
