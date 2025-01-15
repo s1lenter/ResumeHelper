@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MakeResume</title>
+    <link rel="stylesheet" href="../static/css/make_resume.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="create-resume-header">
+        <nav class="create-resume-nav">
+            <a class="logo" href="{% url 'start_page' %}">
+                <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+            <a class="personal-cabinet-logo" href="">
+                <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
+            </a>
+        </nav>
+    </header>
+    <main class="create-resume-main">
+        <form method="post" enctype="multipart/form-data" class="main-form">
+            {% csrf_token %}
+
+            <div class="main-field-info about-me">
+                <p class="main-field-info-header about-me-header">
+                    О себе
+                </p>
+                <div class="main-fields about-me">
+                    <div class="main-field profession">
+                        <label for="profession" class="main-field-header">Ваша профессия</label>
+                        <input
+                            type="text"
+                            id="profession"
+                            class="main-input-field"
+                            name="profession"
+                            required>
+                    </div>
+                    <div class="main-field desired-salary">
+                        <label for="desired-salary" class="main-field-header">Желаемый оклад</label>
+                        <input
+                            type="text"
+                            id="desired-salary"
+                            class="main-input-field"
+                            name="desired-salary"
+                            required>
+                    </div>
+                    <div class="main-field work-experience">
+                        <label for="work-experience" class="main-field-header">Опыт работы (в годах)</label>
+                        <input
+                            type="number"
+                            id="work-experience"
+                            class="main-input-field"
+                            name="work-experience"
+                            min="0"
+                            required>
+                    </div>
+                    <div class="main-field qualities-description">
+                        <label for="qualities-description" class="main-field-header">Описание качеств</label>
+                        <textarea
+                            id="qualities-description"
+                            class="main-input-field"
+                            name="qualities-description"
+                            rows="4"
+                            required></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-field-info achievments">
+                <p class="main-field-info-header achievments-header">
+                    Достижения и навыки
+                </p>
+                <div class="main-fields achievments">
+                    <div class="main-field achievments" id="achievements-form">
+                            <label for="achievments" class="main-field-header">Достижения</label>
+                            <input
+                                type="file"
+                                id="ach_image"
+                                class="main-input-field"
+                                name="ach_image"
+                                required>
+                            <div class="make-resume-buttons">
+                                <button type="button" class="add-button" onclick="addField('achievements')">Добавить</button>
+                                <button type="button" class="delete-button" onclick="deleteField('achievements')" hidden>Удалить</button>
+                            </div>
+                    </div>
+                    <div class="main-field abilities" id="abilities-form">
+                            <label for="abilities" class="main-field-header">Навыки</label>
+                            <input
+                                type="text"
+                                id="abilities"
+                                class="main-input-field"
+                                name="skill"
+                                placeholder='Введите навык'
+                                required>
+                            <div class="make-resume-buttons">
+                                <button type="button" class="add-button" onclick="addField('abilities')">Добавить</button>
+                                <button type="button" class="delete-button" onclick="deleteField('abilities')" hidden>Удалить</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-field-info education">
+                <p class="main-field-info-header personal-info-header">
+                    Образование
+                </p>
+                <div class="main-fields education">
+                    <div class="main-field education-degree">
+                        <div class="main-education-degree-field">
+                            <label for="education-degree" class="main-field-header">Уровень образования</label>
+                            <select id="education-degree" name="level">
+                                <option value="" disabled selected>Выберите из списка</option>
+                                <option value="secondary">Среднее</option>
+                                <option value="secondary-specialised">Среднее специальное</option>
+                                <option value="uncompleted-higher">Неоконченное высшее</option>
+                                <option value="higher">Высшее</option>
+                                <option value="bachelor">Бакалавр</option>
+                                <option value="master">Магистр</option>
+                                <option value="Ph">Кандидат наук</option>
+                                <option value="PhD">Доктор наук</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="main-field education-place">
+                            <label for="education-place" class="main-field-header">Учебное заведение</label>
+                            <input
+                                type="text"
+                                id="education-place"
+                                class="main-input-field"
+                                pattern="[A-Za-zА-Яа-яЁё]{1,}"
+                                name="education-place"
+                                required>
+                    </div>
+                    <div class="main-field education-date">
+                            <label for="education-date" class="main-field-header">Дата окончания</label>
+                            <input
+                                type="date"
+                                id="education-date"
+                                class="main-input-field"
+                                name="education-date"
+                                required>
+                    </div>
+                </div>
+            </div>
+            <div class="main-field-info work-experience" id="work-experience-form">
+                <p class="main-field-info-header work-experience">
+                    Опыт работы
+                </p>
+                <div class="main-fields work-experience">
+                    <div class="main-field work-experience">
+                            <label for="profession" class="main-field-header">Профессия</label>
+                            <input
+                                type="text"
+                                id="profession"
+                                class="main-input-field"
+                                name="profession"
+                                required>
+                    </div>
+                    <div class="main-field work-company">
+                            <label for="company" class="main-field-header">Компания</label>
+                            <input
+                                type="text"
+                                id="company"
+                                class="main-input-field"
+                                name="company"
+                                required>
+                    </div>
+                    <div class="main-field work-startdate">
+                            <label for="startdate" class="main-field-header">Дата начала работы</label>
+                            <input
+                                type="date"
+                                id="startdate"
+                                class="main-input-field"
+                                name="startdate"
+                                required>
+                    </div>
+                    <div class="main-field work-enddate">
+                            <label for="enddate" class="main-field-header">Дата окончания работы</label>
+                            <input
+                                type="date"
+                                id="enddate"
+                                class="main-input-field"
+                                name="enddate"
+                                required>
+                        <div id="work-experience-form">
+                            <div class="make-resume-buttons">
+                                <button type="button" class="add-button" onclick="addField('work-experience')">Добавить</button>
+                                <button type="button" class="delete-button" onclick="deleteField('work-experience')" hidden>Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="save-button">Сохранить</button>
+        </form>
+    </main>
+    <footer class="create-resume-footer">
+        <nav class="make-resume-footer-nav">
+            <p class="make-resume-footer-nav-elem">
+                <a href="#">Контакты</a>
+            </p>
+            <p class="make-resume-footer-nav-elem">
+                <a href="#">О нас</a>
+            </p>
+            
+        </nav>
+    </footer>
+    <script src="../static/js/make_resume.js"></script>
+</body>
+</html>

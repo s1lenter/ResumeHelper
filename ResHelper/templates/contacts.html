@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="../static/css/contacts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="contacts-header">
+        <nav class="contacts-nav">
+            <a class="logo" href="{% url 'start_page' %}">
+                <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+            <a class="contacts-logo" href="#">
+                <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
+            </a>
+        </nav>
+    </header>
+    <main class="contacts-main">
+        <div class="contacts-main-info">
+            <p class="contacts-main-info-header">Контакты</p>
+            <div class="contacts-main-info-text">
+                <p class="contacts-main-info-paragraph">Мы всегда рады вашим вопросам,<br>
+                    предложениям и комментариям!<br>
+                    Если вы хотите узнать больше о нашей команде,<br>
+                    проекте или сотрудничестве, не стесняйтесь<br>
+                    связаться с нами.
+                </p>
+                <p class="contacts-main-info-paragraph">
+                    <span>Электронная почта</span><br>
+                    Вы можете написать нам на адрес:<br>
+                    codeubezhishe@gmail.com
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

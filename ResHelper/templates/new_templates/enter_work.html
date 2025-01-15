@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Вход</title>
+    <link rel="stylesheet" href="../../static/css/new_css/enter_work.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="enter-work-header">
+        <nav class="enter-work-header-nav">
+            <div class="logo">
+                <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </div>
+        </nav>
+    </header>
+    <main class="enter-work-main">
+        <p class="enter-work-text-header">Вход</p>
+        <div class="enter-work-window">
+            <div class="enter-work-window-input">
+                <form method="post" class="enter-work-window-input">
+                    {% csrf_token %}
+                    <div class="comment-inner">
+                      <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="comment-field" placeholder="Адрес электронной почты" required id="comment-input-email" name="username">
+                    </div>
+                    <div class="comment-inner">
+                      <input type="password" class="comment-field" placeholder="Пароль" required id="comment-input-password" name="password">
+                    </div>
+                    {% if form.non_field_errors %}
+                    <div class="form-error">Неверная почта или пароль. Повторите ввод</div>
+                    {% endif %}
+
+                    {% for f in form %}
+                        {% if f.errors %}
+                            <div class="form-error">{{ form.errors }}</div>
+                        {% endif %}
+                    {% endfor %}
+                    <button type="submit" class="page-window-button">
+                        Войти
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="enter-work-footer">
+        <nav class="enter-work-footer-nav">
+            <ul class="footer-site-navigation">
+                <li class="footer-site-navigation-item">
+                    <a href="">Контакты</a>
+                </li>
+                <li class="footer-site-navigation-item">
+                    <a href="">О нас</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

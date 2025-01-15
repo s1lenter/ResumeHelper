@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="../../static/css/new_css/work_page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="work-header">
+        <nav class="work-header-nav">
+            <a class="logo" href="{% url 'start_page' %}">
+                <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+        </nav>
+    </header>
+    <main class="work-main">
+        <p class="work-text-header">Работники найдутся легко!</p>
+        <div class="work-window">
+            <div class="work-window-input">
+                <div class="work-window-info">
+                    <div class="work-window-info-part">
+                        <p class="work-window-info-part__text">
+                            Чтобы воспользоваться сервисом,<br>
+                            нужно зарегистрироваться
+                        </p>
+                        <a href="{% url 'register_work' %}" class="work-window-button registration">
+                            Регистрация
+                        </a>
+                    </div>
+                    <div class="work-window-info-part">
+                        <p class="work-window-info-part__text">
+                            Уже есть аккаунт?
+                        </p>
+                        <a href="{% url 'login_work' %}" class="work-window-button">
+                            Войти
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="work-footer">
+        <nav class="work-footer-nav">
+            <ul class="footer-site-navigation">
+                <li class="footer-site-navigation-item">
+                    <a href="">Контакты</a>
+                </li>
+                <li class="footer-site-navigation-item">
+                    <a href="">О нас</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

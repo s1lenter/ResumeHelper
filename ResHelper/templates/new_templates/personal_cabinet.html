@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="../../static/css/new_css/personal_cabinet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="personal-cabinet-header">
+        <nav class="personal-cabinet-nav">
+            <div class="part-nav">
+                <a class="logo" href="{% url 'start_page' %}">
+                    <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+                </a>
+                <div class="nav-link">
+                    <a href="{% url 'vacancies' %}">Смотреть вакансии</a>
+                </div>
+            </div>
+            <div class="part-nav">
+                <div class="nav-link">
+                    <a href="{% url 'logout' %}">Выйти</a>
+                </div>
+                <div class="nav-link">
+                    <a href="{% url 'create_resume' %}">Создать резюме</a>
+                </div>
+                <a class="personal-cabinet-logo" href="#">
+                    <img src="../media/{{profile.avatar}}" width="60" height="60" alt="Логотип персонального кабинета">
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main class="personal-cabinet-main">
+        <form method="post" enctype="multipart/form-data" class="main-form">
+            {% csrf_token %}
+            <div class="personal-cabinet-fields">
+                <div class="personal-cabinet-info">
+                    <div class="radioButtons">
+                        <label for="pers-info" class="label-text pers">Личная информация</label>
+                        <input type="radio" id="pers-info" name="info-button" checked>
+                        <label for="vacancies-info" class="label-text vacancies">Мои резюме</label>
+                        <input type="radio" id="vacancies-info" name="info-button">
+                        <label for="otklik-info" class="label-text otklik">Мои отклики</label>
+                        <input type="radio" id="otklik-info" name="info-button">
+                    </div>
+                    <div class="personal-cabinet-info-window">
+                        <div class="personal-cabinet-info-data">
+                            <div class="info-name-surname">
+                                <p class="info-fname">{{ user.first_name }}</p>
+                                <p class="info-lname">{{ user.last_name }}</p>
+                            </div>
+                            <button name="edit-info-data-button" type="button" class="edit-info-data-button">Редактировать</button>
+                        </div>
+                        <a class="info-image">
+                            <img src="../media/{{profile.avatar}}" width="280" height="280">
+                        </a>
+                        <input type="file" title="upload-image" class="upload-image-input" accept="image/*">
+                    </div>
+                </div>
+                <div class="fields__toChange">
+                    <div class="field">
+                        <p class="field header">Доп. информация</p>
+                        <div class="field window">
+                            <div class="field-columns">
+                                <div class="field-column main">
+                                    <p class="field-text">Пол</p>
+                                    <p class="field-text">Возраст</p>
+                                </div>
+<!--                                <div class="field-column">-->
+<!--                                    <p class="field-text sex">{{ profile.gender }}</p>-->
+<!--                                    {% if profile.age %}-->
+<!--                                    <p class="field-text age">{{ profile.age }}</p>-->
+<!--                                    {% endif %}-->
+<!--                                </div>-->
+                            </div>
+                            <div class="field-buttons">
+                                <button class="field-button sex" type="button">Изменить</button>
+                                <button class="field-button age" type="button">Изменить</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <p class="field header">Личные данные</p>
+                        <div class="field window">
+                            <div class="field-columns">
+                                <div class="field-column main">
+                                    <p class="field-text">Email</p>
+                                    <p class="field-text">Телефон</p>
+                                    <p class="field-text">Социальные сети</p>
+                                </div>
+                                <div class="field-column">
+<!--                                    <p class="field-text  email">{{user.email}}</p>-->
+<!--                                    <p class="field-text  phone">{{profile.phone_number}}</p>-->
+<!--                                    <p class="field-text  soc-network">{{profile.social_network}}</p>-->
+                                </div>
+                            </div>
+                            <div class="field-buttons">
+                                <button class="field-button email" type="button">Изменить</button>
+                                <button class="field-button phone" type="button">Изменить</button>
+                                <button class="field-button soc-network" type="button">Изменить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="text" title="upload-image" class="hidden-input" name="first_name" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input" name="last_name" style="display: none;">
+            <input type="file" title="upload-image" class="hidden-input-file" name="avatar" style="display: none;">
+
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="gender" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="age" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="email" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="phone" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="soc_net" style="display: none;">
+            <button type="submit" class="fullsave-button">Сохранить</button>
+        </form>
+    </main>
+    <script>
+        const startPageUrl = "{% url 'start_page' %}";
+    </script>
+    <script src="../../static/js/personal_cabinet.js"></script>
+</body>
+</html>

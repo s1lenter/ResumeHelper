@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Отклик</title>
+    <link rel="stylesheet" href="../../static/css/new_css/otkliks-info.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="otkliks-info-header">
+        <nav class="otkliks-info-nav">
+            <div class="part-nav">
+                <a class="logo" href="{% url 'start_page' %}">
+                    <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+                </a>
+                <div class="nav-link back">
+                  <a href="#">Назад</a>
+              </div>
+            </div>
+            <div class="part-nav">
+                <div class="nav-link log-out">
+                    <a href="{% url 'logout' %}">Выйти</a>
+                </div>
+                <div class="nav-link">
+                    <a href="{% url 'create_vacancy' %}">Создать вакансию</a>
+                </div>
+                <a class="otkliks-info-logo" href="#">
+                    <img src="../media/{{profile.avatar}}" width="60" height="60" alt="Логотип персонального кабинета">
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main class="otkliks-info-main">
+      <div class="otkliks-info">
+        <div class="js-main otklik-name">
+          <div class="info">
+            <p class="name">Начинающий разработчик</p>
+            <p class="extra">от 50000 ₽ на руки</p>
+          </div>
+        </div>
+        <div class="js-main">
+          <div class="info">
+            <p class="name">Иванов Иван Иванович, 32 года</p>
+            <p class="extra">Высшее образование</p>
+            <p class="extra">Екатеринбург</p>
+            <p class="extra">Есть опыт работы</p>
+          </div>
+          <button type="button" class="delete-button">Подробнее</button>
+        </div>
+        <div class="js-main">
+          <div class="info">
+            <p class="name">Петров Вячеслав Григорьевич, 23 года</p>
+            <p class="extra">Высшее образование</p>
+            <p class="extra">Екатеринбург</p>
+            <p class="extra">Есть опыт работы</p>
+          </div>
+          <button type="button" class="delete-button">Подробнее</button>
+        </div>
+        <div class="js-main">
+          <div class="info">
+            <p class="name">Сухарев Алексей Александрович, 40 лет</p>
+            <p class="extra">Высшее образование</p>
+            <p class="extra">Екатеринбург</p>
+            <p class="extra">Есть опыт работы</p>
+          </div>
+          <button type="button" class="delete-button">Подробнее</button>
+        </div>
+      </div>
+    </main>
+    <footer class="otkliks-info-footer">
+      <nav class="otkliks-info-footer-nav">
+          <ul class="footer-site-navigation">
+              <li class="footer-site-navigation-item">
+                  <a href="{% url 'contacts' %}">Контакты</a>
+              </li>
+              <li class="footer-site-navigation-item">
+                  <a href="{% url 'about' %}">О нас</a>
+              </li>
+          </ul>
+      </nav>
+    </footer>
+</body>
+</html>

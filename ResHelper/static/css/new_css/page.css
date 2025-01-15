@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../../img/new_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page-header {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.page-header-nav {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-window {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 650px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 40px; 
+    align-self: center;
+    margin-bottom: 50px;
+}
+
+.page-window-info {
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+    padding: 50px 0;
+}
+
+.page-window-info-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-window-info-part__text {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    color: rgba(221, 221, 221, 1);
+}
+
+.page-text-header {
+    margin: 50px 0 35px 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 78px;
+    text-align: center;
+    color: black;
+}
+
+.page-window-button {
+    padding: 0;
+    margin-top: 16px;
+    padding-top: 12px;
+
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    
+
+    width: 170px;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(0, 196, 169, 1);
+}
+
+.page-window-button.registration {
+    width: 270px;
+    height: 65px;
+}
+
+.page-window-button:hover {
+    background-color: rgba(217, 217, 217, 0.5);
+}
+
+.page-footer {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.page-footer-nav {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    gap: 50px;
+}
+
+.footer-site-navigation {
+    padding: 0;
+    padding-left: 60px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    gap: 75px;
+}
+
+.footer-site-navigation-item a {
+    text-decoration: none;
+    color: white;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38.73px;
+    text-align: left;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Резюме</title>
+    <link rel="stylesheet" href="../../static/css/new_css/resume_info.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="resume-info-header">
+        <nav class="resume-info-nav">
+            <a class="logo" href="{% url 'start_page' %}">
+                <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+            </a>
+            <a class="personal-cabinet-logo" href="#">
+                <img src="../../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
+            </a>
+        </nav>
+    </header>
+    <main class="resume-info-main">
+        <div class="resume">
+            <div class="resume-info">
+                <p class="resume-info-head">Начинающий веб-разработчик</p>
+                <p class="resume-info-salary">от 150000 Р на руки</p>
+                <p class="resume-info-workplace">Екатеринбург</p>
+            </div>
+            <div class="resume-buttons">
+                <button type="button" class="hide-resume-button">Вернуться</button>
+            </div>
+        </div>
+        <div class="resume-block">
+            <div class="resume-about">
+                <p class="resume-about-header">Личная информация:</p>
+                <ul class="resume-about-items">
+                    <li class="resume-about-item">
+                        Петров Иван Иванович, 25 лет
+                    </li>
+                    <li class="resume-about-item">
+                        Почта: PetrovvvIIvan@gmail.com
+                    </li>
+                    <li class="resume-about-item">
+                        Телефон: +7 999 222 33 11
+                    </li>
+                </ul>
+            </div>
+            <div class="resume-about">
+                <p class="resume-about-header">Достижения / Навыки:</p>
+                <ul class="resume-about-items">
+                    <li class="resume-about-item">
+                        ...
+                    </li>
+                    <li class="resume-about-item">
+                        ...
+                    </li>
+                    <li class="resume-about-item">
+                        ...
+                    </li>
+                </ul>
+            </div>
+            <div class="resume-about">
+                <p class="resume-about-header">Образование:</p>
+                <ul class="resume-about-items">
+                    <li class="resume-about-item">
+                        Уровень образования: ...
+                    </li>
+                    <li class="resume-about-item">
+                        Учебное заведение: ...
+                    </li>
+                    <li class="resume-about-item">
+                        Дата окончания: ...
+                    </li>
+                </ul>
+            </div>
+            <div class="resume-about">
+                <p class="resume-about-header">Опыт работы:</p>
+                <ul class="resume-about-items">
+                    <li class="resume-about-item">
+                        Профессия: ...
+                    </li>
+                    <li class="resume-about-item">
+                        Компания: ...
+                    </li>
+                    <li class="resume-about-item">
+                        Дата начала работы: ...
+                    </li>
+                    <li class="resume-about-item">
+                        Дата конца работы: ...
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer class="resume-info-footer">
+        <nav class="resume-info-footer-nav">
+            <ul class="footer-site-navigation">
+                <li class="footer-site-navigation-item">
+                    <a href="">Контакты</a>
+                </li>
+                <li class="footer-site-navigation-item">
+                    <a href="">О нас</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
