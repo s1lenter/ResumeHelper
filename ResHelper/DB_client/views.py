@@ -100,14 +100,11 @@ class ResInfo(ListView):
         res_id = self.kwargs.get('res_id')
         user_res = Resume.objects.get(id=res_id)
         print(user_res)
-        print(Achievements.objects.filter(resume=user_res)[0].ach_image)
-
-
         context['achievements'] = Achievements.objects.filter(resume=user_res)
 
-        context['skill'] = Skill.objects.filter(resume=user_res)[0]
-        context['education'] = Education.objects.filter(resume=user_res)[0]
-        context['work_experience'] = WorkExperience.objects.filter(resume=user_res)[0]
+        context['skill'] = Skill.objects.filter(resume=user_res)
+        context['education'] = Education.objects.filter(resume=user_res)
+        context['work_experience'] = WorkExperience.objects.filter(resume=user_res)
         return context
 
 def logout_user(request):
@@ -151,6 +148,7 @@ def create_resume(request):
         skills = request.POST.getlist('skill')
         for skill in skills:
             Skill.objects.create(skill_name=skill, resume=request_res)
+
         edu_level = request.POST.get('level')
         place = request.POST.get('education-place')
         year = request.POST.get('education-date')
@@ -158,6 +156,17 @@ def create_resume(request):
                                  level=edu_level,
                                  place=place,
                                  year=year)
+
+        profession = request.POST.get('interes_profession')
+        experience_level = request.POST.get('experience_level')
+        desired_salary = request.POST.get('desired_salary')
+        personal_qualities = request.POST.get('personal_qualities')
+
+        AdditionalInfo.objects.create(profession=profession,
+                                     experience_level=experience_level,
+                                     desired_salary=desired_salary,
+                                     personal_qualities=personal_qualities)
+
         prof = request.POST.getlist('profession')
         comp = request.POST.getlist('company')
         start_date = request.POST.getlist('startdate')

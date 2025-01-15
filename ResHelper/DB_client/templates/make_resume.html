@@ -30,21 +30,22 @@
                 </p>
                 <div class="main-fields about-me">
                     <div class="main-field profession">
-                        <label for="profession" class="main-field-header">Ваша профессия</label>
+                        <label for="profession" class="main-field-header">Желаемая профессия</label>
                         <input
                             type="text"
-                            id="profession"
+                            id="interes_profession"
                             class="main-input-field"
-                            name="profession"
+                            name="interes_profession"
                             required>
                     </div>
                     <div class="main-field desired-salary">
                         <label for="desired-salary" class="main-field-header">Желаемый оклад</label>
                         <input
-                            type="text"
+                            type="number"
+                            step="1000"
                             id="desired-salary"
                             class="main-input-field"
-                            name="desired-salary"
+                            name="desired_salary"
                             required>
                     </div>
                     <div class="main-field work-experience">
@@ -53,7 +54,7 @@
                             type="number"
                             id="work-experience"
                             class="main-input-field"
-                            name="work-experience"
+                            name="experience_level"
                             min="0"
                             required>
                     </div>
@@ -62,7 +63,7 @@
                         <textarea
                             id="qualities-description"
                             class="main-input-field"
-                            name="qualities-description"
+                            name="personal_qualities"
                             rows="4"
                             required></textarea>
                     </div>
