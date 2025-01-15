@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MakeResume</title>
-    <link rel="stylesheet" href="../static/css/make_resume.css">
+    <link rel="stylesheet" href="../../static/css/make_resume.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -13,10 +13,10 @@
     <header class="create-resume-header">
         <nav class="create-resume-nav">
             <a class="logo" href="{% url 'start_page' %}">
-                <img src="../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
+                <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
             </a>
-            <a class="personal-cabinet-logo" href="{% url 'res_info' %}">
-                <img src="../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
+            <a class="personal-cabinet-logo" href="">
+                <img src="../../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
             </a>
         </nav>
     </header>
@@ -30,7 +30,9 @@
                 <div class="main-fields achievments">
                     <div class="main-field achievments" id="achievements-form">
                             <label for="achievments" class="main-field-header">Достижения</label>
-                            <p><img src="../media/{{achievements.ach_image}}"></p>
+                            {% for achievement in achievements%}
+                            <p><img src="../../media/{{achievement.ach_image}}"></p>
+                            {%endfor%}
                     </div>
                     <div class="main-field abilities" id="abilities-form">
                             <label for="abilities" class="main-field-header">Навыки</label>

@@ -105,24 +105,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const fieldsToChange = document.querySelector('.fields__toChange');
 
     let personalData;
+    let resumeData;
 
     async function fetchData() {
-        try {
-            const response = await fetch('/api/personal_data/');
-            if (!response.ok) {
-                throw new Error('Сеть ответила с проблемой: ' + response.statusText);
-            }
-            personalData = await response.json();
-            console.log(personalData);
+        const response = await fetch('/api/personal_data/');
+        personalData = await response.json();
+        console.log(personalData)
+        updateFieldsContent();
+    }
 
-            updateFieldsContent();
-
-        } catch (error) {
-            console.error('Ошибка:', error);
-        }
+    async function fetchResData() {
+        const response = await fetch('/api/resume_data/');
+        resumeData = await response.json();
+        console.log(resumeData)
+        console.log(startPageUrl)
+        updateFieldsContent();
     }
 
     fetchData();
+    fetchResData();
+
 
     function updateFieldsContent() {
         if (!personalData) return;
@@ -155,17 +157,21 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             `;
             const count = 4;
-
-            for (let i = 0; i < count; i++) {
+            console.log(resumeData[8])
+            const keys = Object.keys(resumeData);
+            for (const id of keys) {
+            let i = 0
               vacanciesHTML += `
+                <a href="/res_info/${id}/">
                     <div class="js-main">
                         <div class="info">
-                          <p class="name">Начинающий веб-разработчик #${i + 1}</p>
-                          <p class="salary">от ${150000 + i * 5000} ₽ на руки</p>
-                          <p class="city">Екатеринбург</p>
+                          <p class="name">Ваше резюме #${i + 1}</p>
+                          <p class="salary">Профессия</p>
+                          <p class="city">Желаемый оклад</p>
                         </div>
-                        <button type="button" class="delete-button">Удалить</button>
+                        <a href="/delete_resume/${id}" class="delete-button">Удалить</a>
                     </div>
+                </a>
                 `;
             }
 

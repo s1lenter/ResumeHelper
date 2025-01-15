@@ -69,12 +69,12 @@
                                     <p class="field-text">Пол</p>
                                     <p class="field-text">Возраст</p>
                                 </div>
-                                <div class="field-column">
-                                    <p class="field-text sex">{{ profile.gender }}</p>
-                                    {% if profile.age %}
-                                    <p class="field-text age">{{ profile.age }}</p>
-                                    {% endif %}
-                                </div>
+<!--                                <div class="field-column">-->
+<!--                                    <p class="field-text sex">{{ profile.gender }}</p>-->
+<!--                                    {% if profile.age %}-->
+<!--                                    <p class="field-text age">{{ profile.age }}</p>-->
+<!--                                    {% endif %}-->
+<!--                                </div>-->
                             </div>
                             <div class="field-buttons">
                                 <button class="field-button sex" type="button">Изменить</button>
@@ -92,13 +92,12 @@
                                     <p class="field-text">Социальные сети</p>
                                 </div>
                                 <div class="field-column">
-                                    <p class="field-text  email">namefamily@gmail.com</p>
-                                    <p class="field-text  phone">+7 903 565 44 76</p>
-                                    <p class="field-text  soc-network">https://id.vk.com/account/</p>
+<!--                                    <p class="field-text  email">{{user.email}}</p>-->
+<!--                                    <p class="field-text  phone">{{profile.phone_number}}</p>-->
+<!--                                    <p class="field-text  soc-network">{{profile.social_network}}</p>-->
                                 </div>
                             </div>
                             <div class="field-buttons">
-                                <button class="field-button password" type="button">Изменить</button>
                                 <button class="field-button email" type="button">Изменить</button>
                                 <button class="field-button phone" type="button">Изменить</button>
                                 <button class="field-button soc-network" type="button">Изменить</button>
@@ -119,6 +118,9 @@
             <button type="submit" class="fullsave-button">Сохранить</button>
         </form>
     </main>
+    <script>
+        const startPageUrl = "{% url 'start_page' %}";
+    </script>
     <script src="../../static/js/personal_cabinet.js"></script>
 </body>
 </html>

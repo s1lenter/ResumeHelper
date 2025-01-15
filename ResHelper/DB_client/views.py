@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.db import IntegrityError
 from django.forms import model_to_dict
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponseNotFound, HttpResponse, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import *
@@ -96,11 +96,14 @@ class ResInfo(ListView):
     model = User
 
     def get_context_data(self, **kwargs):
-        user_res = Resume.objects.filter(profile=self.request.user).last()  #пока что возвращается последнее созданное резюме
-        print(Achievements.objects.filter(resume=user_res))
         context = super().get_context_data(**kwargs)
+        res_id = self.kwargs.get('res_id')
+        user_res = Resume.objects.get(id=res_id)
+        print(user_res)
+        print(Achievements.objects.filter(resume=user_res)[0].ach_image)
 
-        context['achievements'] = Achievements.objects.filter(resume=user_res)[0]
+
+        context['achievements'] = Achievements.objects.filter(resume=user_res)
 
         context['skill'] = Skill.objects.filter(resume=user_res)[0]
         context['education'] = Education.objects.filter(resume=user_res)[0]
@@ -215,6 +218,8 @@ def personal_cabinet (request):
     user = User.objects.get(id=request.user.id)
     profile = Profile.objects.get(user_id=request.user.id)
     if request.method == 'POST':
+        if profile.role == 'Employer':
+            profile.emp_post = change_model(profile.emp_post, 'emp_post', request)
         user.first_name = change_model(user.first_name, 'first_name', request)
         user.last_name = change_model(user.last_name, 'last_name', request)
         profile.gender = change_model(profile.gender, 'gender', request)
@@ -230,6 +235,7 @@ def personal_cabinet (request):
 
         user.save()
         profile.save()
+        return redirect('start_page')
 
     if profile.role == 'Employer':
         return render(request, 'new_templates/personal_cabinet_work.html', {'user': user, 'profile': profile})
@@ -247,7 +253,57 @@ def send_personal_data(request):
         "sex": profile.gender,
         "age": profile.age,
     }
+    if profile.role == 'Employer':
+        data["emp_post"] = profile.emp_post
     for key in data:
         if data[key] is None:
             data[key] = 'Не указано'
     return JsonResponse(data)
+
+def send_resume_data(request):
+    resumes = Resume.objects.filter(profile_id=request.user.id)
+    data = {}
+    for resume in resumes:
+        res_data = {}
+        edu = Education.objects.get(resume_id=resume.id) #здесь вообще не edu
+        res_data['edu_place'] = edu.place
+        res_data['edu_level'] = edu.level
+        res_data['end_edu_date'] = edu.year
+        data[resume.id] = res_data
+    return JsonResponse(data)
+
+def delete_resume(request, res_id):
+    profile = Profile.objects.get(user_id=request.user.id)
+    instance = get_object_or_404(Resume, id=res_id)
+
+    if profile.role == 'Job_Seeker':
+        instance.delete()
+        return redirect('personal_cabinet')
+    else:
+        return redirect('personal_cabinet')
+
+
+def send_vacancy_data(request):
+    vacs = Job.objects.filter(employer_id=request.user.id)
+    data = {}
+    for vac in vacs:
+        vac_data = {}
+        vac = model_to_dict(vac)
+        get_salary_info(vac)
+        vac_data['name'] = vac['name']
+        vac_data['company_name'] = vac['company_name']
+        vac_data['salary_info'] = vac['salary_info']
+        vac_data['location'] = vac['location']
+        data[vac['id']] = vac_data
+    return JsonResponse(data)
+
+
+def delete_vac(request, vac_id):
+    profile = Profile.objects.get(user_id=request.user.id)
+    instance = get_object_or_404(Job, id=vac_id)
+
+    if profile.role == 'Employer':
+        instance.delete()
+        return redirect('personal_cabinet')
+    else:
+        return redirect('personal_cabinet')

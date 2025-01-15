@@ -14,13 +14,17 @@ urlpatterns = [
     path("logout/", logout_user, name="logout"),
     path("create_resume/", create_resume, name="create_resume"),
     path("create_vacancy/", create_vacancy, name="create_vacancy"),
-    path("res_info/", ResInfo.as_view(), name="res_info"),
+    path("res_info/<int:res_id>/", ResInfo.as_view(), name="res_info"),
     path("vacancies/", vacancies, name="vacancies"),
     path("about/", about, name="about"),
     path("contacts/", contacts, name="contacts"),
     path("personal_cabinet/", personal_cabinet, name="personal_cabinet"),
     path("api/personal_data/", send_personal_data, name="personal_data"),
+    path("api/resume_data/", send_resume_data, name="resume_data"),
+    path("api/vacancy_data/", send_vacancy_data, name="vacancy_data"),
     path("vacancy_detail/<int:vac_id>/", vacancy_detail, name="vacancy_detail"),
+    path("delete_resume/<int:res_id>/", delete_resume, name="delete_resume"),
+    path("delete_vac/<int:vac_id>/", delete_vac, name="delete_vac"),
 ]
 
 if settings.DEBUG:
