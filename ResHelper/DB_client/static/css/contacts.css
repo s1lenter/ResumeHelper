@@ -20,12 +20,12 @@ body {
     margin: 0;
     padding: 0;
     background-image: url("../../static/img/contacts_bg.png");
-    min-height: 93.9vh;
+    min-height: 100vh; 
     background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; 
 }
 
 .contacts-main-info {
@@ -33,7 +33,9 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 25px;
-    padding: 50px 0;
+    padding: 50px 0; 
+    width: 700px; 
+    max-width: 90%; 
 }
 
 .contacts-main-info-header {
@@ -52,7 +54,7 @@ body {
     background-color: rgba(255, 245, 245, 0.5);
     border-radius: 30px;
     padding: 20px 0;
-    width: 700px;
+    width: 100%; /* Установите ширину на 100% для текста */
 }
 
 .contacts-main-info-paragraph {
@@ -70,4 +72,63 @@ body {
     font-size: 32px;
     font-weight: 600;
     color: black;
+}
+
+
+@media screen and (max-width: 1279px) {
+    .contacts-main-info-header {
+        font-size: 48px; 
+    }
+
+    .contacts-main-info-paragraph {
+        font-size: 22px; 
+    }
+
+    .contacts-main-info-paragraph span {
+        font-size: 28px; 
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .contacts-main-info {
+        width: 90%; 
+        padding: 30px 0; 
+    }
+
+    .contacts-main-info-header {
+        font-size: 40px; 
+    }
+
+    .contacts-main-info-paragraph {
+        font-size: 20px; 
+    }
+
+    .contacts-main-info-paragraph span {
+        font-size: 26px; 
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .contacts-nav {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         height: auto;  
+    }
+
+    .contacts-main-info-header {
+        font-size: 28px; 
+    }
+
+    .contacts-main-info-paragraph {
+        font-size: 18px; 
+    }
+
+    .contacts-main-info-paragraph span {
+        font-size: 22px; 
+    }
+
+    .contacts-main-info {
+        padding: 20px 0; 
+    }
 }

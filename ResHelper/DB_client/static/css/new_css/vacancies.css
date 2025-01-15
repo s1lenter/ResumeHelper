@@ -1,304 +1,273 @@
+html, body {
+  height: 100%; /* Устанавливаем высоту 100% для html и body */
+  margin: 0; /* Убираем отступы */
+  display: flex; /* Используем Flexbox для body */
+  flex-direction: column; /* Устанавливаем вертикальное направление */
+  overflow-x: hidden;
+}
+
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-.button-text{
-    margin-top: 17px;
-
+.button-text {
+  margin-top: 17px;
 }
+
 .vacancies-header {
-    margin: 0;
-    padding: 0;
-    background-color: black;
+  margin: 0;
+  padding: 0;
+  background-color: black;
 }
 
 .vacancies-nav {
-    display: flex;
-    height: 80px;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .vacancies-main {
-    margin: 0;
-    padding: 30px 0;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+  margin: 0;
+  padding: 30px 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%; /* Установка ширины на 100% */
 }
 
 .vacancies-shown {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 850px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%; /* Установка ширины на 100% */
+  max-width: 850px; /* Максимальная ширина для более широких экранов */
+  margin: 0 auto; /* Центрирование блока */
+  gap: 30px;
 }
 
 .vacancies-filter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 92px;
-    border-radius: 20px;
-    background-color: rgba(219, 219, 219, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92px;
+  border-radius: 20px;
+  background-color: rgba(219, 219, 219, 1);
+  width: 100%; /* Установка ширины на 100% */
+  max-width: 850px; /* Максимальная ширина для более широких экранов */
 }
 
-.vacancies-filter.for {
-    width: 350px;
-}
-
+.vacancies-filter.for,
 .vacancies-filter.all {
-    width: 280px;
+  flex: 1; /* Занимаем равное пространство */
 }
 
 .vacancies-filter-text {
-    padding: 0;
-    margin: 0;
-    font-family: Inter;
-    font-size: 38px;
-    font-weight: 600;
-    line-height: 48px;
-    color: black;
-    text-decoration: none;
+  padding: 0;
+  margin: 0;
+  font-family: Inter;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 48px;
+  color: black;
+  text-decoration: none;
 }
 
 .vacancy {
-    padding: 25px;
-    width: 800px;
-    background-color: #e6e6e6;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 20px;
+  padding: 25px;
+  width: 100%; /* Установка ширины на 100% */
+  max-width: 800px; /* Максимальная ширина для более широких экранов */
+  background-color: #e6e6e6;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
 }
 
 .vacancy-info {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.vacancy-info-head {
-    margin: 0;
-    padding: 0;
-    color: black;
-    font-family: Inter;
-    font-size: 32px;
-    font-weight: 600;
-}
-
-.vacancy-info-salary {
-    margin: 0;
-    padding: 0;
-    font-family: Inter;
-    color: black;
-    font-size: 24px;
-    font-weight: 400;
-}
-
-.vacancy-info-company {
-    margin: 0;
-    padding: 0;
-    color: black;
-    font-family: Inter;
-    font-size: 24px;
-    font-weight: 500;
-}
-
-.vacancy-info-workplace {
-    margin: 0;
-    padding: 0;
-    color: black;
-    font-family: Inter;
-    font-size: 24px;
-    font-weight: 400;
-}
-
-.vacancy-apply-button {
-    margin-top: 0;
-    padding: 0;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    background: #00c4a9;
-    width: 200px;
-    height: 60px;
-    text-align: center;
-    vertical-align: bottom;
-    text-decoration: none;
-
-    font-family: Inter;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.vacancy-apply-button:hover {
-    background: rgba(0, 196, 169, 0.5);
-}
-
-.favorite-vacancy-button {
-  background-color: transparent;
-  border: none;
-  position: relative;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
-.favorite-vacancy-button::before,
-.favorite-vacancy-button::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 7px;
-  width: 12px;
-  height: 20px;
-  background-color: black;
-  border-radius: 12px 12px 0 0;
-  transition: background-color 0.3s;
-}
-
-.favorite-vacancy-button::after {
-  left: 0;
-  transform: rotate(-45deg);
-}
-
-.favorite-vacancy-button::before {
-  transform: rotate(45deg);
-}
-
-.favorite-vacancy-button.active::before,
-.favorite-vacancy-button.active::after {
-  background-color: red;
-}
-
-.vacancies-footer {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    height: 100px;
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.vacancies-footer-nav {
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    gap: 50px;
-}
-
-.footer-site-navigation {
-    padding: 0;
-    padding-left: 60px;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    list-style: none;
-    gap: 75px;
-}
-
-.footer-site-navigation-item a {
-    text-decoration: none;
-    color: white;
-    font-family: Inter;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 38.73px;
-    text-align: left;
-}
-
-.search-filter {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 100%; /* Установка ширины на 100% */
 }
 
-.search {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.search-input {
+.vacancy-info-head {
   margin: 0;
   padding: 0;
-  width: 750px;
-  height: 50px;
-  border: 2px solid black;
-  border-radius: 15px;
-
-  text-align: center;
+  color: black;
   font-family: Inter;
   font-size: 32px;
-  font-weight: 400;
-  line-height: 39px;
+  font-weight: 600;
 }
 
-.search-form {
-  display: flex;
-  gap: 10px;
-  flex-direction: row;
-  align-items: center;
-}
-
-.search button {
-  width: 44px;
-  height: 50px;
-  background: white;
+.vacancy-info-salary {
+  margin: 0;
+  padding: 0;
+  font-family: Inter;
   color: black;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
+  font-size: 24px;
+  font-weight: 400;
 }
 
-.search button i {
-  font-size: 32px;
-}
-
-.search button:hover {
-  background: rgba(0, 196, 169, 0.5);
-  color: white;
-}
-
-.filters {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-#city, #type, #experience {
-  border: 2px solid black;
-  border-radius: 12px;
-
-  width: 230px;
-  height: 37px;
-  text-align: center;
-
+.vacancy-info-company {
+  margin: 0;
+  padding: 0;
+  color: black;
   font-family: Inter;
   font-size: 24px;
   font-weight: 500;
-  line-height: 29px;
 }
 
-#type {
-  padding-right: 20px;
+.vacancy-info-workplace {
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
 }
 
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-image: url("../../img/arrow.svg");
-  background-repeat: no-repeat;
-  background-position: right 1% top 50%;
-  background-size: 18px;
+.vacancy-apply-button {
+  margin-top: 0;
+  padding: 0;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  background: #00c4a9;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  vertical-align: bottom;
+  text-decoration: none;
+
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.vacancy-apply-button:hover {
+  background: rgba(0, 196, 169, 0.5);
+}
+
+.vacancy-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.vacancy-buttons button {
+  margin: 0;
+  padding: 0;
+  color: black;
+  border: none;
+  background: none;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.vacancy-buttons button:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.vacancies-footer {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  height: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; /* Выравнивание по центру по вертикали */
+  width: 100%;
+}
+
+.vacancies-footer-nav {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  gap: 50px;
+}
+
+.footer-site-navigation {
+  padding: 0;
+  padding-left: 60px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  gap: 75px;
+}
+
+.footer-site-navigation-item a {
+  text-decoration: none;
+  color: white;
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38.73px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .vacancies-nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: auto;
+  }
+
+  .vacancies-main {
+      padding: 15px 10px; /* Уменьшаем отступы */
+  }
+
+  .vacancies-filter {
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px; /* Добавляем отступы */
+  }
+
+  .vacancy {
+      padding: 15px; /* Уменьшаем отступы для вакансий */
+      width: 100%; /* Устанавливаем ширину на 100% */
+      max-width: none; /* Убираем максимальную ширину */
+  }
+
+  .vacancy-apply-button {
+      width: 100%; /* Ширина кнопки на 100% */
+      height: 50px; /* Уменьшаем высоту кнопки */
+      font-size: 18px; /* Уменьшаем размер шрифта */
+  }
+
+  .footer-site-navigation-item a {
+      font-size: 24px; /* Уменьшаем размер шрифта для ссылок в футере */
+  }
+
+  .vacancies-filter-text {
+      text-decoration: none;
+      font-size: 4vh;
+  }
+
+  .vacancies-shown {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%; /* Установка ширины на 100% */
+      max-width: 850px; /* Максимальная ширина для более широких экранов */
+      margin: 0 auto; /* Центрирование блока */
+      gap: 30px;
+  }
+
+  .vacancies-filter-text {
+      font-size: 2vh;
+      line-height: 1;
+
+  }
+
+  .vacancies-filter {
+      height: 4vh;
+  }
 }

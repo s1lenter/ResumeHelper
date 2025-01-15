@@ -1,6 +1,12 @@
+html, body {
+    height: 100%; /* Задаем высоту 100% для html и body */
+    margin: 0; /* Убираем отступы */
+    display: flex; /* Используем Flexbox для body */
+    flex-direction: column; /* Устанавливаем вертикальное направление */
+    overflow-x: hidden;
+}
+
 body {
-    margin: 0;
-    padding: 0;
     background-image: url("../../img/new_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -24,6 +30,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex: 1; /* Позволяет главному контенту занимать оставшееся пространство */
 }
 
 .page-window {
@@ -34,7 +41,7 @@ body {
     width: 650px;
     height: auto;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 40px;
+    border-radius: 40px; 
     align-self: center;
     margin-bottom: 50px;
 }
@@ -87,7 +94,7 @@ body {
     text-align: center;
     color: white;
     text-decoration: none;
-
+    
 
     width: 170px;
     height: 60px;
@@ -141,4 +148,44 @@ body {
     font-weight: 400;
     line-height: 38.73px;
     text-align: left;
+}
+
+
+@media screen and (max-width: 767px) {
+    .page-text-header {
+        font-size: 5vh; /* Уменьшение размера заголовка для мобильных */
+        line-height: 1; /* Уменьшение высоты строки */
+    }
+
+    .page-window {
+        width: 100%; /* Ширина окна на всю ширину экрана */
+        border-radius: 20px; /* Уменьшение радиуса скругления */
+    }
+
+    .page-window-info {
+        gap: 30px; /* Уменьшение промежутков между элементами */
+        padding: 20px 0; /* Уменьшение отступов */
+    }
+
+    .page-window-info-part__text {
+        font-size: 20px; /* Уменьшение размера текста */
+    }
+
+    .page-window-button {
+        font-size: 4; 
+        width: 100%; 
+        height: 40px; 
+        align-self: center;
+        padding-bottom: 20px;
+    }
+
+    .page-window-button.registration {
+        width: 100%; /* Ширина кнопки регистрации на всю ширину */
+        font-size: 4.5vh;
+        padding-bottom: 0px;
+    }
+
+    .footer-site-navigation-item a {
+        font-size: 20px; /* Уменьшение размера шрифта в футере */
+    }
 }

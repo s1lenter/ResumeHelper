@@ -1,7 +1,12 @@
+html, body {
+    height: 100%; /* Задаем высоту 100% для html и body */
+    margin: 0; /* Убираем отступы */
+    display: flex; /* Используем Flexbox для body */
+    flex-direction: column; /* Устанавливаем вертикальное направление */
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background-image: url("../../img/new_work_bg.png");
+    background-image: url("../../img/work_page.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -10,6 +15,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
+    width: 100%; /* Растягиваем хедер на всю ширину */
 }
 
 .work-header-nav {
@@ -17,6 +23,7 @@ body {
     height: 80px;
     justify-content: space-between;
     align-items: center;
+    width: 100%; /* Убедимся, что навигация тоже на всю ширину */
 }
 
 .work-main {
@@ -24,6 +31,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex: 1; /* Позволяет главному контенту занимать оставшееся пространство */
 }
 
 .work-window {
@@ -31,13 +39,13 @@ body {
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    width: 650px;
+    width: 650px; /* Ширина окна */
     height: auto;
     background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 40px;
-    align-self: center;
+    border-radius: 40px; 
+    align-self: center; /* Центрирование */
     padding-top: 25px;
-    margin-bottom: 50px;
+    margin: 0 auto 50px; /* Центрируем окно и добавляем нижний отступ */
 }
 
 .work-window-info {
@@ -63,7 +71,6 @@ body {
     line-height: 40px;
     text-align: center;
     color: #dddddd;
-
 }
 
 .work-text-header {
@@ -90,7 +97,6 @@ body {
     color: white;
     text-decoration: none;
 
-
     width: 170px;
     height: 60px;
     border: none;
@@ -114,10 +120,7 @@ body {
     height: 100px;
     display: flex;
     justify-content: flex-start;
-    width: 100%;
-        position: absolute;
-    bottom: 0;
-    left: 0;
+    width: 100%; /* Растягиваем футер на всю ширину */
 }
 
 .work-footer-nav {
@@ -125,7 +128,6 @@ body {
     flex-direction: row;
     margin: 0;
     gap: 50px;
-
 }
 
 .footer-site-navigation {
@@ -147,4 +149,47 @@ body {
     font-weight: 400;
     line-height: 38.73px;
     text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+    .work-text-header {
+        font-size: 5vh; /* Уменьшение размера заголовка для мобильных */
+        line-height: 1; /* Уменьшение высоты строки */
+    }
+
+    .work-window {
+        width: 100%; 
+        border-radius: 20px; 
+    }
+
+    .work-window-info {
+        gap: 30px; 
+        padding: 20px 0; 
+    }
+
+    .work-window-info-part__text {
+        font-size: 20px; 
+    }
+
+    .work-window-button {
+        font-size: 3.5vh; 
+        width: 100%; 
+        height: 40px; 
+        padding-bottom: 20px;
+    }
+
+    .work-window-button.registration {
+        width: 100%; 
+        padding-bottom: 0;
+        font-size: 4vh;
+    }
+
+    .footer-site-navigation-item a {
+        font-size: 20px; 
+    }
+    .footer-site-navigation {
+        display: flex;
+        padding-left: 40px;
+        justify-content: space-between;
+    }
 }

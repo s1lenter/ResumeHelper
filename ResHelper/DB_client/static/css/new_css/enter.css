@@ -1,40 +1,21 @@
+html, body {
+    height: 100%; /* Устанавливаем высоту 100% для html и body */
+    margin: 0; /* Убираем отступы */
+    display: flex; /* Используем Flexbox для body */
+    flex-direction: column; /* Устанавливаем вертикальное направление */
+}
+
 body {
-    margin: 0;
-    padding: 0;
     background-image: url("../../img/new_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.page-window-button {
-    padding: 0;
-    margin-top: 16px;
-    margin-bottom: 25px;
-
-    font-family: Inter;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 44px;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-
-
-    width: 170px;
-    height: 60px;
-    border: none;
-    border-radius: 20px;
-    background-color: rgba(0, 196, 169, 1);
-}
-
-.page-window-button:hover {
-  background-color: rgba(217, 217, 217, 0.5);
 }
 
 .enter-header {
     margin: 0;
     padding: 0;
     background-color: black;
+    width: 100%; /* Растягиваем хедер на всю ширину */
 }
 
 .enter-header-nav {
@@ -42,6 +23,7 @@ body {
     height: 80px;
     justify-content: space-between;
     align-items: center;
+    width: 100%; /* Убедимся, что навигация тоже на всю ширину */
 }
 
 .enter-main {
@@ -49,7 +31,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 557px;
+    flex: 1; /* Позволяет главному контенту занимать оставшееся пространство */
 }
 
 .enter-window {
@@ -57,13 +39,13 @@ body {
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    width: 650px;
+    width: 650px; /* Ширина окна */
     height: auto;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 40px;
+    border-radius: 40px; 
     align-self: center;
     padding-top: 25px;
-    margin-bottom: 50px;
+    margin-bottom: 50px; /* Нижний отступ для окна */
 }
 
 .enter-text-header {
@@ -116,6 +98,30 @@ body {
     text-align: center;
 }
 
+.comment-field.last {
+    margin-bottom: 25px; /* Отступ для последнего поля */
+}
+
+.page-window-button {
+    padding: 0;
+    margin-top: 16px;
+    margin-bottom: 25px;
+
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+
+    width: 170px;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(0, 196, 169, 1);
+}
+
 .enter-footer {
     margin: 0;
     padding: 0;
@@ -123,10 +129,7 @@ body {
     height: 100px;
     display: flex;
     justify-content: flex-start;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    width: 100%; /* Растягиваем футер на всю ширину */
 }
 
 .enter-footer-nav {
@@ -145,7 +148,6 @@ body {
     align-items: center;
     list-style: none;
     gap: 75px;
-
 }
 
 .footer-site-navigation-item a {
@@ -158,11 +160,33 @@ body {
     text-align: left;
 }
 
-.form-error {
-  margin: 0;
-  padding: 0;
-  font-family: Inter;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 28px;
+/* Медиа-запросы для разрешения до 768px */
+@media screen and (max-width: 768px) {
+    .enter-main {
+        padding: 20px; /* Уменьшение отступов для мобильных */
+        align-items: stretch; /* Растягиваем элементы на всю ширину */
+    }
+
+    .enter-window {
+        width: 90%; /* Ширина окна адаптируется под мобильные устройства */
+        padding: 15px; /* Уменьшение внутреннего отступа */
+        margin-bottom: 20px; /* Уменьшение нижнего отступа для окна */
+    }
+
+    .enter-text-header {
+        font-size: 10vh; /* Уменьшение размера заголовка */
+    }
+
+    .comment-field {
+        width: 100%; /* Полная ширина для полей ввода */
+    }
+
+    .page-window-button {
+        width: 100%; /* Полная ширина для кнопки */
+        font-size: 5vh; /* Уменьшение размера шрифта кнопки */
+    }
+
+    .footer-site-navigation-item a {
+        font-size: 24px; /* Уменьшение размера шрифта ссылок в футере */
+    }
 }

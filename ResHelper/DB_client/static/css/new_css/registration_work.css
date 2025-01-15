@@ -1,7 +1,12 @@
+html, body {
+    height: 100%; /* Задаем высоту 100% для html и body */
+    margin: 0; /* Убираем отступы */
+    display: flex; /* Используем Flexbox для body */
+    flex-direction: column; /* Устанавливаем вертикальное направление */
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background-image: url("../../img/new_work_bg.png");
+    background-image: url("../../img/work_page.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -10,6 +15,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
+    width: 100%; /* Растягиваем хедер на всю ширину */
 }
 
 .registartion-header-nav {
@@ -17,6 +23,7 @@ body {
     height: 80px;
     justify-content: space-between;
     align-items: center;
+    width: 100%; /* Убедимся, что навигация тоже на всю ширину */
 }
 
 .registration-main {
@@ -24,6 +31,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex: 1; /* Позволяет главному контенту занимать оставшееся пространство */
 }
 
 .registartion-window {
@@ -31,13 +39,13 @@ body {
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    width: 650px;
+    width: 650px; /* Ширина окна */
     height: auto;
     background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 40px;
+    border-radius: 40px; 
     align-self: center;
     padding-top: 25px;
-    margin-bottom: 50px;
+    margin: 0 auto 50px; /* Центрируем окно и добавляем нижний отступ */
 }
 
 .registartion-text-header {
@@ -74,13 +82,11 @@ body {
     border: none;
     border-radius: 15px;
     background-color: rgba(0, 196, 169, 1);
-
 }
 
 .registartion-window-button:hover {
     background-color: rgba(217, 217, 217, 0.5);
 }
-
 
 .comment-field {
     display: flex;
@@ -121,10 +127,7 @@ body {
     height: 100px;
     display: flex;
     justify-content: flex-start;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    width: 100%; /* Растягиваем футер на всю ширину */
 }
 
 .registration-work-footer-nav {
@@ -143,7 +146,6 @@ body {
     align-items: center;
     list-style: none;
     gap: 75px;
-
 }
 
 .footer-site-navigation-item a {
@@ -156,20 +158,50 @@ body {
     text-align: left;
 }
 
-.form-error {
-  margin: 0;
-  padding: 0;
-  font-family: Inter;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 28px;
+/* Медиа-запросы для адаптивного дизайна */
+@media screen and (max-width: 1279px) {
+    .registartion-text-header {
+        font-size: 48px; /* Уменьшение размера заголовка */
+        line-height: 56px; /* Уменьшение высоты строки */
+    }
+
+    .comment-field {
+        width: 90%; /* Увеличиваем ширину поля ввода для мобильных */
+    }
+
+    .registartion-window-button {
+        font-size: 36px; /* Уменьшение размера шрифта для кнопок */
+        width: 150px; /* Уменьшение ширины кнопок */
+        height: 50px; /* Уменьшение высоты кнопок */
+    }
 }
 
-.alert {
-  margin: 0;
-  padding: 0;
-  font-family: Inter;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 28px;
+@media screen and (max-width: 1023px) {
+    .registartion-window {
+        width: 90%; /* Увеличение ширины окна для мобильных устройств */
+        padding: 20px; /* Добавление отступов */
+    }
+
+    .registartion-text-header {
+        font-size: 36px; /* Дальнейшее уменьшение размера заголовка */
+        line-height: 44px; /* Уменьшение высоты строки */
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .registartion-text-header {
+        font-size: 5vh; 
+        line-height: 1; 
+    }
+
+    .comment-field {
+        width: 100%; 
+    }
+
+    .registartion-window-button {
+        font-size: 4vh; 
+        width: 100%; 
+        height: 40px; 
+        padding-bottom: 60px;
+    }
 }

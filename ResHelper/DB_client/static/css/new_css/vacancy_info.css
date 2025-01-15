@@ -1,6 +1,22 @@
-body {
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
+    display: flex; 
+    flex-direction: column; 
+    overflow-x: hidden; /* Запрет на горизонтальную прокрутку */
+}
+
+.vacancy {
+    padding: 25px;
+    width: 90%; /* Установка максимальной ширины на 100% вместо фиксированной */
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.vacancy-about {
+    width: 100%; /* Установка ширины на 100% */
 }
 
 .vacancy-info-header {
@@ -25,15 +41,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-}
-
-.vacancy {
-    padding: 25px;
-    width: 860px;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: space-between;
-    border-radius: 20px;
+    flex: 1; /* Позволяет главному контенту занимать оставшееся пространство */
 }
 
 .vacancy-info {
@@ -97,53 +105,33 @@ body {
     background: rgba(0, 196, 169, 0.5);
 }
 
-.favorite-vacancy-button {
-  background-color: transparent;
-  border: none;
-  position: relative;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
+.vacancy-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
 }
 
-.favorite-vacancy-button::before,
-.favorite-vacancy-button::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 7px;
-  width: 12px;
-  height: 20px;
-  background-color: black;
-  border-radius: 12px 12px 0 0;
-  transition: background-color 0.3s;
+.vacancy-buttons button {
+    margin: 0;
+    padding: 0;
+    color: black;
+    border: none;
+    background: none;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
 }
 
-.favorite-vacancy-button::after {
-  left: 0;
-  transform: rotate(-45deg);
-}
-
-.favorite-vacancy-button::before {
-  transform: rotate(45deg);
-}
-
-.favorite-vacancy-button.active::before,
-.favorite-vacancy-button.active::after {
-  background-color: red;
+.vacancy-buttons button:hover {
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .vacancy-block {
     background-color: rgba(131, 131, 131, 0.4);
     border-radius: 20px;
     padding: 30px;
-}
-
-.vacancy-about {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 850px;
+    width: 90%;
 }
 
 .vacancy-about-header {
@@ -179,9 +167,6 @@ body {
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
 }
 
 .vacancy-info-footer-nav {
@@ -210,4 +195,32 @@ body {
     font-weight: 400;
     line-height: 38.73px;
     text-align: left;
+}
+
+
+@media screen and (max-width: 767px) {
+    .vacancy {
+        flex-direction: column; /* Изменение направления для мобильных устройств */
+        align-items: center; /* Центрирование содержимого */
+        padding: 15px; /* Уменьшение отступов для мобильных */
+    }
+
+    .vacancy-about {
+        width: 100%; /* Ширина блока о вакансии на всю ширину экрана */
+    }
+
+    .vacancy-info-footer {
+        flex-direction: row;
+        justify-items: start;
+        height: auto; 
+        padding: 20px; 
+        width: 100%; /* Установка ширины на 100% */
+    }
+
+    .vacancy-block {
+        background-color: rgba(131, 131, 131, 0.4);
+        border-radius: 20px;
+        padding: 30px;
+        width: 82%;
+    }
 }
