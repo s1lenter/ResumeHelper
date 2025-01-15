@@ -17,15 +17,15 @@
                     <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
                 </a>
                 <div class="nav-link">
-                    <a href="{% url 'vacancies' %}">Смотреть вакансии</a>
+                    <a href="{% url 'vacancies' %}" class="nav-item">Смотреть вакансии</a>
                 </div>
             </div>
             <div class="part-nav">
                 <div class="nav-link">
-                    <a href="{% url 'logout' %}">Выйти</a>
+                    <a href="{% url 'logout' %}" class="exit">Выйти</a>
                 </div>
                 <div class="nav-link">
-                    <a href="{% url 'create_resume' %}">Создать резюме</a>
+                    <a href="{% url 'create_resume' %}" class="nav-item">Создать резюме</a>
                 </div>
                 <a class="personal-cabinet-logo" href="#">
                     <img src="../media/{{profile.avatar}}" width="60" height="60" alt="Логотип персонального кабинета">
