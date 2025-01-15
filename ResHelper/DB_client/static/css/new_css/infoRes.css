@@ -19,7 +19,7 @@ body {
 .resume-info-main {
   margin: 0;
   padding: 30px 0;
-  background: url(../../img/new_work_bg.png);
+  background: url(../../img/new_bg.png);
   background-size: cover;
   display: flex;
   flex-direction: column;
