@@ -199,7 +199,8 @@ def vacancy_detail(request, vac_id):
     vacancy = model_to_dict(Job.objects.get(id=vac_id))
     get_salary_info(vacancy)
     vacancy['requirements'] = vacancy['requirements'].split(', ')
-    print(vacancy)
+    # if request.method == 'POST':
+    #
     return render(request, 'new_templates/vacancy_info.html', {'vacancy': vacancy})
 
 def about (request):

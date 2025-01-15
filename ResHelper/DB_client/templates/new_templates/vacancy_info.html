@@ -27,7 +27,10 @@
                 <p class="vacancy-info-salary">{{ vacancy.salary_info }}</p>
                 <p class="vacancy-info-company">{{ vacancy.company_name }}</p>
                 <p class="vacancy-info-workplace">{{ vacancy.location }}</p>
-                <button type="button" class="vacancy-apply-button">Откликнуться</button>
+                <form method="post">
+                    <button type="submit" class="vacancy-apply-button">Откликнуться</button>
+                </form>
+
             </div>
             <button type="button" class="favorite-vacancy-button" title="heart-button"></button>
             <script>
