@@ -60,64 +60,64 @@
                 </div>
                 <div class="fields__toChange">
                     <div class="field">
-                        <p class="field header">Доп. информация</p>
-                        <div class="field window">
-                            <div class="field-columns">
-                                <div class="field-column main">
-                                    <p class="field-text">Должность</p>
-                                    <p class="field-text">Комментарий</p>
-                                </div>
-                                <div class="field-column">
-                                    <p class="field-text job">...</p>
-                                    <p class="field-text comment">...</p>
-                                </div>
+                    <div class="field window">
+                        <div class="field-columns">
+                            <div class="field-column main">
+                                <p class="field-text">Должность</p>
                             </div>
-                            <div class="field-buttons">
-                                <button class="field-button job" type="button">Изменить</button>
-                                <button class="field-button comment" type="button">Изменить</button>
+                            <div class="field-column">
+                                <p class="field-text post">{{profile.emp_post}}</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <p class="field header">Личные данные</p>
-                        <div class="field window">
-                            <div class="field-columns">
-                                <div class="field-column main">
-                                    <p class="field-text">Email</p>
-                                    <p class="field-text">Телефон</p>
-                                </div>
-                                <div class="field-column">
-                                    <p class="field-text  email">namefamily@gmail.com</p>
-                                    <p class="field-text  phone">+7 903 565 44 76</p>
-                                </div>
-                            </div>
-                            <div class="field-buttons">
-                                <button class="field-button password" type="button">Изменить</button>
-                                <button class="field-button email" type="button">Изменить</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <p class="field header">Спецпризнаки</p>
-                        <div class="field window">
-                            <div class="field-columns">
-                                <div class="field-column main">
-                                    <p class="field-text">Спецпризнак 1</p>
-                                    <p class="field-text">Спецпризнак 2</p>
-                                </div>
-                                <div class="field-column">
-                                    <p class="field-text special-one">...</p>
-                                    <p class="field-text special-two">...</p>
-                                </div>
-                            </div>
-                            <div class="field-buttons">
-                                <button class="field-button special-one" type="button">Изменить</button>
-                                <button class="field-button special-two" type="button">Изменить</button>
-                            </div>
+                        <div class="field-buttons">
+                            <button class="field-button post" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>
+                <div class="field">
+                    <p class="field header">Доп. информация</p>
+                    <div class="field window">
+                        <div class="field-columns">
+                            <div class="field-column main">
+                                <p class="field-text">Пол</p>
+                                <p class="field-text">Возраст</p>
+                            </div>
+                            <div class="field-column">
+                                <p class="field-text sex">{{profile.gender}}</p>
+                                <p class="field-text age">{{profile.age}}</p>
+                            </div>
+                        </div>
+                        <div class="field-buttons">
+                            <button class="field-button sex" type="button">Изменить</button>
+                            <button class="field-button age" type="button">Изменить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <p class="field header">Личные данные</p>
+                    <div class="field window">
+                        <div class="field-columns">
+                            <div class="field-column main">
+                                <p class="field-text">Email</p>
+                                <p class="field-text">Телефон</p>
+                                <p class="field-text">Социальные сети</p>
+                            </div>
+                            <div class="field-column">
+                                <p class="field-text email">{{user.email}}</p>
+                                <p class="field-text phone">{{profile.phone_number}}</p>
+                                <p class="field-text soc-network">{{profile.social_network}}</p>
+                            </div>
+                        </div>
+                        <div class="field-buttons">
+                            <button class="field-button email" type="button">Изменить</button>
+                            <button class="field-button phone" type="button">Изменить</button>
+                            <button class="field-button soc-network" type="button">Изменить</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
+
             <input type="text" title="upload-image" class="hidden-input" name="first_name" style="display: none;">
             <input type="text" title="upload-image" class="hidden-input" name="last_name" style="display: none;">
             <input type="file" title="upload-image" class="hidden-input-file" name="avatar" style="display: none;">
@@ -127,6 +127,7 @@
             <input type="text" title="upload-image" class="hidden-input-dopinfo" name="email" style="display: none;">
             <input type="text" title="upload-image" class="hidden-input-dopinfo" name="phone" style="display: none;">
             <input type="text" title="upload-image" class="hidden-input-dopinfo" name="soc_net" style="display: none;">
+            <input type="text" title="upload-image" class="hidden-input-dopinfo" name="emp_post" style="display: none;">
             <button type="submit" class="fullsave-button">Сохранить</button>
         </form>
     </main>

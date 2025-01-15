@@ -31,7 +31,8 @@ class Profile(models.Model):
                                    message="Введите правильный номер телефона в формате: '+999999999'. До 15 цифр.")],
         null=True
     )
-    avatar = models.ImageField(upload_to='avatars/', null=True)
+    avatar = models.ImageField(upload_to='avatars/', null=True, default='avatars/info_image.png')
+    emp_post = models.CharField(max_length=50, null=True)
 
 
 
@@ -135,6 +136,7 @@ class WorkExperience(models.Model):
     end_date = models.CharField(max_length=10)
 
 class AdditionalInfo(models.Model):
+    profession = models.CharField(max_length=50, default='Не указано')
     desired_salary = models.DecimalField(max_digits=8, decimal_places=0, null=True)
     personal_qualities = models.TextField()
     experience_level = models.CharField(

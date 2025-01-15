@@ -104,24 +104,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const fieldsToChange = document.querySelector('.fields__toChange');
 
     let personalData;
+    let vacsData;
 
     async function fetchData() {
-        try {
-            const response = await fetch('/api/personal_data/');
-            if (!response.ok) {
-                throw new Error('Сеть ответила с проблемой: ' + response.statusText);
-            }
-            personalData = await response.json();
-            console.log(personalData);
+        const response = await fetch('/api/personal_data/');
+        personalData = await response.json();
+        console.log(personalData)
+        updateFieldsContent();
+    }
 
-            updateFieldsContent();
-
-        } catch (error) {
-            console.error('Ошибка:', error);
-        }
+    async function fetchVacsData() {
+        const response = await fetch('/api/vacancy_data/');
+        vacsData = await response.json();
+        console.log(vacsData)
+        updateFieldsContent();
     }
 
     fetchData();
+    fetchVacsData();
 
     function updateFieldsContent() {
         if (!personalData) return;
@@ -133,45 +133,61 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           `;
           const count = 4;
-
-          for (let i = 0; i < count; i++) {
-            vacanciesHTML += `
+          const keys = Object.keys(vacsData);
+          for (const id of keys) {
+            let i = 0
+              vacanciesHTML += `
                   <div class="js-main">
                       <div class="info">
-                        <p class="name">Начинающий разработчик #${i + 1}</p>
-                        <p class="salary">от ${150000 + i * 5000} ₽ на руки</p>
-                        <p class="company">ООО хуеть</p>
-                        <p class="city">Екатеринбург</p>
+                        <p class="name">${vacsData[id].name}</p>
+                        <p class="salary">${vacsData[id].salary_info}</p>
+                        <p class="company">${vacsData[id].company_name}</p>
+                        <p class="city">${vacsData[id].location}</p>
                       </div>
                       <div class="js-main-buttons">
-                        <button type="button" class="delete-button">x</button>
+                        <a href="/delete_vac/${id}" class="delete-button">x</a>
                         <button type="button" class="delete-button">Редактировать</button>
                       </div>
                   </div>
               `;
-          }
+            }
 
           fieldsToChange.innerHTML = vacanciesHTML;
         } else if (persInfoRadio.checked) {
             fieldsToChange.innerHTML = `
                 <div class="field">
-                    <p class="field header">Доп. информация</p>
                     <div class="field window">
-                            <div class="field-columns">
-                                <div class="field-column main">
-                                    <p class="field-text">Должность</p>
-                                    <p class="field-text">Комментарий</p>
-                                </div>
-                                <div class="field-column">
-                                    <p class="field-text job">${personalData.job}</p>
-                                    <p class="field-text comment">${personalData.comment}</p>
-                                </div>
+                        <div class="field-columns">
+                            <div class="field-column main">
+                                <p class="field-text">Должность</p>
                             </div>
-                            <div class="field-buttons">
-                                <button class="field-button job" type="button">Изменить</button>
-                                <button class="field-button comment" type="button">Изменить</button>
+                            <div class="field-column">
+                                <p class="field-text post">${personalData.emp_post}</p>
                             </div>
                         </div>
+                        <div class="field-buttons">
+                            <button class="field-button post" type="button">Изменить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <p class="field header">Доп. информация</p>
+                    <div class="field window">
+                        <div class="field-columns">
+                            <div class="field-column main">
+                                <p class="field-text">Пол</p>
+                                <p class="field-text">Возраст</p>
+                            </div>
+                            <div class="field-column">
+                                <p class="field-text sex">${personalData.sex}</p>
+                                <p class="field-text age">${personalData.age}</p>
+                            </div>
+                        </div>
+                        <div class="field-buttons">
+                            <button class="field-button sex" type="button">Изменить</button>
+                            <button class="field-button age" type="button">Изменить</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="field">
                     <p class="field header">Личные данные</p>
@@ -180,34 +196,18 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="field-column main">
                                 <p class="field-text">Email</p>
                                 <p class="field-text">Телефон</p>
+                                <p class="field-text">Социальные сети</p>
                             </div>
                             <div class="field-column">
                                 <p class="field-text email">${personalData.email}</p>
                                 <p class="field-text phone">${personalData.phone}</p>
+                                <p class="field-text soc-network">${personalData.socNetwork}</p>
                             </div>
                         </div>
                         <div class="field-buttons">
                             <button class="field-button email" type="button">Изменить</button>
                             <button class="field-button phone" type="button">Изменить</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <p class="field header">Спецпризнаки</p>
-                    <div class="field window">
-                        <div class="field-columns">
-                            <div class="field-column main">
-                                <p class="field-text">Спецпризнак 1</p>
-                                <p class="field-text">Спецпризнак 2</p>
-                            </div>
-                            <div class="field-column">
-                                <p class="field-text special-one">${personalData.specialOne}</p>
-                                <p class="field-text special-two">${personalData.specialTwo}</p>
-                            </div>
-                        </div>
-                        <div class="field-buttons">
-                            <button class="field-button email" type="button">Изменить</button>
-                            <button class="field-button phone" type="button">Изменить</button>
+                            <button class="field-button soc-network" type="button">Изменить</button>
                         </div>
                     </div>
                 </div>
@@ -226,36 +226,70 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!textElement) return;
 
                 if (button.textContent === 'Изменить') {
-                    const currentText = textElement.textContent;
-                    const input = document.createElement('input');
-                    input.type = 'text';
-                    input.value = currentText;
-                    input.classList.add('edit-input');
-                    textElement.textContent = '';
-                    textElement.appendChild(input);
+                    if (targetClass === 'sex') {
+                        const currentText = textElement.textContent;
+                        const select = document.createElement('select');
+                        select.classList.add('edit-select');
+
+                        const maleOption = document.createElement('option');
+                        maleOption.value = 'Мужской';
+                        maleOption.textContent = 'Мужской';
+                        select.appendChild(maleOption);
+
+                        const femaleOption = document.createElement('option');
+                        femaleOption.value = 'Женский';
+                        femaleOption.textContent = 'Женский';
+                        select.appendChild(femaleOption);
+
+                        select.value = currentText;
+
+                        textElement.textContent = '';
+                        textElement.appendChild(select);
+                    } else {
+                        const currentText = textElement.textContent;
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.value = currentText;
+                        input.classList.add('edit-input');
+                        textElement.textContent = '';
+                        textElement.appendChild(input);
+                    }
                     button.textContent = 'Сохранить';
                 } else {
+                    if (targetClass === 'sex') {
+                      const select = textElement.querySelector('.edit-select');
+                      if (select) {
+                          const newValue = select.value;
+                          personalData[targetClass] = newValue;
+                          hiddenInputs[0].value = newValue;
+                          textElement.textContent = newValue;
+                      }
+                    } else {
                     const input = textElement.querySelector('.edit-input');
-                    if (input) {
-                        const newValue = input.value;
-                        personalData[targetClass] = newValue;
-                        if (targetClass === 'sex'){
-                            hiddenInputs[0].value = newValue;
-                        }
-                        else if (targetClass === 'age'){
-                            hiddenInputs[1].value = newValue;
-                        }
-                        else if (targetClass === 'email'){
-                            hiddenInputs[2].value = newValue;
-                        }
-                        else if (targetClass === 'phone'){
-                            hiddenInputs[3].value = newValue;
-                        }
-                        else if (targetClass === 'soc-network'){
-                            hiddenInputs[4].value = newValue;
-                        }
+                        if (input) {
+                            const newValue = input.value;
+                            personalData[targetClass] = newValue;
+                            if (targetClass === 'sex'){
+                                hiddenInputs[0].value = newValue;
+                            }
+                            else if (targetClass === 'age'){
+                                hiddenInputs[1].value = newValue;
+                            }
+                            else if (targetClass === 'email'){
+                                hiddenInputs[2].value = newValue;
+                            }
+                            else if (targetClass === 'phone'){
+                                hiddenInputs[3].value = newValue;
+                            }
+                            else if (targetClass === 'soc-network'){
+                                hiddenInputs[4].value = newValue;
+                            }
+                            else if (targetClass === 'post'){
+                                hiddenInputs[5].value = newValue;
+                            }
 
-                        textElement.textContent = newValue;
+                            textElement.textContent = newValue;
+                        }
                     }
                     button.textContent = 'Изменить';
                 }
