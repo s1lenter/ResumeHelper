@@ -81,16 +81,7 @@ class Settings(models.Model):
 class Application(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
     job_id = models.ForeignKey(Job, on_delete=models.CASCADE)
-    applied_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(
-        max_length=10,
-        choices=[
-            ('Pending', 'В ожидании'),
-            ('Rejected', 'Отклонено'),
-            ('Accepted', 'Принято')
-        ],
-        default='Pending'
-    )
+    user_id = models.IntegerField()
 
 
 class Achievements(models.Model):

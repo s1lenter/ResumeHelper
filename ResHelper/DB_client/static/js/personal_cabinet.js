@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             reader.readAsDataURL(file);
         }
+        logo.style.width = '60px';
+        logo.style.height = '60px';
         logo.style.borderRadius = '50px';
     });
 });
@@ -104,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let personalData;
     let resumeData;
+    let appData;
 
     async function fetchData() {
         const response = await fetch('/api/personal_data/');
@@ -120,8 +123,16 @@ document.addEventListener('DOMContentLoaded', () => {
         updateFieldsContent();
     }
 
+    async function fetchAppData() {
+        const response = await fetch('/api/app_vacancy_data/');
+        appData = await response.json();
+        console.log(appData)
+        updateFieldsContent();
+    }
+
     fetchData();
     fetchResData();
+    fetchAppData();
 
 
     function updateFieldsContent() {
@@ -134,15 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             `;
             const count = 4;
-
-            for (let i = 0; i < count; i++) {
+            const keys = Object.keys(appData);
+            console.log(keys)
+            for (const id of keys) {
                 otklikHTML += `
                     <div class="js-main">
                         <div class="info">
-                          <p class="name">Начинающий веб-разработчик #${i + 1}</p>
-                          <p class="salary">от ${150000 + i * 5000} ₽ на руки</p>
+                          <p class="name">${appData[id].name}</p>
+                          <p class="salary">${appData[id].company_name}</p>
+                          <p class="salary">${appData[id].location}</p>
+                          <p class="salary">${appData[id].salary_info}</p>
                         </div>
-                        <button type="button" class="delete-button">Удалить</button>
                     </div>
                 `;
             }

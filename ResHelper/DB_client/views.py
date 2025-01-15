@@ -207,10 +207,13 @@ def get_salary_info(vac):
 
 def vacancy_detail(request, vac_id):
     vacancy = model_to_dict(Job.objects.get(id=vac_id))
+    resume = Resume.objects.filter(profile_id=request.user.id)[0]
     get_salary_info(vacancy)
     vacancy['requirements'] = vacancy['requirements'].split(', ')
-    # if request.method == 'POST':
-    #
+    if request.method == 'POST':
+        Application.objects.create(resume_id=resume.id,
+                                   job_id_id=vacancy['id'],
+                                   user_id=request.user.id)
     return render(request, 'new_templates/vacancy_info.html', {'vacancy': vacancy})
 
 def about (request):
@@ -318,3 +321,53 @@ def delete_vac(request, vac_id):
         return redirect('personal_cabinet')
     else:
         return redirect('personal_cabinet')
+
+def applications(request):
+    vacs = Job.objects.filter(employer_id=request.user.id)
+    return render(request, 'new_templates/otkliks.html', {'vacs': vacs})
+
+def check_app(request, vac_id):
+    vac = Job.objects.get(id=vac_id)
+    apps = Application.objects.filter(job_id_id=vac_id)
+    job_seekers = []
+    for app in apps:
+        user_info = {}
+        user_info['user'] = User.objects.get(id=app.user_id)
+        user_info['profile'] = Profile.objects.get(user_id=app.user_id)
+        user_info['resume'] = Resume.objects.filter(profile_id=app.user_id).last()
+        job_seekers.append(user_info)
+    return render(request, 'new_templates/otkliks-info.html', {'vac': vac, 'js': job_seekers})
+
+def res_info_emp(request, res_id):
+    resume = Resume.objects.get(id=res_id)
+    user = User.objects.get(id=resume.profile_id)
+    profile = Profile.objects.get(user_id=resume.profile_id)
+    context = {}
+    context['achievements'] = Achievements.objects.filter(resume_id=resume.id)
+    context['skill'] = Skill.objects.filter(resume_id=resume.id)
+    context['education'] = Education.objects.get(resume_id=resume.id)
+    context['work_experience'] = WorkExperience.objects.filter(resume_id=resume.id)
+    return render(request, 'new_templates/resume_info.html',
+                  {'user': user, 'profile': profile, 'resume': resume,'context': context})
+
+
+def send_app_vacancy_data(request):
+    apps = Application.objects.filter(user_id=request.user.id)
+    vacs = {}
+    for app in apps:
+        vacs[str(app.job_id_id)] = Job.objects.get(id=app.job_id_id)
+    data = {}
+    print(vacs)
+    for vac in vacs.items():
+        vac_data = {}
+        print(vac[1].salary_from)
+        vac_sal = {'salary_from':vac[1].salary_from,'salary_to':vac[1].salary_to}
+        get_salary_info(vac_sal)
+        vac_data['name'] = vac[1].name
+        vac_data['company_name'] = vac[1].company_name
+        vac_data['salary_info'] = vac_sal['salary_info']
+        vac_data['location'] = vac[1].location
+        data[vac[1].id] = vac_data
+    print(data)
+    return JsonResponse(data)
+

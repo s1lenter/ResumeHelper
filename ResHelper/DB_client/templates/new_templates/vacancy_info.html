@@ -28,6 +28,7 @@
                 <p class="vacancy-info-company">{{ vacancy.company_name }}</p>
                 <p class="vacancy-info-workplace">{{ vacancy.location }}</p>
                 <form method="post">
+                    {% csrf_token %}
                     <button type="submit" class="vacancy-apply-button">Откликнуться</button>
                 </form>
 

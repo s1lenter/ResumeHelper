@@ -34,41 +34,42 @@
         </nav>
     </header>
     <main class="otkliks-info-main">
-      <div class="otkliks-info">
+        <div class="otkliks-info">
         <div class="js-main otklik-name">
-          <div class="info">
-            <p class="name">Начинающий разработчик</p>
-            <p class="extra">от 50000 ₽ на руки</p>
-          </div>
+              <div class="info">
+                <p class="name">{{ vac.name }}</p>
+                <p class="extra">{{ vac.company_name }}</p>
+              </div>
         </div>
-        <div class="js-main">
-          <div class="info">
-            <p class="name">Иванов Иван Иванович, 32 года</p>
-            <p class="extra">Высшее образование</p>
-            <p class="extra">Екатеринбург</p>
-            <p class="extra">Есть опыт работы</p>
-          </div>
-          <button type="button" class="delete-button">Подробнее</button>
-        </div>
-        <div class="js-main">
-          <div class="info">
-            <p class="name">Петров Вячеслав Григорьевич, 23 года</p>
-            <p class="extra">Высшее образование</p>
-            <p class="extra">Екатеринбург</p>
-            <p class="extra">Есть опыт работы</p>
-          </div>
-          <button type="button" class="delete-button">Подробнее</button>
-        </div>
-        <div class="js-main">
-          <div class="info">
-            <p class="name">Сухарев Алексей Александрович, 40 лет</p>
-            <p class="extra">Высшее образование</p>
-            <p class="extra">Екатеринбург</p>
-            <p class="extra">Есть опыт работы</p>
-          </div>
-          <button type="button" class="delete-button">Подробнее</button>
-        </div>
-      </div>
+        {% for j in js %}
+            <div class="js-main">
+              <div class="info">
+                <p class="name">{{j.user.first_name}} {{j.user.last_name}}, {{j.profile.age}}</p>
+                <p class="extra">Екатеринбург</p>
+                <p class="extra">Есть опыт работы</p>
+              </div>
+              <a href="{% url 'res_info_emp' j.resume.id %}" class="delete-button">Подробнее</a>
+            </div>
+        {%endfor%}
+<!--        <div class="js-main">-->
+<!--          <div class="info">-->
+<!--            <p class="name">Петров Вячеслав Григорьевич, 23 года</p>-->
+<!--            <p class="extra">Высшее образование</p>-->
+<!--            <p class="extra">Екатеринбург</p>-->
+<!--            <p class="extra">Есть опыт работы</p>-->
+<!--          </div>-->
+<!--          <button type="button" class="delete-button">Подробнее</button>-->
+<!--        </div>-->
+<!--            <div class="js-main">-->
+<!--              <div class="info">-->
+<!--                <p class="name">Сухарев Алексей Александрович, 40 лет</p>-->
+<!--                <p class="extra">Высшее образование</p>-->
+<!--                <p class="extra">Екатеринбург</p>-->
+<!--                <p class="extra">Есть опыт работы</p>-->
+<!--              </div>-->
+<!--              <button type="button" class="delete-button">Подробнее</button>-->
+<!--            </div>-->
+<!--        </div>-->
     </main>
     <footer class="otkliks-info-footer">
       <nav class="otkliks-info-footer-nav">

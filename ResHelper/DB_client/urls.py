@@ -22,9 +22,13 @@ urlpatterns = [
     path("api/personal_data/", send_personal_data, name="personal_data"),
     path("api/resume_data/", send_resume_data, name="resume_data"),
     path("api/vacancy_data/", send_vacancy_data, name="vacancy_data"),
+    path("api/app_vacancy_data/", send_app_vacancy_data, name="app_vacancy_data"),
     path("vacancy_detail/<int:vac_id>/", vacancy_detail, name="vacancy_detail"),
     path("delete_resume/<int:res_id>/", delete_resume, name="delete_resume"),
     path("delete_vac/<int:vac_id>/", delete_vac, name="delete_vac"),
+    path("applications/", applications, name="applications"),
+    path("check_app/<int:vac_id>/", check_app, name="check_app"),
+    path("res_info_emp/<int:res_id>/", res_info_emp, name="res_info_emp"),
 ]
 
 if settings.DEBUG:

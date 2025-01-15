@@ -34,36 +34,19 @@
         </nav>
     </header>
     <main class="otkliks-main">
-      <div class="otkliks">
-        <p class="otkliks-text">Выберите вакансию, отклики которой хотите посмотреть</p>
-        <div class="js-main">
-          <div class="info">
-            <p class="name">Начинающий разработчик</p>
-            <p class="salary">от 150000 ₽ на руки</p>
-            <p class="company">ООО прикольно</p>
-            <p class="city">Екатеринбург</p>
-          </div>
-          <button type="button" class="delete-button">Смотреть отклики</button>
+        <div class="otkliks">
+            <p class="otkliks-text">Выберите вакансию, отклики которой хотите посмотреть</p>
+            {% for vac in vacs %}
+            <div class="js-main">
+                <div class="info">
+                    <p class="name">{{vac.name}}</p>
+                    <p class="company">{{vac.company_name}}</p>
+                    <p class="city">{{vac.location}}</p>
+                </div>
+                <a href="{% url 'check_app' vac.id %}" class="delete-button">Смотреть отклики</a>
+            </div>
+            {% endfor %}
         </div>
-        <div class="js-main">
-          <div class="info">
-            <p class="name">Начинающий разраб</p>
-            <p class="salary">от 15000 ₽ на руки</p>
-            <p class="company">ООО балдеть</p>
-            <p class="city">Екатеринбург</p>
-          </div>
-          <button type="button" class="delete-button">Смотреть отклики</button>
-        </div>
-        <div class="js-main">
-          <div class="info">
-            <p class="name">Начинающий</p>
-            <p class="salary">от 1500 ₽ на руки</p>
-            <p class="company">ООО ригато</p>
-            <p class="city">Екатеринбург</p>
-          </div>
-          <button type="button" class="delete-button">Смотреть отклики</button>
-        </div>
-      </div>
     </main>
     <footer class="otkliks-footer">
       <nav class="otkliks-footer-nav">
