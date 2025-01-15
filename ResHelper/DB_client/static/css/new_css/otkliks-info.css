@@ -152,6 +152,9 @@ body {
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .otkliks-info-footer-nav {

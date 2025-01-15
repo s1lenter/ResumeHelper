@@ -124,6 +124,9 @@ body {
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .enter-footer-nav {
@@ -142,6 +145,7 @@ body {
     align-items: center;
     list-style: none;
     gap: 75px;
+
 }
 
 .footer-site-navigation-item a {

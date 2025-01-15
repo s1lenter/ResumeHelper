@@ -4,6 +4,7 @@ body {
     background-image: url("../../img/new_work_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
+    min-height:100%;
 }
 
 .make-vacancy-header {
@@ -123,6 +124,9 @@ body {
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .make-vacancy-footer-nav {
