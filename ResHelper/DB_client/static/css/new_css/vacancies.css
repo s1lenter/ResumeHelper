@@ -212,6 +212,12 @@ body {
     text-align: left;
 }
 
+.search-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .search {
   flex-grow: 1;
   display: flex;
@@ -258,4 +264,38 @@ body {
 .search button:hover {
   background: rgba(0, 196, 169, 0.5);
   color: white;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#city, #type, #experience {
+  border: 2px solid black;
+  border-radius: 12px;
+
+  width: 230px;
+  height: 37px;
+  text-align: center;
+
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+}
+
+#type {
+  padding-right: 20px;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../../img/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right 1% top 50%;
+  background-size: 18px;
 }
