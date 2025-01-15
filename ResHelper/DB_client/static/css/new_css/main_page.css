@@ -1,6 +1,8 @@
-body {
-    margin: 0;
-    padding: 0;
+html, body {
+    height: 100%; 
+    margin: 0; 
+    display: flex; 
+    flex-direction: column; 
 }
 
 .main-page-header {
@@ -14,12 +16,13 @@ body {
     height: 80px;
     justify-content: flex-start;
     align-items: center;
+    padding: 0 20px; /* Отступы по бокам */
 }
 
 .main-page-main {
     margin: 0;
     padding: 0;
-    height: 557px;
+    flex: 1; /* Позволяет главному контенту занимать оставшееся пространство */
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -78,11 +81,8 @@ body {
     background-color: black;
     height: 100px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center; /* Центрируем футер */
     width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
 }
 
 .main-page-footer-nav {
@@ -94,7 +94,6 @@ body {
 
 .footer-site-navigation {
     padding: 0;
-    padding-left: 60px;
     margin: 0;
     display: flex;
     flex-direction: row;
@@ -111,4 +110,110 @@ body {
     font-weight: 400;
     line-height: 38.73px;
     text-align: left;
+}
+
+@media screen and (max-width: 1279px) {
+    .main-page-header {
+        height: auto;
+    }
+
+    .main-block-header {
+        font-size: 5vh;
+        line-height: 1;
+    }
+
+    .main-block-button {
+        width: 100%;
+        height: 7vh;
+    }
+
+    .main-block-button a {
+        font-size: 4.5vh;
+    }
+
+    .footer-site-navigation-item a {
+        font-size: 3vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between ;
+    }
+
+    .main-page-main {
+        margin-top: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20%;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .main-page-header {
+        height: auto;
+    }
+
+    .main-block-header {
+        font-size: 5vh;
+        line-height: 1;
+    }
+
+    .main-block-button {
+        width: 100%;
+        height: 7vh;
+    }
+
+    .main-block-button a {
+        font-size: 4.5vh;
+    }
+
+    .footer-site-navigation-item a {
+        font-size: 3vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between ;
+    }
+
+    .main-page-main {
+        margin-top: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .main-page-header {
+        height: auto;
+    }
+
+    .main-block-header {
+        font-size: 5vh;
+        line-height: 1;
+        max-width: 100%;
+    }
+
+    .main-block-button {
+        width: 100%;
+        height: 8vh;
+    }
+
+    .main-block-button a {
+        font-size: 4vh;
+    }
+
+    .footer-site-navigation-item a {
+        font-size: 3vh;
+    }
+
+    .main-page-main {
+        margin-top: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20%;
+    }
 }
