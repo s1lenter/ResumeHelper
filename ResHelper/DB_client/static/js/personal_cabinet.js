@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             reader.readAsDataURL(file);
         }
-        logo.style.width = '60px';
-        logo.style.height = '60px';
         logo.style.borderRadius = '50px';
     });
 });

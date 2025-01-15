@@ -76,6 +76,94 @@ body {
   text-decoration: none;
 }
 
+.search-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.search {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-input {
+  margin: 0;
+  padding: 0;
+  width: 750px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 15px;
+
+  text-align: center;
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 39px;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search button {
+  width: 44px;
+  height: 50px;
+  background: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.search button i {
+  font-size: 32px;
+}
+
+.search button:hover {
+  background: rgba(0, 196, 169, 0.5);
+  color: white;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#city, #type, #experience {
+  border: 2px solid black;
+  border-radius: 12px;
+
+  width: 230px;
+  height: 37px;
+  text-align: center;
+
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+}
+
+#type {
+  padding-right: 20px;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../../img/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right 1% top 50%;
+  background-size: 18px;
+}
+
 .vacancy {
   padding: 25px;
   width: 100%; /* Установка ширины на 100% */

@@ -41,7 +41,7 @@ body {
     width: 650px;
     height: auto;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 40px; 
+    border-radius: 40px;
     align-self: center;
     margin-bottom: 50px;
 }
@@ -85,7 +85,7 @@ body {
 .page-window-button {
     padding: 0;
     margin-top: 16px;
-    padding-top: 12px;
+    align-content: center;
 
     font-family: Inter;
     font-size: 36px;
@@ -94,7 +94,6 @@ body {
     text-align: center;
     color: white;
     text-decoration: none;
-    
 
     width: 170px;
     height: 60px;
@@ -172,9 +171,9 @@ body {
     }
 
     .page-window-button {
-        font-size: 4; 
-        width: 100%; 
-        height: 40px; 
+        font-size: 4;
+        width: 100%;
+        height: 40px;
         align-self: center;
         padding-bottom: 20px;
     }

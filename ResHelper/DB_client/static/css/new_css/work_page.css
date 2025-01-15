@@ -42,7 +42,7 @@ body {
     width: 650px; /* Ширина окна */
     height: auto;
     background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 40px; 
+    border-radius: 40px;
     align-self: center; /* Центрирование */
     padding-top: 25px;
     margin: 0 auto 50px; /* Центрируем окно и добавляем нижний отступ */
@@ -87,7 +87,7 @@ body {
 .work-window-button {
     padding: 0;
     margin-top: 16px;
-    padding-top: 12px;
+    align-content: center;
 
     font-family: Inter;
     font-size: 36px;
@@ -158,34 +158,34 @@ body {
     }
 
     .work-window {
-        width: 100%; 
-        border-radius: 20px; 
+        width: 100%;
+        border-radius: 20px;
     }
 
     .work-window-info {
-        gap: 30px; 
-        padding: 20px 0; 
+        gap: 30px;
+        padding: 20px 0;
     }
 
     .work-window-info-part__text {
-        font-size: 20px; 
+        font-size: 20px;
     }
 
     .work-window-button {
-        font-size: 3.5vh; 
-        width: 100%; 
-        height: 40px; 
+        font-size: 3.5vh;
+        width: 100%;
+        height: 40px;
         padding-bottom: 20px;
     }
 
     .work-window-button.registration {
-        width: 100%; 
+        width: 100%;
         padding-bottom: 0;
         font-size: 4vh;
     }
 
     .footer-site-navigation-item a {
-        font-size: 20px; 
+        font-size: 20px;
     }
     .footer-site-navigation {
         display: flex;
