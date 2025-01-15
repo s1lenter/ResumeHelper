@@ -38,6 +38,10 @@ body {
   background-color: rgba(0, 196, 169, 0.5);
 }
 
+.nav-link.back, .nav-link.log-out {
+  width: 200px;
+}
+
 .nav-link a {
   margin: 0;
   padding: 0;
