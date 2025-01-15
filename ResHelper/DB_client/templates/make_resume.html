@@ -23,6 +23,52 @@
     <main class="create-resume-main">
         <form method="post" enctype="multipart/form-data" class="main-form">
             {% csrf_token %}
+
+            <div class="main-field-info about-me">
+                <p class="main-field-info-header about-me-header">
+                    О себе
+                </p>
+                <div class="main-fields about-me">
+                    <div class="main-field profession">
+                        <label for="profession" class="main-field-header">Ваша профессия</label>
+                        <input
+                            type="text"
+                            id="profession"
+                            class="main-input-field"
+                            name="profession"
+                            required>
+                    </div>
+                    <div class="main-field desired-salary">
+                        <label for="desired-salary" class="main-field-header">Желаемый оклад</label>
+                        <input
+                            type="text"
+                            id="desired-salary"
+                            class="main-input-field"
+                            name="desired-salary"
+                            required>
+                    </div>
+                    <div class="main-field work-experience">
+                        <label for="work-experience" class="main-field-header">Опыт работы (в годах)</label>
+                        <input
+                            type="number"
+                            id="work-experience"
+                            class="main-input-field"
+                            name="work-experience"
+                            min="0"
+                            required>
+                    </div>
+                    <div class="main-field qualities-description">
+                        <label for="qualities-description" class="main-field-header">Описание качеств</label>
+                        <textarea
+                            id="qualities-description"
+                            class="main-input-field"
+                            name="qualities-description"
+                            rows="4"
+                            required></textarea>
+                    </div>
+                </div>
+            </div>
+            
             <div class="main-field-info achievments">
                 <p class="main-field-info-header achievments-header">
                     Достижения и навыки
