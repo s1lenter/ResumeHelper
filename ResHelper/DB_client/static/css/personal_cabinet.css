@@ -120,6 +120,9 @@ body {
     line-height: 77.45px;
     align-self: left;
     color: white;
+    max-width: 510px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .info-lname {
@@ -131,6 +134,9 @@ body {
     line-height: 77.45px;
     align-self: left;
     color: white;
+    max-width: 510px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .edit-info-data-button {
@@ -472,7 +478,7 @@ input[type='radio'] {
         flex-direction: row;
         gap: 5vh;
     }
-    
+
     .field-column {
         display: flex;
         flex-direction: column;
@@ -488,7 +494,7 @@ input[type='radio'] {
         line-height: 25px;
         color: black;
     }
-    
+
     .field-column.main {
         width: 5vh;
     }

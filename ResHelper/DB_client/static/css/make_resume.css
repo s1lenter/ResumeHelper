@@ -1,8 +1,8 @@
 html, body {
-    height: 100%; 
-    margin: 0; 
+    height: 100%;
+    margin: 0;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Inter;
-    font-size: 50px; 
+    font-size: 50px;
     font-weight: 600;
     text-align: center;
 }
@@ -37,7 +37,7 @@ body {
 .main-field.qualities-description {
     display: flex;
     flex-direction: column;
-    width: 650px; 
+    width: 650px;
     gap: 5px;
 }
 
@@ -45,14 +45,14 @@ body {
     margin: 0;
     padding: 0;
     font-family: Inter;
-    font-size: 26px; 
+    font-size: 26px;
     font-weight: 600;
     line-height: 32px;
 }
 
 .main-input-field {
-    width: 100%; 
-    height: 32px; 
+    width: 100%;
+    height: 32px;
     background: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
     border-style: solid;
@@ -60,16 +60,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: Inter;
-    font-size: 16px; 
+    font-size: 16px;
     font-weight: 400;
     line-height: 25px;
     color: black;
-    text-indent: 10px; 
+    text-indent: 10px;
 }
 
 textarea.main-input-field {
-    resize: none; 
-    height: 80px; 
+    resize: none;
+    height: 80px;
 }
 
 .create-resume-header {
@@ -274,19 +274,16 @@ form {
 
 .create-resume-footer {
     background-color: black;
-    height: 80px;
+    height: 100px;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-}
-
-/* Обновленный футер для адаптивного дизайна */
-.create-resume-footer {
-    margin-top: auto; /* Отодвигает футер вниз */
 }
 
 .make-resume-footer-nav {
     display: flex;
+    flex-direction: row;
+    height: 100px;
+    align-items: center;
 }
 
 .make-resume-footer-nav-elem {
@@ -303,37 +300,37 @@ form {
     color: white;
 }
 
-@media screen and (max-width: 1279px) {
+/* @media screen and (max-width: 1279px) {
     .main-field-info-header {
-        font-size: 40px; 
+        font-size: 40px;
     }
 
     .main-field-header {
-        font-size: 22px; 
+        font-size: 22px;
     }
 
     .main-input-field {
-        font-size: 14px; 
+        font-size: 14px;
     }
 
     .save-button {
-        width: 120px; 
+        width: 120px;
     }
 
     .create-resume-footer {
-        flex-direction: column; 
-        height: auto; 
-        padding: 20px; 
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
     }
 
     .make-resume-footer-nav-elem {
-        padding-left: 20px; 
+        padding-left: 20px;
     }
-}
+} */
 
 @media screen and (max-width: 767px) {
     .main-field {
-        width: 100%; 
+        width: 100%;
     }
 
     .main-field-info-header {
@@ -345,6 +342,6 @@ form {
     }
 
     .save-button {
-        width: 100%; 
+        width: 100%;
     }
 }

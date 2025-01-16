@@ -262,8 +262,15 @@ select {
   color: rgba(0, 0, 0, 0.5);
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+}
+
 .vacancies-footer {
   margin: 0;
+  margin-top: auto;
   padding: 0;
   background-color: black;
   height: 100px;
@@ -367,7 +374,7 @@ select {
     height: 50px;
     border: 2px solid black;
     border-radius: 15px;
-  
+
     text-align: center;
     font-family: Inter;
     font-size: 32px;
@@ -384,7 +391,7 @@ select {
     margin: 20px auto 0;
   }
 
-  #city, #type, #experience {  
+  #city, #type, #experience {
     width: 12vh;
     height: 37px;
     margin-right: 20px;
@@ -392,8 +399,8 @@ select {
 
   .vacancy {
     padding: 25px;
-    width: 90%; 
-    max-width: 800px; 
+    width: 90%;
+    max-width: 800px;
     background-color: #e6e6e6;
     display: flex;
     justify-content: space-between;

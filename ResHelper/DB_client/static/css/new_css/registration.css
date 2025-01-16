@@ -130,6 +130,7 @@ body {
 }
 
 .registration-work-footer-nav {
+    height: 100px;
     display: flex;
     flex-direction: row;
     margin: 0;

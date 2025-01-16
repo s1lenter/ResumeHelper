@@ -81,6 +81,9 @@ body {
     font-weight: 600;
     line-height: 77.45px;
     align-self: left;
+    max-width: 510px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .info-lname {
@@ -91,6 +94,9 @@ body {
     font-weight: 600;
     line-height: 77.45px;
     align-self: left;
+    max-width: 510px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .edit-info-data-button {

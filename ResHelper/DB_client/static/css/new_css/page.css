@@ -114,14 +114,15 @@ body {
 .page-footer {
     margin: 0;
     padding: 0;
-    background-color: black;
-    height: 100px;
     display: flex;
     justify-content: flex-start;
+    background-color: black;
+    height: 100px;
     width: 100%;
 }
 
 .page-footer-nav {
+    height: 100px;
     display: flex;
     flex-direction: row;
     margin: 0;
