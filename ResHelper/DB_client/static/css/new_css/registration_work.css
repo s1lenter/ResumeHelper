@@ -1,224 +1,549 @@
-html, body {
-    height: 100%; /* Задаем высоту 100% для html и body */
-    margin: 0; /* Убираем отступы */
-    display: flex; /* Используем Flexbox для body */
-    flex-direction: column; /* Устанавливаем вертикальное направление */
-}
-
 body {
-    background-image: url("../../img/work_page.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
 }
 
-.registartion-header {
+.personal-cabinet-header {
     margin: 0;
     padding: 0;
     background-color: black;
-    width: 100%; /* Растягиваем хедер на всю ширину */
 }
 
-.registartion-header-nav {
+.personal-cabinet-nav {
     display: flex;
     height: 80px;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Убедимся, что навигация тоже на всю ширину */
 }
 
-.registration-main {
+.part-nav {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1; /* Позволяет главному контенту занимать оставшееся пространство */
-}
-
-.registartion-window {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    width: 650px; /* Ширина окна */
-    height: auto;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 40px;
-    align-self: center;
-    padding-top: 25px;
-    margin: 0 auto 50px; /* Центрируем окно и добавляем нижний отступ */
-}
-
-.registartion-text-header {
-    margin: 50px 0 35px 0;
-    padding: 0;
-    font-family: Inter;
-    font-size: 64px;
-    font-weight: 600;
-    line-height: 78px;
-    text-align: center;
-    color: black;
-}
-
-.registartion-window-input {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     gap: 15px;
 }
 
-.registartion-window-button {
-    padding: 0;
-    margin-bottom: 25px;
-
-    font-family: Inter;
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 58px;
-    color: white;
-
-    width: 210px;
-    height: 72px;
-    border: none;
-    border-radius: 15px;
-    background-color: rgba(0, 196, 169, 1);
-}
-
-.registartion-window-button:hover {
-    background-color: rgba(217, 217, 217, 0.5);
-}
-
-.comment-field {
+.nav-link {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 550px;
-    height: 40px;
-    border-style: none;
-    border-radius: 30px;
-    background-color: #D9D9D9;
+    width: 340px;
+    height: 58px;
+    background-color: rgba(0, 196, 169, 1);
+    border-radius: 20px;
+}
 
+.nav-link:hover {
+    background-color: rgba(0, 196, 169, 0.5);
+}
+
+.nav-link a {
     margin: 0;
     padding: 0;
-    font-family: Inter;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 22px;
-    color: rgba(0, 0, 0, 0.8);
-    text-align: center;
-}
-
-.comment-field::placeholder {
-    margin: 0;
-    padding: 0;
-    font-family: Inter;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 22px;
-    color: rgba(0, 0, 0, 0.39);
-    text-align: center;
-}
-
-.registration-work-footer {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    height: 100px;
-    display: flex;
-    justify-content: flex-start;
-    width: 100%; /* Растягиваем футер на всю ширину */
-}
-
-.registration-work-footer-nav {
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    gap: 50px;
-}
-
-.footer-site-navigation {
-    padding: 0;
-    padding-left: 60px;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    list-style: none;
-    gap: 75px;
-}
-
-.footer-site-navigation-item a {
-    text-decoration: none;
-    color: white;
     font-family: Inter;
     font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    color: white;
+    text-decoration: none;
+}
+
+.personal-cabinet-main {
+    margin: 0;
+    padding: 0;
+    background-image: url("../../img/new_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-size 0.3s ease;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.personal-cabinet-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+.personal-cabinet-info {
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.personal-cabinet-info-header {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 24px;
     font-weight: 400;
-    line-height: 38.73px;
-    text-align: left;
+    line-height: 30px;
+    align-self: left;
+    color: white;
 }
 
-.form-error {
+.personal-cabinet-info-window {
+    width: 850px;
+    padding: 30px;
+    padding-bottom: 15px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    justify-content: space-between;
+}
+
+.personal-cabinet-info-data {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.info-fname {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 77.45px;
+    align-self: left;
+    color: white;
+}
+
+.info-lname {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 77.45px;
+    align-self: left;
+    color: white;
+}
+
+.edit-info-data-button {
+    background: rgba(255, 255, 255, 1);
+    width: 175px;
+    height: 45px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0.8);
+
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.edit-info-data-button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.info-image {
+    border-radius: 15px;
+}
+
+.fields__toChange {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.field .header {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    align-self: left;
+    color: black;
+}
+
+.field .window {
+    width: 850px;
+    padding: 10px 20px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    justify-content: space-between;
+}
+
+.field-columns {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+}
+
+.field-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.field-column.main {
+    width: 150px;
+}
+
+.field p {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black;
+}
+
+.field-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 85px;
+}
+
+.field-button {
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 196, 169, 1);
+    border: none;
+    background: none;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.field-button:hover {
+    color: rgba(0, 196, 169, 0.5);
+}
+
+.edit-input {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.upload-image-input {
+    display: none;
+}
+
+.radioButtons {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+input[type='radio'] {
+    display: none;
+}
+
+.label-text {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    transition: color 0.3s ease;
+}
+
+.fullsave-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 270px;
+    height: 48px;
+    background-color: rgba(0, 196, 169, 1);
+    border-style: solid;
+    border-radius: 20px;
+
+    margin: 0;
+    margin-bottom: 25px;
+    padding: 0;
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 32px;
+    color: white;
+    text-decoration: none;
+}
+
+.fullsave-button:hover {
+    background-color: rgba(0, 196, 169, 0.5);
+}
+
+.js-main {
+  width: 850px;
+  padding: 25px;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  justify-content: space-between;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.name {
+  margin: 0;
+  padding: 0;
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  color: white;
+}
+
+.salary {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.city {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+
   margin: 0;
   padding: 0;
   font-family: Inter;
   font-size: 20px;
-  font-weight: 400;
-  line-height: 28px;
+  font-weight: 600;
+  line-height: 24px;
+  color: white;
 }
 
-.alert {
-  margin: 0;
-  padding: 0;
-  font-family: Inter;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 28px;
+.delete-button:hover {
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* Медиа-запросы для адаптивного дизайна */
-@media screen and (max-width: 1279px) {
-    .registartion-text-header {
-        font-size: 48px; /* Уменьшение размера заголовка */
-        line-height: 56px; /* Уменьшение высоты строки */
+@media screen and (max-width: 768px) {
+    .personal-cabinet-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
     }
 
-    .comment-field {
-        width: 90%; /* Увеличиваем ширину поля ввода для мобильных */
+    .personal-cabinet-info-window {
+        width: 30vh;
+        margin: auto;
     }
 
-    .registartion-window-button {
-        font-size: 36px; /* Уменьшение размера шрифта для кнопок */
-        width: 150px; /* Уменьшение ширины кнопок */
-        height: 50px; /* Уменьшение высоты кнопок */
-    }
-}
-
-@media screen and (max-width: 1023px) {
-    .registartion-window {
-        width: 90%; /* Увеличение ширины окна для мобильных устройств */
-        padding: 20px; /* Добавление отступов */
+    .personal-cabinet-info-data {
+        display: flex;
+        flex-direction: column;
+        gap: 20em;
     }
 
-    .registartion-text-header {
-        font-size: 36px; /* Дальнейшее уменьшение размера заголовка */
-        line-height: 44px; /* Уменьшение высоты строки */
-    }
-}
+    .info-image {
+        display: flex;
+        justify-content: flex-end;
+        border-radius: 10px;
+        width: 30px;
+        height: 30px;
+        margin: auto;
+        padding-left: 5.5%;
+        padding-bottom: 100%;
 
-@media screen and (max-width: 767px) {
-    .registartion-text-header {
-        font-size: 5vh;
+    }
+
+    .info-name-surname{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 0;
+        gap: 0.5em;
+    }
+
+    .info-fname{
+        margin: 0;
+        font-size: 2em;
+    }
+
+    .info-lname{
+        font-size: 2em;
+    }
+
+    .nav-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 6vh;
+        height: 3vh;
+        background-color: rgba(0, 196, 169, 1);
+        border-radius: 20px;
+    }
+
+    .nav-link a {
+        margin: 0;
+        padding: 0;
+        font-family: Inter;
+        font-size: 0.5em;
+        font-weight: 500;
         line-height: 1;
+        color: white;
+        text-decoration: none;
     }
 
-    .comment-field {
-        width: 100%;
+    .nav-item{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+
     }
 
-    .registartion-window-button {
-        font-size: 4vh;
-        width: 100%;
-        height: 40px;
-        padding-bottom: 60px;
+    .radioButtons {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        margin: auto;
     }
+
+    .label-text {
+        font-family: Inter;
+        font-size: 0.8em;
+        font-weight: 600;
+        line-height: 1;
+        transition: color 0.3s ease;
+    }
+
+    .field .window {
+        width: 30vh;
+        margin: auto;
+        padding: 10px 20px;
+        height: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: row;
+        border-radius: 15px;
+    }
+
+    .field-columns {
+        display: flex;
+        flex-direction: row;
+        gap: 5vh;
+    }
+    
+    .field-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2vh;
+    }
+
+    .field p {
+        margin: 0;
+        padding: 0;
+        font-family: Inter;
+        font-size: 0.6em;
+        font-weight: 400;
+        line-height: 25px;
+        color: black;
+    }
+    
+    .field-column.main {
+        width: 5vh;
+        gap: 1vh;
+    }
+
+    .field-button {
+        font-size: 0.8em;
+        line-height: 25px;
+    }
+
+    .js-main {
+        margin: auto;
+        width: 30vh;
+        padding: 25px;
+        height: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: row;
+        border-radius: 15px;
+        justify-content: space-between;
+      }
+
+      .edit-input {
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 25px;
+        color: black;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        width: 10vh;
+    }
+
+    .name {
+        font-size: 1.4em;
+      }
+      
+      .salary {
+        font-size: 1.2em;
+        line-height: 30px;
+      }
+      
+      .city {
+        font-size: 1.2em;
+      }
+
+      .delete-button {
+        font-size: 0.7em;
+        line-height: 1;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      a.delete-button {
+        font-size: 1em;
+        line-height: 1;
+      }
 }
