@@ -374,10 +374,15 @@ input[type='radio'] {
   line-height: 24px;
   color: black;
   align-self: end;
+  text-decoration: none;
 }
 
 .delete-button:hover {
   color: rgba(0, 0, 0, 0.5);
+}
+
+.js-main-buttons {
+  margin-left: 500px;
 }
 
 @media screen and (max-width: 768px) {
