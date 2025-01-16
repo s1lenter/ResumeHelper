@@ -120,6 +120,9 @@ body {
     line-height: 77.45px;
     align-self: left;
     color: white;
+    max-width: 615px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .info-lname {
@@ -131,6 +134,9 @@ body {
     line-height: 77.45px;
     align-self: left;
     color: white;
+    max-width: 615px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .edit-info-data-button {
@@ -391,12 +397,12 @@ input[type='radio'] {
         margin: 10px auto; /* Центрируем с небольшим отступом */
         padding: 15px; /* Добавляем внутренние отступы */
     }
-    
+
     .info-image {
         width: 80%; /* Устанавливаем ширину изображения */
         margin: 10px 0; /* Добавляем отступы сверху и снизу */
     }
-    
+
     .info-image img {
         max-width: 100%; /* Изображение не превышает ширину родителя */
         height: auto; /* Высота автоматически подстраивается для сохранения пропорций */
@@ -479,7 +485,7 @@ input[type='radio'] {
         flex-direction: row;
         gap: 5vh;
     }
-    
+
     .field-column {
         display: flex;
         flex-direction: column;
@@ -496,7 +502,7 @@ input[type='radio'] {
         line-height: 25px;
         color: black;
     }
-    
+
     .field-column.main {
         width: 5vh;
         gap: 1vh;
@@ -533,12 +539,12 @@ input[type='radio'] {
     .name {
         font-size: 1.4em;
       }
-      
+
       .salary {
         font-size: 1.2em;
         line-height: 30px;
       }
-      
+
       .city {
         font-size: 1.2em;
       }
