@@ -92,7 +92,7 @@ class LoginUserWork(LoginView):
         return reverse_lazy('personal_cabinet')
 
 class ResInfo(ListView):
-    template_name = 'res_info.html'
+    template_name = 'new_templates/resume_info.html'
     model = User
 
     def get_context_data(self, **kwargs):
@@ -100,10 +100,12 @@ class ResInfo(ListView):
         res_id = self.kwargs.get('res_id')
         user_res = Resume.objects.get(id=res_id)
         print(user_res)
+        context['user'] = User.objects.get(id=self.request.user.id)
+        context['profile'] = Profile.objects.get(user_id=self.request.user.id)
         context['achievements'] = Achievements.objects.filter(resume=user_res)
-
+        context['addInfo'] = AdditionalInfo.objects.get(resume=user_res)
         context['skill'] = Skill.objects.filter(resume=user_res)
-        context['education'] = Education.objects.filter(resume=user_res)
+        context['education'] = Education.objects.get(resume=user_res)
         context['work_experience'] = WorkExperience.objects.filter(resume=user_res)
         return context
 
@@ -190,6 +192,24 @@ def create_resume(request):
 #     return render(request, 'vacancies.html', {'vacs': vacancies.items()})
 
 def vacancies(request):
+    if request.method == 'POST':
+        search_word = request.POST.get('search').strip()
+        filter_format = request.POST.get('filter_format')
+        filter_city = request.POST.get('filter_city')
+        filter_exp = request.POST.get('filter_exp')
+        print(filter_exp, filter_format, filter_city, search_word)
+        vacs = []
+        if search_word == '':
+            vacs = Job.objects.filter(job_type=filter_format, experience_level=filter_exp, location=filter_city)
+        elif search_word == '':
+            vacs = Job.objects.filter(name=search_word, job_type=filter_format, experience_level=filter_exp, location=filter_city)
+        vacs_list = []
+        for vac in vacs:
+            vacs_list.append(model_to_dict(vac))
+        for vac in vacs_list:
+            get_salary_info(vac)
+        return render(request, 'new_templates/vacancies.html', {'vacs': vacs_list})
+
     vacs = Job.objects.all().values()
     for vac in vacs:
         get_salary_info(vac)
@@ -347,7 +367,8 @@ def res_info_emp(request, res_id):
     context['skill'] = Skill.objects.filter(resume_id=resume.id)
     context['education'] = Education.objects.get(resume_id=resume.id)
     context['work_experience'] = WorkExperience.objects.filter(resume_id=resume.id)
-    return render(request, 'new_templates/resume_info.html',
+    context['addInfo'] = AdditionalInfo.objects.get(resume_id=resume.id)
+    return render(request, 'new_templates/infoRes.html',
                   {'user': user, 'profile': profile, 'resume': resume,'context': context})
 
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Резюме</title>
-    <link rel="stylesheet" href="../../static/css/new_css/resume_info.css">
+    <link rel="stylesheet" href="../../static/css/new_css/infoRes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -23,9 +23,8 @@
     <main class="resume-info-main">
         <div class="resume">
             <div class="resume-info">
-                <p class="resume-info-head">Начинающий веб-разработчик</p>
-                <p class="resume-info-salary">от 150000 Р на руки</p>
-                <p class="resume-info-workplace">Екатеринбург</p>
+                <p class="resume-info-head">Желаемая профессия: {{addInfo.profession}}</p>
+                <p class="resume-info-salary">Желаемая зарплата: {{addInfo.desired_salary}} рублей</p>
             </div>
             <div class="resume-buttons">
                 <button type="button" class="hide-resume-button">Вернуться</button>
@@ -47,15 +46,12 @@
                 </ul>
             </div>
             <div class="resume-about">
-                <p class="resume-about-header">Достижения / Навыки:</p>
-                {% for ach in context.achievements %}
-                    <img src="../../media/{{ach.ach_image}}">
-                {% endfor %}
+                <p class="resume-about-header">Навыки:</p>
                 <ul class="resume-about-items">
-                    {% for skill in context.skill %}
-                    <li class="resume-about-item">
-                        {{skill.skill_name}}
-                    </li>
+                    {% for sll in skill %}
+                        <li class="resume-about-item">
+                            {{sll.skill_name}}
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
@@ -63,19 +59,19 @@
                 <p class="resume-about-header">Образование:</p>
                 <ul class="resume-about-items">
                     <li class="resume-about-item">
-                        Уровень образования: {{context.education.level}}
+                        Уровень образования: {{education.level}}
                     </li>
                     <li class="resume-about-item">
-                        Учебное заведение: {{context.education.place}}
+                        Учебное заведение: {{education.place}}
                     </li>
                     <li class="resume-about-item">
-                        Дата окончания: {{context.education.year}}
+                        Дата окончания: {{education.year}}
                     </li>
                 </ul>
             </div>
             <div class="resume-about">
                 <p class="resume-about-header">Опыт работы:</p>
-                {% for work in context.work_experience%}
+                {% for work in work_experience%}
                 <ul class="resume-about-items">
                     <li class="resume-about-item">
                         Профессия: {{work.job_title}}
@@ -92,6 +88,18 @@
                 </ul>
                 {% endfor %}
             </div>
+        </div>
+        <div class="resume-block">
+          <div class="resume-about">
+            <p class="resume-about-header">Достижения:</p>
+            <ul class="resume-about-items achievments">
+                {% for ach in achievements %}
+                    <li class="resume-about-item">
+                      <img width="100" height="120" src="../../media/{{ach.ach_image}}">
+                    </li>
+                {% endfor %}
+            </ul>
+          </div>
         </div>
     </main>
     <footer class="resume-info-footer">
