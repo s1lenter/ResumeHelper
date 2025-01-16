@@ -374,3 +374,195 @@ input[type='radio'] {
   color: rgba(0, 0, 0, 0.5);
 }
 
+@media screen and (max-width: 768px) {
+    .personal-cabinet-work-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
+    }
+
+    .personal-cabinet-info-window {
+        width: 30vh;
+        margin: auto;
+    }
+
+    .personal-cabinet-work-info-data {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .personal-cabinet-work-info-window {
+        display: flex; /* Включаем flexbox */
+        flex-direction: column-reverse; /* Располагаем элементы в колонку */
+        align-items: center; /* Центрируем элементы по горизонтали */
+        justify-content: start; /* Центрируем элементы по вертикали */
+        width: 30vh; /* Пример ширины окна */
+        margin: 10px auto; /* Центрируем с небольшим отступом */
+        padding: 15px; /* Добавляем внутренние отступы */
+    }
+    
+    .info-image {
+        width: 80%; /* Устанавливаем ширину изображения */
+        margin: 10px 0; /* Добавляем отступы сверху и снизу */
+    }
+    
+    .info-image img {
+        max-width: 100%; /* Изображение не превышает ширину родителя */
+        height: auto; /* Высота автоматически подстраивается для сохранения пропорций */
+    }
+
+    .info-name-surname{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 0;
+        gap: 0.5em;
+    }
+
+    .info-fname{
+        margin: 0;
+        font-size: 2em;
+    }
+
+    .info-lname{
+        font-size: 2em;
+    }
+
+    .nav-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 6vh;
+        height: 3vh;
+        background-color: rgba(0, 196, 169, 1);
+        border-radius: 20px;
+    }
+
+    .nav-link a {
+        margin: 0;
+        padding: 0;
+        font-family: Inter;
+        font-size: 0.5em;
+        font-weight: 500;
+        line-height: 1;
+        color: white;
+        text-decoration: none;
+    }
+
+    .nav-item{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+
+    }
+
+    .radioButtons {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        margin: auto;
+    }
+
+    .label-text {
+        font-family: Inter;
+        font-size: 0.8em;
+        font-weight: 600;
+        line-height: 1;
+        transition: color 0.3s ease;
+    }
+
+    .field .window {
+        width: 30vh;
+        margin: auto;
+        padding: 10px 20px;
+        height: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: row;
+        border-radius: 15px;
+    }
+
+    .field-columns {
+        display: flex;
+        flex-direction: row;
+        gap: 5vh;
+    }
+    
+    .field-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2vh;
+    }
+
+    .field p {
+        margin: 0;
+        padding: 0;
+        font-family: Inter;
+        font-size: 0.6em;
+        font-weight: 400;
+        line-height: 25px;
+        color: black;
+    }
+    
+    .field-column.main {
+        width: 5vh;
+        gap: 1vh;
+    }
+
+    .field-button {
+        font-size: 0.8em;
+        line-height: 25px;
+    }
+
+    .js-main {
+        margin: auto;
+        width: 30vh;
+        padding: 25px;
+        height: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: row;
+        border-radius: 15px;
+        justify-content: space-between;
+      }
+
+      .edit-input {
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 25px;
+        color: black;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        width: 10vh;
+    }
+
+    .name {
+        font-size: 1.4em;
+      }
+      
+      .salary {
+        font-size: 1.2em;
+        line-height: 30px;
+      }
+      
+      .city {
+        font-size: 1.2em;
+      }
+
+      .delete-button {
+        font-size: 0.7em;
+        line-height: 1;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      a.delete-button {
+        font-size: 1em;
+        line-height: 1;
+      }
+}

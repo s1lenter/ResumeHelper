@@ -379,19 +379,27 @@ input[type='radio'] {
     .personal-cabinet-info-data {
         display: flex;
         flex-direction: column;
-        gap: 20em;
+        gap: 0;
     }
 
+    .personal-cabinet-info-window {
+        display: flex; /* Включаем flexbox */
+        flex-direction: column-reverse; /* Располагаем элементы в колонку */
+        align-items: center; /* Центрируем элементы по горизонтали */
+        justify-content: start; /* Центрируем элементы по вертикали */
+        width: 30vh; /* Пример ширины окна */
+        margin: 10px auto; /* Центрируем с небольшим отступом */
+        padding: 15px; /* Добавляем внутренние отступы */
+    }
+    
     .info-image {
-        display: flex;
-        justify-content: flex-end;
-        border-radius: 10px;
-        width: 30px;
-        height: 30px;
-        margin: auto;
-        padding-left: 5.5%;
-        padding-bottom: 100%;
-
+        width: 80%; /* Устанавливаем ширину изображения */
+        margin: 10px 0; /* Добавляем отступы сверху и снизу */
+    }
+    
+    .info-image img {
+        max-width: 100%; /* Изображение не превышает ширину родителя */
+        height: auto; /* Высота автоматически подстраивается для сохранения пропорций */
     }
 
     .info-name-surname{
