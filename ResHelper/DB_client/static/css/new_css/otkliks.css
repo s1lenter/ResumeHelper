@@ -197,3 +197,85 @@ body {
   line-height: 38.73px;
   text-align: left;
 }
+
+@media screen and (max-width: 767px) {
+  .otkliks-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .part-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-link {
+    width: 100%;
+    height: 50px;
+  }
+
+  .nav-link a {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .otkliks-main {
+    padding: 20px 10px 50px 10px;
+    background-size: cover;
+  }
+
+  .otkliks {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .otkliks-text {
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .js-main {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .info {
+    gap: 10px;
+  }
+
+  .name, .company, .city {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .delete-button {
+    font-size: 18px;
+    line-height: 22px;
+    align-self: center;
+  }
+
+  .otkliks-footer {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .footer-site-navigation {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+  }
+
+  .footer-site-navigation-item a {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
