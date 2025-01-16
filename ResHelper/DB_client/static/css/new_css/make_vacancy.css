@@ -3,6 +3,7 @@ html, body {
     margin: 0; /* Убираем отступы */
     display: flex; /* Используем Flexbox для body */
     flex-direction: column; /* Устанавливаем вертикальное направление */
+    
 }
 
 body {
@@ -199,6 +200,11 @@ body {
 }
 
 @media screen and (max-width: 767px) {
+
+   .footer-site-navigation {
+    gap: 5vh;
+}
+
     .make-vacancy-text-header {
         font-size: 32px; /* Уменьшение размера заголовка для мобильных */
         line-height: 40px; /* Уменьшение высоты строки */
@@ -210,49 +216,22 @@ body {
 
     .make-vacancy-window-button {
         font-size: 24px; /* Уменьшение размера шрифта для кнопок */
-        width: 100%; /* Ширина кнопки на всю ширину */
+        width: 90%; /* Ширина кнопки на всю ширину */
         height: 50px; /* Уменьшение высоты кнопки */
     }
 
     #work-type {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 40px;
-        border-style: none;
-        border-radius: 30px;
-        background-color: #D9D9D9;
-
-        margin: 0;
-        padding: 0;
-        font-family: Inter;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 22px;
-        color: rgba(0, 0, 0, 0.8);
-        text-align: center;
+        width: 90%;
+        margin: auto;
     }
 
     #work-experience {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 40px;
-        border-style: none;
-        border-radius: 30px;
-        background-color: #D9D9D9;
-
-        margin: 0;
-        padding: 0;
-        font-family: Inter;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 22px;
-        color: rgba(0, 0, 0, 0.8);
-        text-align: center;
+        width: 90%;
+        margin: auto;
     }
+
+    .make-vacancy-window {
+        width: 40vh;
+        height: auto;
+      }
 }

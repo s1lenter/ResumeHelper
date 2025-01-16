@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (vacanciesInfoRadio.checked) {
           let vacanciesHTML = `
           <div class="field">
-              <p class="field header">Ваши резюме</p>
+              <p class="field header">Ваши вакансии</p>
           </div>
           `;
           const count = 4;

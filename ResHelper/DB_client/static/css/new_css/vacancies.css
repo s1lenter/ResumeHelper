@@ -359,4 +359,44 @@ select {
   .vacancies-filter {
       height: 4vh;
   }
+
+  .search-input {
+    margin: auto;
+    padding: 0;
+    width: 30vh;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 15px;
+  
+    text-align: center;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 39px;
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    width: 5vh;
+    margin: 20px auto 0;
+  }
+
+  #city, #type, #experience {  
+    width: 12vh;
+    height: 37px;
+    margin-right: 20px;
+  }
+
+  .vacancy {
+    padding: 25px;
+    width: 90%; 
+    max-width: 800px; 
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+  }
 }
