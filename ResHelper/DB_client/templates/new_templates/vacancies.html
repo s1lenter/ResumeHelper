@@ -32,37 +32,41 @@
         </div>
         <div class="search-filter">
           <div class="search">
-            <form action="#" class="search-form">
-                <input type="text" placeholder="Найти вакансию" name="search" class="search-input">
-                <button>
-                    <i class="fa fa-search"></i>
-                </button>
+            <form method="post" >
+                {% csrf_token %}
+                <div class="search-form">
+                    <input type="text" placeholder="Найти вакансию" name="search" class="search-input">
+                    <button type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <div class="filters">
+                    <label for="type" class="filter-window"></label>
+                    <select id="type" name="filter_format">
+                      <option value="" disabled selected>Тип занятости</option>
+                      <option value="on-site">Очно</option>
+                      <option value="online">Онлайн</option>
+                      <option value="both">Очно/Онлайн</option>
+                    </select>
+                    <label for="city" class="filter-window"></label>
+                    <select id="city" name="filter_city">
+                      <option value="" disabled selected>Город</option>
+                      <option value="Екатеринбург">Екатеринбург</option>
+                      <option value="Москва">Москва</option>
+                      <option value="Санкт-Петербург">Санкт-Петербург</option>
+                    </select>
+                    <label for="experience" class="filter-window"></label>
+                    <select id="experience" name="filter_exp">
+                      <option value="" disabled selected>Опыт работы</option>
+                      <option value="zero">Без опыта</option>
+                      <option value="one-three">От 1 года до 3 лет</option>
+                      <option value="three-six">От 3 лет до 6 лет</option>
+                      <option value="more-than-six">Более 6 лет</option>
+                    </select>
+                </div>
             </form>
           </div>
-          <div class="filters">
-            <label for="type" class="filter-window"></label>
-            <select id="type" name="filter">
-              <option value="" disabled selected>Тип занятости</option>
-              <option value="on-site">Очно</option>
-              <option value="online">Онлайн</option>
-              <option value="both">Очно/Онлайн</option>
-            </select>
-            <label for="city" class="filter-window"></label>
-            <select id="city" name="filter">
-              <option value="" disabled selected>Город</option>
-              <option value="1">Екатеринбург</option>
-              <option value="2">Москва</option>
-              <option value="3">Санкт-Петербург</option>
-            </select>
-            <label for="experience" class="filter-window"></label>
-            <select id="experience" name="filter">
-              <option value="" disabled selected>Опыт работы</option>
-              <option value="zero">Без опыта</option>
-              <option value="one-three">От 1 года до 3 лет</option>
-              <option value="three-six">От 3 лет до 6 лет</option>
-              <option value="more-than-six">Более 6 лет</option>
-            </select>
-          </div>
+
         </div>
         {% for vac in vacs %}
             <div class="vacancy">
@@ -76,32 +80,6 @@
                 <button type="button" class="favorite-vacancy-button" title="heart-button"></button>
             </div>
         {% endfor %}
-<!--        <div class="vacancy">-->
-<!--            <div class="vacancy-info">-->
-<!--                <p class="vacancy-info-head">Начинающий разработчик</p>-->
-<!--                <p class="vacancy-info-salary">от 50000 Р на руки</p>-->
-<!--                <p class="vacancy-info-company">ООО Альянс</p>-->
-<!--                <p class="vacancy-info-workplace">Екатеринбург</p>-->
-<!--                <button type="button" class="vacancy-apply-button">Откликнуться</button>-->
-<!--            </div>-->
-<!--            <div class="vacancy-buttons">-->
-<!--                <button type="button" class="hide-vacancy-button">Скрыть</button>-->
-<!--                <button type="button" class="add-vacancy-button">+</button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="vacancy">-->
-<!--            <div class="vacancy-info">-->
-<!--                <p class="vacancy-info-head">Оператор 1C</p>-->
-<!--                <p class="vacancy-info-salary">от 50000 Р на руки</p>-->
-<!--                <p class="vacancy-info-company">ООО Альянс</p>-->
-<!--                <p class="vacancy-info-workplace">Екатеринбург</p>-->
-<!--                <button type="button" class="vacancy-apply-button">Откликнуться</button>-->
-<!--            </div>-->
-<!--            <div class="vacancy-buttons">-->
-<!--                <button type="button" class="hide-vacancy-button">Скрыть</button>-->
-<!--                <button type="button" class="add-vacancy-button">+</button>-->
-<!--            </div>-->
-<!--        </div>-->
     </main>
     <footer class="vacancies-footer">
         <nav class="vacancies-footer-nav">

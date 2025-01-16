@@ -23,9 +23,9 @@
     <main class="resume-info-main">
         <div class="resume">
             <div class="resume-info">
-                <p class="resume-info-head">Желаемая профессия</p>
-                <p class="resume-info-salary">Желаемый оклад</p>
-                <p class="resume-info-workplace">Опыт работы (в годах)</p>
+                <p class="resume-info-head">{{addInfo.profession}}</p>
+                <p class="resume-info-salary">{{addInfo.profession}}</p>
+                <p class="resume-info-workplace">{{addInfo.profession}}</p>
             </div>
             <div class="resume-buttons">
                 <button type="button" class="hide-resume-button">Вернуться</button>
@@ -36,75 +36,69 @@
                 <p class="resume-about-header">Личная информация:</p>
                 <ul class="resume-about-items">
                     <li class="resume-about-item">
-                        Петров Иван Иванович, 25 лет
+                        {{user.first_name}} {{user.last_name}}, {{profile.age}} лет
                     </li>
                     <li class="resume-about-item">
-                        Почта: PetrovvvIIvan@gmail.com
+                        Почта: {{user.email}}
                     </li>
                     <li class="resume-about-item">
-                        Телефон: +7 999 222 33 11
+                        Телефон: {{profile.phone_number}}
                     </li>
                 </ul>
             </div>
             <div class="resume-about">
                 <p class="resume-about-header">Навыки:</p>
                 <ul class="resume-about-items">
-                    <li class="resume-about-item">
-                        ...
-                    </li>
-                    <li class="resume-about-item">
-                        ...
-                    </li>
-                    <li class="resume-about-item">
-                        ...
-                    </li>
+                    {% for skill in context.skill %}
+                        <li class="resume-about-item">
+                            {{skill.skill_name}}
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="resume-about">
                 <p class="resume-about-header">Образование:</p>
                 <ul class="resume-about-items">
                     <li class="resume-about-item">
-                        Уровень образования: ...
+                        Уровень образования: {{context.education.level}}
                     </li>
                     <li class="resume-about-item">
-                        Учебное заведение: ...
+                        Учебное заведение: {{context.education.place}}
                     </li>
                     <li class="resume-about-item">
-                        Дата окончания: ...
+                        Дата окончания: {{context.education.year}}
                     </li>
                 </ul>
             </div>
             <div class="resume-about">
                 <p class="resume-about-header">Опыт работы:</p>
+                {% for work in context.work_experience%}
                 <ul class="resume-about-items">
                     <li class="resume-about-item">
-                        Профессия: ...
+                        Профессия: {{work.job_title}}
                     </li>
                     <li class="resume-about-item">
-                        Компания: ...
+                        Компания: {{work.company}}
                     </li>
                     <li class="resume-about-item">
-                        Дата начала работы: ...
+                        Дата начала работы: {{work.start_date}}
                     </li>
                     <li class="resume-about-item">
-                        Дата конца работы: ...
+                        Дата конца работы: {{work.end_date}}
                     </li>
                 </ul>
+                {% endfor %}
             </div>
         </div>
         <div class="resume-block">
           <div class="resume-about">
             <p class="resume-about-header">Достижения:</p>
             <ul class="resume-about-items achievments">
-                <li class="resume-about-item">
-                  <img src="../../static/img/about_bg.png" width="100" height="120" alt="achievment">
-                </li>
-                <li class="resume-about-item">
-                  <img src="../../static/img/about_bg.png" width="100" height="120" alt="achievment">
-                </li>
-                <li class="resume-about-item">
-                  <img src="../../static/img/about_bg.png" width="100" height="120" alt="achievment">
-                </li>
+                {% for ach in context.achievements %}
+                    <li class="resume-about-item">
+                      <img src="../../media/{{ach.ach_image}}">
+                    </li>
+                {% endfor %}
             </ul>
           </div>
         </div>
