@@ -1,6 +1,7 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .resume-info-header {
@@ -205,4 +206,107 @@ body {
   font-weight: 400;
   line-height: 38.73px;
   text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .resume-info-main {
+    gap: 20px;
+  }
+
+  .resume-info-nav {
+    padding: 0 5px;
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+  }
+
+  .resume-info-nav a img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Резюме */
+  .resume {
+    width: 85%;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .resume-info {
+    gap: 15px;
+  }
+
+  .resume-info-head {
+    font-size: 24px;
+  }
+
+  .resume-info-salary, .resume-info-workplace {
+    font-size: 18px;
+  }
+
+  .resume-buttons {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .resume-buttons button {
+    font-size: 16px;
+  }
+
+  .resume-block {
+    width: 85%;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .resume-about {
+    width: 100%;
+  }
+
+  .resume-about-header {
+    font-size: 24px;
+  }
+
+  .resume-about-item {
+    font-size: 18px;
+  }
+
+  .resume-about-items.achievments {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .resume-about-items.achievments .resume-about-item {
+    width: 90px;
+    height: auto;
+  }
+
+  .resume-about-items.achievments img {
+    width: 90px;
+    height: 110px;
+  }
+
+  .resume-info-footer {
+    height: auto;
+    padding: 20px 0;
+    justify-content: center;
+  }
+
+  .resume-info-footer-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-site-navigation {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-site-navigation-item a {
+    font-size: 20px;
+  }
 }
