@@ -95,7 +95,7 @@
             <ul class="resume-about-items achievments">
                 {% for ach in achievements %}
                     <li class="resume-about-item">
-                      <img width="100" height="120" src="../../media/{{ach.ach_image}}">
+                      <img width="100" height="120" src="../../media/{{ach.ach_image}}" data-fullsize="../../media/{{ach.ach_image}}">
                     </li>
                 {% endfor %}
             </ul>
@@ -114,5 +114,6 @@
             </ul>
         </nav>
     </footer>
+    <script src="../../static/js/infoRes.js"></script>
 </body>
 </html>

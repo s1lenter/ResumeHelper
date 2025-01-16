@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       </div>
                       <div class="js-main-buttons">
                         <a href="/delete_vac/${id}" class="delete-button">x</a>
-                        <button type="button" class="delete-button">Редактировать</button>
+                        <a href="/work_vacs_detail/${id}" class="delete-button">Посмотреть вакансию</button>
                       </div>
                   </div>
               `;

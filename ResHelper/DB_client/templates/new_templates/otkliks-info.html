@@ -13,24 +13,24 @@
     <header class="otkliks-info-header">
         <nav class="otkliks-info-nav">
             <div class="part-nav">
-                <a class="logo" href="{% url 'start_page' %}">
+                <div class="logo">
                     <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
-                </a>
+                </div>
                 <div class="nav-link back">
-                  <a href="#">Назад</a>
+                  <a href="{% url 'applications' %}">Назад</a>
               </div>
             </div>
-            <div class="part-nav">
-                <div class="nav-link log-out">
-                    <a href="{% url 'logout' %}">Выйти</a>
-                </div>
-                <div class="nav-link">
-                    <a href="{% url 'create_vacancy' %}">Создать вакансию</a>
-                </div>
-                <a class="otkliks-info-logo" href="#">
-                    <img src="../media/{{profile.avatar}}" width="60" height="60" alt="Логотип персонального кабинета">
-                </a>
-            </div>
+<!--            <div class="part-nav">-->
+<!--                <div class="nav-link log-out">-->
+<!--                    <a href="{% url 'logout' %}">Выйти</a>-->
+<!--                </div>-->
+<!--                <div class="nav-link">-->
+<!--                    <a href="{% url 'create_vacancy' %}">Создать вакансию</a>-->
+<!--                </div>-->
+<!--                <a class="otkliks-info-logo" href="{% url 'start_page' %}">-->
+<!--                    <img src="../media/{{profile.avatar}}" width="60" height="60" alt="Логотип персонального кабинета">-->
+<!--                </a>-->
+<!--            </div>-->
         </nav>
     </header>
     <main class="otkliks-info-main">
@@ -51,25 +51,6 @@
               <a href="{% url 'res_info_emp' j.resume.id %}" class="delete-button">Подробнее</a>
             </div>
         {%endfor%}
-<!--        <div class="js-main">-->
-<!--          <div class="info">-->
-<!--            <p class="name">Петров Вячеслав Григорьевич, 23 года</p>-->
-<!--            <p class="extra">Высшее образование</p>-->
-<!--            <p class="extra">Екатеринбург</p>-->
-<!--            <p class="extra">Есть опыт работы</p>-->
-<!--          </div>-->
-<!--          <button type="button" class="delete-button">Подробнее</button>-->
-<!--        </div>-->
-<!--            <div class="js-main">-->
-<!--              <div class="info">-->
-<!--                <p class="name">Сухарев Алексей Александрович, 40 лет</p>-->
-<!--                <p class="extra">Высшее образование</p>-->
-<!--                <p class="extra">Екатеринбург</p>-->
-<!--                <p class="extra">Есть опыт работы</p>-->
-<!--              </div>-->
-<!--              <button type="button" class="delete-button">Подробнее</button>-->
-<!--            </div>-->
-<!--        </div>-->
     </main>
     <footer class="otkliks-info-footer">
       <nav class="otkliks-info-footer-nav">

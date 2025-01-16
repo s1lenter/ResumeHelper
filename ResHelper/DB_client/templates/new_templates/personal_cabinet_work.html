@@ -13,9 +13,9 @@
     <header class="personal-cabinet-work-header">
         <nav class="personal-cabinet-work-nav">
             <div class="part-nav">
-                <a class="logo" href="{% url 'start_page' %}">
+                <div class="logo">
                     <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
-                </a>
+                </div>
                 <div class="nav-link">
                     <a href="{% url 'applications' %}">Смотреть отклики</a>
                 </div>
@@ -27,9 +27,9 @@
                 <div class="nav-link">
                     <a href="{% url 'create_vacancy' %}">Создать вакансию</a>
                 </div>
-                <a class="personal-cabinet-work-logo" href="#">
+                <div class="personal-cabinet-work-logo">
                     <img src="../media/{{profile.avatar}}" width="60" height="60" alt="Логотип персонального кабинета">
-                </a>
+                </div>
             </div>
         </nav>
     </header>

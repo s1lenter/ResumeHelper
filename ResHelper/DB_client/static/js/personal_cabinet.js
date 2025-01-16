@@ -168,7 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             `;
             const count = 4;
-            console.log(resumeData[8])
             const keys = Object.keys(resumeData);
             for (const id of keys) {
             let i = 0
@@ -177,8 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="js-main">
                         <div class="info">
                           <p class="name">Ваше резюме #${i + 1}</p>
-                          <p class="salary">Профессия</p>
-                          <p class="city">Желаемый оклад</p>
+                          <p class="salary">${resumeData[id].profession}</p>
+                          <p class="city">${resumeData[id].desired_salary} рублей</p>
                         </div>
                         <a href="/delete_resume/${id}" class="delete-button">Удалить</a>
                     </div>
