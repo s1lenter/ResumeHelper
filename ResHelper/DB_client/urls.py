@@ -29,6 +29,7 @@ urlpatterns = [
     path("applications/", applications, name="applications"),
     path("check_app/<int:vac_id>/", check_app, name="check_app"),
     path("res_info_emp/<int:res_id>/", res_info_emp, name="res_info_emp"),
+    path("work_vacs_detail/<int:vac_id>/", js_vacancy_detail,name="work_vacs_detail")
 ]
 
 if settings.DEBUG:

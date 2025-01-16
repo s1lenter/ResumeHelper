@@ -13,11 +13,11 @@
     <header class="otkliks-header">
         <nav class="otkliks-nav">
             <div class="part-nav">
-                <a class="logo" href="{% url 'start_page' %}">
+                <div class="logo">
                     <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
-                </a>
+                </div>
                 <div class="nav-link back">
-                    <a href="#">Назад</a>
+                    <a href="{% url 'personal_cabinet' %}">Назад</a>
                 </div>
             </div>
             <div class="part-nav">
@@ -27,7 +27,7 @@
                 <div class="nav-link">
                     <a href="{% url 'create_vacancy' %}">Создать вакансию</a>
                 </div>
-                <a class="otkliks-logo" href="#">
+                <a class="otkliks-logo" href="{% url 'start_page' %}">
                     <img src="../media/{{profile.avatar}}" width="60" height="60" alt="Логотип персонального кабинета">
                 </a>
             </div>

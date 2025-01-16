@@ -13,9 +13,9 @@
     <header class="personal-cabinet-header">
         <nav class="personal-cabinet-nav">
             <div class="part-nav">
-                <a class="logo" href="{% url 'start_page' %}">
+                <div class="logo">
                     <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
-                </a>
+                </div>
                 <div class="nav-link">
                     <a href="{% url 'vacancies' %}" class="nav-item">Смотреть вакансии</a>
                 </div>
@@ -27,9 +27,9 @@
                 <div class="nav-link">
                     <a href="{% url 'create_resume' %}" class="nav-item">Создать резюме</a>
                 </div>
-                <a class="personal-cabinet-logo" href="#">
+                <div class="personal-cabinet-logo">
                     <img src="../media/{{profile.avatar}}" width="60" height="60" alt="Логотип персонального кабинета">
-                </a>
+                </div>
             </div>
         </nav>
     </header>
@@ -69,12 +69,12 @@
                                     <p class="field-text">Пол</p>
                                     <p class="field-text">Возраст</p>
                                 </div>
-<!--                                <div class="field-column">-->
-<!--                                    <p class="field-text sex">{{ profile.gender }}</p>-->
-<!--                                    {% if profile.age %}-->
-<!--                                    <p class="field-text age">{{ profile.age }}</p>-->
-<!--                                    {% endif %}-->
-<!--                                </div>-->
+                                <div class="field-column">
+                                    <p class="field-text sex">{{ profile.gender }}</p>
+                                    {% if profile.age %}
+                                    <p class="field-text age">{{ profile.age }}</p>
+                                    {% endif %}
+                                </div>
                             </div>
                             <div class="field-buttons">
                                 <button class="field-button sex" type="button">Изменить</button>
@@ -92,9 +92,9 @@
                                     <p class="field-text">Социальные сети</p>
                                 </div>
                                 <div class="field-column">
-<!--                                    <p class="field-text  email">{{user.email}}</p>-->
-<!--                                    <p class="field-text  phone">{{profile.phone_number}}</p>-->
-<!--                                    <p class="field-text  soc-network">{{profile.social_network}}</p>-->
+                                    <p class="field-text  email">{{user.email}}</p>
+                                    <p class="field-text  phone">{{profile.phone_number}}</p>
+                                    <p class="field-text  soc-network">{{profile.social_network}}</p>
                                 </div>
                             </div>
                             <div class="field-buttons">

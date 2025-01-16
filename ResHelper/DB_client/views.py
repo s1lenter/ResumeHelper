@@ -208,12 +208,14 @@ def vacancies(request):
             vacs_list.append(model_to_dict(vac))
         for vac in vacs_list:
             get_salary_info(vac)
-        return render(request, 'new_templates/vacancies.html', {'vacs': vacs_list})
+        return render(request, 'new_templates/vacancies.html',
+                      {'vacs': vacs_list, 'profile': Profile.objects.get(user_id=request.user.id)})
 
     vacs = Job.objects.all().values()
     for vac in vacs:
         get_salary_info(vac)
-    return render(request, 'new_templates/vacancies.html', {'vacs': vacs})
+    return render(request, 'new_templates/vacancies.html',
+                  {'vacs': vacs, 'profile': Profile.objects.get(user_id=request.user.id)})
 
 def get_salary_info(vac):
     if vac['salary_from'] is not None and vac['salary_to'] is not None:
@@ -235,6 +237,14 @@ def vacancy_detail(request, vac_id):
                                    job_id_id=vacancy['id'],
                                    user_id=request.user.id)
     return render(request, 'new_templates/vacancy_info.html', {'vacancy': vacancy})
+
+
+def js_vacancy_detail(request, vac_id):
+    vacancy = model_to_dict(Job.objects.get(id=vac_id))
+    get_salary_info(vacancy)
+    vacancy['requirements'] = vacancy['requirements'].split(', ')
+    return render(request, 'new_templates/vacancy_info.html', {'vacancy': vacancy})
+
 
 def about (request):
     return render(request, 'about.html')
@@ -299,10 +309,9 @@ def send_resume_data(request):
     data = {}
     for resume in resumes:
         res_data = {}
-        edu = Education.objects.get(resume_id=resume.id) #здесь вообще не edu
-        res_data['edu_place'] = edu.place
-        res_data['edu_level'] = edu.level
-        res_data['end_edu_date'] = edu.year
+        addInfo = AdditionalInfo.objects.get(resume_id=resume.id)
+        res_data['profession'] = addInfo.profession
+        res_data['desired_salary'] = addInfo.desired_salary
         data[resume.id] = res_data
     return JsonResponse(data)
 
@@ -344,7 +353,8 @@ def delete_vac(request, vac_id):
 
 def applications(request):
     vacs = Job.objects.filter(employer_id=request.user.id)
-    return render(request, 'new_templates/otkliks.html', {'vacs': vacs})
+    return render(request, 'new_templates/otkliks.html',
+                  {'vacs': vacs, 'profile': Profile.objects.get(user_id=request.user.id)})
 
 def check_app(request, vac_id):
     vac = Job.objects.get(id=vac_id)
@@ -356,7 +366,8 @@ def check_app(request, vac_id):
         user_info['profile'] = Profile.objects.get(user_id=app.user_id)
         user_info['resume'] = Resume.objects.filter(profile_id=app.user_id).last()
         job_seekers.append(user_info)
-    return render(request, 'new_templates/otkliks-info.html', {'vac': vac, 'js': job_seekers})
+    return render(request, 'new_templates/otkliks-info.html',
+                  {'vac': vac, 'js': job_seekers, 'profile': Profile.objects.get(user_id=request.user.id)})
 
 def res_info_emp(request, res_id):
     resume = Resume.objects.get(id=res_id)

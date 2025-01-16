@@ -13,11 +13,11 @@
 <body>
     <header class="vacancies-header">
         <nav class="vacancies-nav">
-            <a class="logo" href="{% url 'start_page' %}">
+            <div class="logo">
                 <img src="../../static/img/logo_start.png" width="60" height="60" alt="Логотип КодовоеУбежище">
-            </a>
-            <a class="personal-cabinet-logo" href="#">
-                <img src="../../static/img/personal_cabinet_logo.png" width="60" height="60" alt="Логотип персонального кабинета">
+            </div>
+            <a class="personal-cabinet-logo" href="{% url 'start_page' %}">
+                <img src="../media/{{profile.avatar}}" width="60" height="60" alt="Логотип персонального кабинета">
             </a>
         </nav>
     </header>
