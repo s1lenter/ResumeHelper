@@ -1,3 +1,4 @@
+
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -192,30 +193,44 @@ def create_resume(request):
 #     return render(request, 'vacancies.html', {'vacs': vacancies.items()})
 
 def vacancies(request):
+    vacs = Job.objects.all().values()
     if request.method == 'POST':
         search_word = request.POST.get('search').strip()
         filter_format = request.POST.get('filter_format')
         filter_city = request.POST.get('filter_city')
         filter_exp = request.POST.get('filter_exp')
-        print(filter_exp, filter_format, filter_city, search_word)
-        vacs = []
-        if search_word == '':
-            vacs = Job.objects.filter(job_type=filter_format, experience_level=filter_exp, location=filter_city)
-        elif search_word == '':
-            vacs = Job.objects.filter(name=search_word, job_type=filter_format, experience_level=filter_exp, location=filter_city)
-        vacs_list = []
+        if search_word:
+            vacs = vacs.filter(name__icontains=search_word)
+        if filter_format:
+            vacs = vacs.filter(job_type=filter_format)
+        if filter_city:
+            vacs = vacs.filter(location=filter_city)
+        if filter_exp:
+            vacs = vacs.filter(experience_level=filter_exp)
         for vac in vacs:
-            vacs_list.append(model_to_dict(vac))
-        for vac in vacs_list:
             get_salary_info(vac)
         return render(request, 'new_templates/vacancies.html',
-                      {'vacs': vacs_list, 'profile': Profile.objects.get(user_id=request.user.id)})
+                      {'vacs': vacs, 'profile': Profile.objects.get(user_id=request.user.id)})
 
-    vacs = Job.objects.all().values()
     for vac in vacs:
         get_salary_info(vac)
     return render(request, 'new_templates/vacancies.html',
                   {'vacs': vacs, 'profile': Profile.objects.get(user_id=request.user.id)})
+
+
+def vacancies_for_you(request):
+    vacs = Job.objects.all().values()
+    resume = Resume.objects.filter(profile_id=request.user.id)[0]
+    name_pref_vac = AdditionalInfo.objects.get(resume_id=resume.id).profession
+    if name_pref_vac:
+        vacs = vacs.filter(name__icontains=name_pref_vac[1:])
+    else:
+        return redirect('create_resume')
+    for vac in vacs:
+        get_salary_info(vac)
+    return render(request, 'new_templates/vacs_for_you.html',
+                  {'vacs': vacs, 'profile': Profile.objects.get(user_id=request.user.id)})
+
 
 def get_salary_info(vac):
     if vac['salary_from'] is not None and vac['salary_to'] is not None:
@@ -402,4 +417,3 @@ def send_app_vacancy_data(request):
         data[vac[1].id] = vac_data
     print(data)
     return JsonResponse(data)
-

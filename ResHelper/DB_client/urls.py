@@ -16,6 +16,7 @@ urlpatterns = [
     path("create_vacancy/", create_vacancy, name="create_vacancy"),
     path("res_info/<int:res_id>/", ResInfo.as_view(), name="res_info"),
     path("vacancies/", vacancies, name="vacancies"),
+    path("vacancies_for_you/", vacancies_for_you, name="vacancies_for_you"),
     path("about/", about, name="about"),
     path("contacts/", contacts, name="contacts"),
     path("personal_cabinet/", personal_cabinet, name="personal_cabinet"),
